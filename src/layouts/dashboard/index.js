@@ -33,15 +33,27 @@ const DashboardLayout = () => {
         {Nav_Buttons.map((el)=> 
         
         (
+          el.index === selected ?
           <Box sx={{backgroundColor: theme.palette.primary.main, borderRadius: 1.5}}>
             <IconButton sx={{width:"max-content", color:"white"}} key={el.index}>{el.icon}</IconButton>
-          </Box>
+          </Box> :  <IconButton onClick={()=>{
+            setSelected(el.index)
+          }} sx={{width:"max-content", color:"black"}} key={el.index}>{el.icon}</IconButton>
         ))}
-        <Divider></Divider>
+        <Divider sx={{width: "48px"}}>
 
-        <IconButton>
+        </Divider>
+        {selected === 3 ? 
+         <Box sx={{backgroundColor: theme.palette.primary.main, borderRadius: 1.5}}> 
+          <IconButton>
           <Gear></Gear>
         </IconButton>
+         </Box> : <IconButton>
+          <Gear></Gear>
+        </IconButton>
+      }
+
+        
       </Stack>
 
       
