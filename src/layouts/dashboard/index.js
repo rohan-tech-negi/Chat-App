@@ -10,7 +10,7 @@ const DashboardLayout = () => {
 
   return (
     <>
-     <Box sx={({backgroundColor: "black", height: "100vh", width:100})}>
+     <Box sx={({backgroundColor: theme.palette.background.paper, height: "100vh", width:100})}>
 
      </Box>
       <Outlet />
