@@ -4,10 +4,13 @@ import { Outlet } from "react-router-dom";
 import { Nav_Buttons } from "../../data";
 import Logo from "../../assets/Images/logo.ico"
 import { Gear } from "phosphor-react";
+import { useState } from "react";
 
 const DashboardLayout = () => {
 
   const theme = useTheme()
+
+  const [selected, setSelected] = useState(0)
 
   console.log(theme)
 
@@ -26,8 +29,14 @@ const DashboardLayout = () => {
         </img>
 
       </Box>
-      <Stack spacing={3}>
-        {Nav_Buttons.map((el)=> <IconButton key={el.index}>{el.icon}</IconButton>)}
+      <Stack sx={{width: "max-content"}} direction="column" alignItems="center" spacing={3}>
+        {Nav_Buttons.map((el)=> 
+        
+        (
+          <Box sx={{backgroundColor: theme.palette.primary.main, borderRadius: 1.5}}>
+            <IconButton sx={{width:"max-content", color:"white"}} key={el.index}>{el.icon}</IconButton>
+          </Box>
+        ))}
         <Divider></Divider>
 
         <IconButton>
