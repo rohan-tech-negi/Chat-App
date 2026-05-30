@@ -1,7 +1,7 @@
-import { Box, Stack, useTheme } from "@mui/material";
+import { Box, IconButton, Stack, useTheme } from "@mui/material";
 import React from "react";
 import { Outlet } from "react-router-dom";
-
+import { Nav_Buttons } from "../../data";
 import Logo from "../../assets/Images/logo.ico"
 
 const DashboardLayout = () => {
@@ -12,7 +12,7 @@ const DashboardLayout = () => {
 
   return (
     <>
-     <Box sx={({backgroundColor: theme.palette.background.paper, boxShadow: "0px 0px 2px rgba(0, 0, 0, 0.25)", height: "100vh", width:100})}>
+     <Box p={2} sx={({backgroundColor: theme.palette.background.paper, boxShadow: "0px 0px 2px rgba(0, 0, 0, 0.25)", height: "100vh", width:100})}>
 
       <Stack direction="column" sx={{width:"100%"}} alignItems={"center"}> 
       <Box sx={{
@@ -25,6 +25,7 @@ const DashboardLayout = () => {
         </img>
 
       </Box>
+      {Nav_Buttons.map((el)=> <IconButton></IconButton>)}
  </Stack>
      </Box>
       <Outlet />
