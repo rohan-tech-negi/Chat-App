@@ -1,4 +1,4 @@
-import { Avatar, Box, Divider, IconButton, Stack, useTheme } from "@mui/material";
+import { Avatar, Box, Divider, IconButton, Stack, Switch, useTheme } from "@mui/material";
 import React from "react";
 import { Outlet } from "react-router-dom";
 import { Nav_Buttons, Nav_Setting } from "../../data";
@@ -62,6 +62,7 @@ const DashboardLayout = () => {
         </Stack>
       
       <Stack>
+        <Switch defaultChecked></Switch>
         <Avatar src={faker.image.avatar()}></Avatar>
       </Stack>
 
