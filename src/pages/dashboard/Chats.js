@@ -3,8 +3,8 @@ import React from 'react'
 
 const Chats = () => {
   return (
-    <Box>
-        
+    <Box sx={{position: "relative", height:"100%", width: 320, backgroundColor: "white", boxShadow:"0px 0px 2px rgba(0, 0, 0, 0.25)"}}>
+
     </Box>
   )
 }
