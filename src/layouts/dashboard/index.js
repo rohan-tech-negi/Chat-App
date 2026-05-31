@@ -89,24 +89,24 @@ const DashboardLayout = () => {
         {Nav_Buttons.map((el)=> 
           el.index === selected ? (
             <Box sx={{backgroundColor: theme.palette.primary.main, borderRadius: 1.5}} key={el.index}>
-              <IconButton sx={{width:"max-content", color:"white"}}>{el.icon}</IconButton>
+              <IconButton sx={{width:"max-content", color: theme.palette.mode === "light" ? "white" : theme.palette.text.primary}}>{el.icon}</IconButton>
             </Box>
           ) : (
             <IconButton onClick={()=>{
               setSelected(el.index)
-            }} sx={{width:"max-content", color:"black"}} key={el.index}>{el.icon}</IconButton>
+            }} sx={{width:"max-content",color: theme.palette.mode === "light" ? "black" : theme.palette.text.primary}} key={el.index}>{el.icon}</IconButton>
           )
         )}
         <Divider sx={{width: "48px"}} />
         {Nav_Setting.map((el) =>
           el.index === selected ? (
             <Box sx={{backgroundColor: theme.palette.primary.main, borderRadius: 1.5}} key={el.index}>
-              <IconButton sx={{width: "max-content", color: "white"}}>{el.icon}</IconButton>
+              <IconButton sx={{width: "max-content", color: theme.palette.mode === "light" ? "black" : theme.palette.text.primary}}>{el.icon}</IconButton>
             </Box>
           ) : (
             <IconButton onClick={()=>{
               setSelected(el.index)
-            }} sx={{width:"max-content", color:"black"}} key={el.index}>{el.icon}</IconButton>
+            }} sx={{width:"max-content", color: theme.palette.mode === "light" ? "black" : theme.palette.text.primary}} key={el.index}>{el.icon}</IconButton>
           )
         )}
 
