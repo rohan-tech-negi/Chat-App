@@ -6,11 +6,12 @@ import Logo from "../../assets/Images/logo.ico"
 import { useState } from "react";
 import { faker } from "@faker-js/faker";
 import { styled } from "@mui/material/styles";
+import useSettings from "../../hooks/useSettings.js"
 
 
 const AntSwitch = styled(Switch)(({ theme }) => ({
-  width: 28,
-  height: 16,
+  width: 40,
+  height: 20,
   padding: 0,
   display: 'flex',
   '&:active': {
@@ -38,15 +39,15 @@ const AntSwitch = styled(Switch)(({ theme }) => ({
   },
   '& .MuiSwitch-thumb': {
     boxShadow: '0 2px 4px 0 rgb(0 35 11 / 20%)',
-    width: 12,
-    height: 12,
-    borderRadius: 6,
+    width: 16,
+    height: 16,
+    borderRadius: 8,
     transition: theme.transitions.create(['width'], {
       duration: 200,
     }),
   },
   '& .MuiSwitch-track': {
-    borderRadius: 16 / 2,
+    borderRadius: 20 / 2,
     opacity: 1,
     backgroundColor: 'rgba(0,0,0,.25)',
     boxSizing: 'border-box',
@@ -65,6 +66,8 @@ const DashboardLayout = () => {
   const [selected, setSelected] = useState(0)
 
   console.log(theme)
+
+  const {onToggleMode} = useSettings()
 
   return (
     <>
@@ -114,7 +117,9 @@ const DashboardLayout = () => {
         </Stack>
       
       <Stack spacing={4}>
-        <AntSwitch defaultChecked></AntSwitch>
+        <AntSwitch onChange={()=>{
+          onToggleMode()
+        }} defaultChecked></AntSwitch>
         <Avatar src={faker.image.avatar()}></Avatar>
       </Stack>
 
