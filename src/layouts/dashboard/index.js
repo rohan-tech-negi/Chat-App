@@ -29,7 +29,8 @@ const AntSwitch = styled(Switch)(({ theme }) => ({
       '& + .MuiSwitch-track': {
         opacity: 1,
         backgroundColor: '#1890ff',
-        ...theme.applyStyles('dark', {
+        // MUI v5 style dynamic check
+        ...(theme.palette.mode === 'dark' && {
           backgroundColor: '#177ddc',
         }),
       },
@@ -49,11 +50,13 @@ const AntSwitch = styled(Switch)(({ theme }) => ({
     opacity: 1,
     backgroundColor: 'rgba(0,0,0,.25)',
     boxSizing: 'border-box',
-    ...theme.applyStyles('dark', {
+    // MUI v5 style dynamic check
+    ...(theme.palette.mode === 'dark' && {
       backgroundColor: 'rgba(255,255,255,.35)',
     }),
   },
 }));
+
 
 const DashboardLayout = () => {
 
@@ -111,7 +114,7 @@ const DashboardLayout = () => {
         </Stack>
       
       <Stack spacing={4}>
-        <Switch defaultChecked></Switch>
+        <AntSwitch defaultChecked></AntSwitch>
         <Avatar src={faker.image.avatar()}></Avatar>
       </Stack>
 
