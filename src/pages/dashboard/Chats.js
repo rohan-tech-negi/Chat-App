@@ -2,6 +2,19 @@ import { Box, Button, Divider, IconButton, InputBase, Stack, Typography, alpha, 
 import {ArchiveBox, CircleDashed, MagnifyingGlass} from "phosphor-react"
 import React from 'react'
 
+const ChatElement= ()=>{
+  return (
+    <Box sx={{
+      width: "100%",
+      backgroundColor: "white",
+      borderRadius: 1,
+      height: 64
+    }}>
+      
+    </Box>
+  )
+}
+
 const Search = styled("div")(({theme})=>({
   position: "relative",
   borderRadius: 20,
@@ -58,6 +71,10 @@ const Chats = () => {
           <Button> Archive</Button>
           </Stack>
           <Divider></Divider>
+        </Stack>
+
+        <Stack direction="column">
+          <ChatElement></ChatElement>
         </Stack>
 
       </Stack>
