@@ -1,6 +1,12 @@
-import { Box, IconButton, Stack, Typography } from '@mui/material'
+import { Box, IconButton, Stack, Typography, alpha, styled } from '@mui/material'
 import {CircleDashed} from "phosphor-react"
 import React from 'react'
+
+const Search = styled("div")(({theme})=>({
+  position: "relative",
+  borderRadius: 20,
+  backgroundColor: alpha(theme.palette.background.paper, 1)
+}))
 
 const Chats = () => {
   return (
