@@ -1,5 +1,5 @@
-import { Box, IconButton, InputBase, Stack, Typography, alpha, styled } from '@mui/material'
-import {CircleDashed, MagnifyingGlass} from "phosphor-react"
+import { Box, Button, Divider, IconButton, InputBase, Stack, Typography, alpha, styled } from '@mui/material'
+import {ArchiveBox, CircleDashed, MagnifyingGlass} from "phosphor-react"
 import React from 'react'
 
 const Search = styled("div")(({theme})=>({
@@ -50,6 +50,14 @@ const Chats = () => {
             </SearchIconWrapper>
             <StyledInputBase placeholder='Search...' inputProps={{'aria-label': "search"}}></StyledInputBase>
           </Search>
+        </Stack>
+
+        <Stack>
+          <Stack direction="row" alignItems="center" justifyContent="space-between">
+            <ArchiveBox size={24}></ArchiveBox>
+          <Button> Archive</Button>
+          </Stack>
+          <Divider></Divider>
         </Stack>
 
       </Stack>
