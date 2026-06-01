@@ -33,7 +33,7 @@ const StyledInputBase = styled(InputBase)(({theme}) => ({
 const Chats = () => {
   return (
     <Box sx={{position: "relative", height:"100%", width: 320, backgroundColor: "#F8FAFF", boxShadow:"0px 0px 2px rgba(0, 0, 0, 0.25)"}}>
-      <Stack p={3}>
+      <Stack p={3} spacing={2}>
 <Stack direction="row" alignItems={"center"} justifyContent="space-between">
             <Typography>
                 Chats
@@ -48,6 +48,7 @@ const Chats = () => {
               <MagnifyingGlass color='gray' ></MagnifyingGlass>
               
             </SearchIconWrapper>
+            <StyledInputBase placeholder='Search...' inputProps={{'aria-label': "search"}}></StyledInputBase>
           </Search>
         </Stack>
 
