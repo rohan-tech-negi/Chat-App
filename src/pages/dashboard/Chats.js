@@ -1,6 +1,6 @@
 import { Avatar, Badge, Box, Button, Divider, IconButton, InputBase, Stack, Typography, alpha, styled } from '@mui/material'
 import {ArchiveBox, CircleDashed, MagnifyingGlass} from "phosphor-react"
-import {Faker} from "@faker-js/faker"
+import {faker} from "@faker-js/faker"
 // import React from 'react'
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -40,7 +40,20 @@ const ChatElement= ()=>{
       borderRadius: 1,
       height: 64
     }} p={2}>
-      <Avatar src={Faker.image} />
+
+      <Stack direction="row" spacing={2} alignItems={"center"} justifyContent="space-between">
+        <Stack>
+          <StyledBadge overlap='circular' anchorOrigin={{
+        vertical: 'bottom',
+        horizontal: 'right',
+      }} variant="dot">
+        <Avatar src={faker.image.avatar()} />
+      </StyledBadge>
+        </Stack>
+        
+      </Stack>
+      
+      
     </Box>
   )
 }
