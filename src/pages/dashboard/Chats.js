@@ -1,5 +1,5 @@
-import { Box, IconButton, Stack, Typography, alpha, styled } from '@mui/material'
-import {CircleDashed} from "phosphor-react"
+import { Box, IconButton, InputBase, Stack, Typography, alpha, styled } from '@mui/material'
+import {CircleDashed, MagnifyingGlass} from "phosphor-react"
 import React from 'react'
 
 const Search = styled("div")(({theme})=>({
@@ -41,6 +41,14 @@ const Chats = () => {
             <IconButton>
               <CircleDashed></CircleDashed>
             </IconButton>
+        </Stack>
+        <Stack sx={{width: "100%", position: "relative"}}>
+          <Search>
+            <SearchIconWrapper>
+              <MagnifyingGlass color='gray' ></MagnifyingGlass>
+              
+            </SearchIconWrapper>
+          </Search>
         </Stack>
 
       </Stack>
