@@ -4,6 +4,7 @@ import {faker} from "@faker-js/faker"
 import { ChatList } from '../../data';
 // import SimpleBar from 'simplebar-react';
 import { SimpleBarStyle } from '../../components/Scrollbar';
+import {useTheme} from '@mui/material/styles'
 // import React from 'react'
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -36,11 +37,12 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 }));
 
 const ChatElement = ({ id, name, img, msg, time, unread, online }) => {
+  const theme = useTheme()
   return (
     <Box
       sx={{
         width: "100%",
-        backgroundColor: "white",
+        backgroundColor: theme.palette.mode === "light" ? "#F8FAFF" : theme.palette.background.paper,
         borderRadius: 1,
       }}
       p={2}
@@ -112,8 +114,9 @@ const StyledInputBase = styled(InputBase)(({theme}) => ({
 }))
 
 const Chats = () => {
+  const theme = useTheme()
   return (
-    <Box sx={{position: "relative", width: 320, backgroundColor: "#F8FAFF", boxShadow:"0px 0px 2px rgba(0, 0, 0, 0.25)"}}>
+    <Box sx={{position: "relative", width: 320, backgroundColor: theme.palette.mode === "light"? "#F8FAFF" : theme.palette.background.paper, boxShadow:"0px 0px 2px rgba(0, 0, 0, 0.25)"}}>
       <Stack p={3} spacing={2} sx={{height: "100vh"}}>
 <Stack direction="row" alignItems={"center"} justifyContent="space-between">
             <Typography>
