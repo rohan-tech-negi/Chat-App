@@ -33,7 +33,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
   },
 }));
 
-const ChatElement= ()=>{
+const ChatElement= ({id, name, img, msg, time, unread, online})=>{
   return (
     <Box sx={{
       width: "100%",
@@ -44,18 +44,19 @@ const ChatElement= ()=>{
 
       <Stack direction="row" spacing={2} alignItems={"center"} justifyContent="space-between">
         <Stack direction="row" spacing={2}>
-          <StyledBadge overlap='circular' anchorOrigin={{
+          {online ? <StyledBadge overlap='circular' anchorOrigin={{
         vertical: 'bottom',
         horizontal: 'right',
       }} variant="dot">
         <Avatar src={faker.image.avatar()} />
-      </StyledBadge>
+      </StyledBadge> : <Avatar src={faker.image.avatar()} />}
+          
       <Stack spacing={0.3}>
         <Typography variant='subtitle2'>
-          Shashank
+          {name}
         </Typography>
         <Typography variant='caption'>
-          How are you?
+          {msg}
         </Typography>
 
       </Stack>
@@ -64,7 +65,7 @@ const ChatElement= ()=>{
           <Typography sx={{fontWeight: 600}} variant="caption">
             9:36
           </Typography>
-          <Badge color="primary" badgeContent={2}>
+          <Badge color="primary" badgeContent={unread}>
 
           </Badge>
 
@@ -142,7 +143,7 @@ const Chats = () => {
   Pinned
 </Typography>
 {ChatList.filter((el)=> el.pinned).map((el)=>{
-  return <ChatElement></ChatElement>
+  return <ChatElement {...el}></ChatElement>
 })}
  
           </Stack>
