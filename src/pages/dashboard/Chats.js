@@ -38,11 +38,11 @@ const ChatElement= ()=>{
       width: "100%",
       backgroundColor: "white",
       borderRadius: 1,
-      height: 64
+      
     }} p={2}>
 
       <Stack direction="row" spacing={2} alignItems={"center"} justifyContent="space-between">
-        <Stack>
+        <Stack direction="row" spacing={2}>
           <StyledBadge overlap='circular' anchorOrigin={{
         vertical: 'bottom',
         horizontal: 'right',
@@ -53,6 +53,19 @@ const ChatElement= ()=>{
         <Typography variant='subtitle2'>
           Shashank
         </Typography>
+        <Typography variant='caption'>
+          How are you?
+        </Typography>
+
+      </Stack>
+
+      <Stack spacing={2} alignItems="center">
+          <Typography sx={{fontWeight: 600}} variant="caption">
+            9:36
+          </Typography>
+          <Badge color="primary" badgeContent={2}>
+
+          </Badge>
 
       </Stack>
         </Stack>
