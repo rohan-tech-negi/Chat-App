@@ -2,6 +2,8 @@ import { Avatar, Badge, Box, Button, Divider, IconButton, InputBase, Stack, Typo
 import {ArchiveBox, CircleDashed, MagnifyingGlass} from "phosphor-react"
 import {faker} from "@faker-js/faker"
 import { ChatList } from '../../data';
+// import SimpleBar from 'simplebar-react';
+import { SimpleBarStyle } from '../../components/Scrollbar';
 // import React from 'react'
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -140,7 +142,9 @@ const Chats = () => {
         </Stack>
 
         <Stack direction="column" sx={{flexGrow: 1, overflow: "scroll", height: "100%"}}>
-          <Stack spacing={2.4}>
+          <SimpleBarStyle>
+
+            <Stack spacing={2.4}>
 <Typography variant='subtitle2' sx={{color: "#676767"}}>
   Pinned
 </Typography>
@@ -159,6 +163,8 @@ const Chats = () => {
 })}
  
           </Stack>
+          </SimpleBarStyle>
+          
 
 
          
