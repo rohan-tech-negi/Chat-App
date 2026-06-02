@@ -70,6 +70,8 @@ const ChatElement= ({id, name, img, msg, time, unread, online})=>{
           </Badge>
 
       </Stack>
+
+
         </Stack>
         
       </Stack>
@@ -109,8 +111,8 @@ const StyledInputBase = styled(InputBase)(({theme}) => ({
 
 const Chats = () => {
   return (
-    <Box sx={{position: "relative", height:"100%", width: 320, backgroundColor: "#F8FAFF", boxShadow:"0px 0px 2px rgba(0, 0, 0, 0.25)"}}>
-      <Stack p={3} spacing={2}>
+    <Box sx={{position: "relative", width: 320, backgroundColor: "#F8FAFF", boxShadow:"0px 0px 2px rgba(0, 0, 0, 0.25)"}}>
+      <Stack p={3} spacing={2} sx={{height: "100vh"}}>
 <Stack direction="row" alignItems={"center"} justifyContent="space-between">
             <Typography>
                 Chats
@@ -137,7 +139,7 @@ const Chats = () => {
           <Divider></Divider>
         </Stack>
 
-        <Stack direction="column">
+        <Stack direction="column" sx={{flexGrow: 1, overflow: "scroll", height: "100%"}}>
           <Stack spacing={2.4}>
 <Typography variant='subtitle2' sx={{color: "#676767"}}>
   Pinned
@@ -147,6 +149,18 @@ const Chats = () => {
 })}
  
           </Stack>
+
+          <Stack spacing={2.4}>
+<Typography variant='subtitle2' sx={{color: "#676767"}}>
+  All Chats
+</Typography>
+{ChatList.filter((el)=> !el.pinned).map((el)=>{
+  return <ChatElement {...el}></ChatElement>
+})}
+ 
+          </Stack>
+
+
          
         </Stack>
 
