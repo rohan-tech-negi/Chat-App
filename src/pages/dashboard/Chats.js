@@ -1,6 +1,7 @@
 import { Avatar, Badge, Box, Button, Divider, IconButton, InputBase, Stack, Typography, alpha, styled } from '@mui/material'
 import {ArchiveBox, CircleDashed, MagnifyingGlass} from "phosphor-react"
 import {faker} from "@faker-js/faker"
+import { ChatList } from '../../data';
 // import React from 'react'
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -136,7 +137,16 @@ const Chats = () => {
         </Stack>
 
         <Stack direction="column">
-          <ChatElement></ChatElement>
+          <Stack spacing={2.4}>
+<Typography variant='subtitle2' sx={{color: "#676767"}}>
+  Pinned
+</Typography>
+{ChatList.filter((el)=> el.pinned).map((el)=>{
+  return <ChatElement></ChatElement>
+})}
+ 
+          </Stack>
+         
         </Stack>
 
       </Stack>
