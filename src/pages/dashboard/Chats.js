@@ -50,6 +50,9 @@ const ChatElement= ()=>{
         <Avatar src={faker.image.avatar()} />
       </StyledBadge>
       <Stack spacing={0.3}>
+        <Typography variant='subtitle2'>
+          Shashank
+        </Typography>
 
       </Stack>
         </Stack>
