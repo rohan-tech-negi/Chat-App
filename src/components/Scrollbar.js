@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import SimpleBarReact from 'simplebar-react';
+import 'simplebar/dist/simplebar.css';
 // @mui
 import { alpha, styled } from '@mui/material/styles';
 import { Box } from '@mui/material';
@@ -9,11 +10,11 @@ import { Box } from '@mui/material';
 const RootStyle = styled('div')(() => ({
   flexGrow: 1,
   height: '100%',
-  overflow: 'scroll',
+  overflow: 'hidden',
 }));
 
 const SimpleBarStyle = styled(SimpleBarReact)(({ theme }) => ({
-  // maxHeight: '100%',
+  maxHeight: '100%',
   '& .simplebar-scrollbar': {
     '&:before': {
       backgroundColor: alpha(theme.palette.grey[600], 0.48),
