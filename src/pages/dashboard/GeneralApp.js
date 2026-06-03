@@ -10,6 +10,7 @@ const GeneralApp = () => {
 
       {/* conversation */}
       <Box sx={{height: "100%", width: "calc(100vw - 420px)", backgroundColor: "#F5F5F5"}}>
+        {/*  */}
 
       </Box>
     </Stack>
