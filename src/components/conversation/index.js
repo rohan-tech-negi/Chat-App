@@ -81,7 +81,9 @@ const Conversation = () => {
 
         {/* chat footer */}
         <Box sx={{height: 100, width: "100%", backgroundColor: "#000"}}>
+              <Stack direction="row">
 
+              </Stack>
         </Box>
     </Stack>
   )
