@@ -89,7 +89,7 @@ const Conversation = () => {
         </Box>
 
         {/* chat footer */}
-        <Box sx={{height: 100, width: "100%", backgroundColor: "#F8FAFF"}}>
+        <Box p={2} sx={{width: "100%", backgroundColor: "#F8FAFF"}}>
               <Stack direction="row" alignItems={"center"} spacing={3}>
                       
 <StyledInput fullWidth placeholder='Write a message...' variant='filled' InputProps={{
