@@ -1,8 +1,14 @@
+import { Box, Stack } from '@mui/material'
 import React from 'react'
 
 const Conversation = () => {
   return (
-    <div>Conversation</div>
+    <Stack height={"100%"} maxHeight={"100vh"} width={"auto"}>
+        {/* chatheader */}
+        <Box sx={{}}>
+
+        </Box>
+    </Stack>
   )
 }
 
