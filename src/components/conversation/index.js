@@ -4,11 +4,12 @@ import { faker } from '@faker-js/faker'
 import { CaretDown, MagnifyingGlass, Phone, VideoCamera } from 'phosphor-react';
 
 const StyledInput = styled(TextField)(({ theme }) => ({
-  "& .MuiInputBase-root": {
+  
       "&.MuiInputBase-input" : {
-        
+        paddingTop: "12px",
+        paddingBottom: "12px"     
       }
-  }
+  
 }));
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -91,7 +92,9 @@ const Conversation = () => {
         <Box sx={{height: 100, width: "100%", backgroundColor: "#F8FAFF"}}>
               <Stack direction="row" alignItems={"center"} spacing={3}>
                       
-<TextField></TextField>
+<StyledInput fullWidth placeholder='Write a message...' variant='filled' InputProps={{
+  disableUnderline : true
+}}></StyledInput>
               </Stack>
         </Box>
     </Stack>
