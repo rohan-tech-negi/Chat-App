@@ -1,6 +1,7 @@
-import { Avatar, Box, Stack, Badge, styled, Typography } from '@mui/material'
+import { Avatar, Box, Stack, Badge, styled, Typography, IconButton } from '@mui/material'
 import React from 'react'
 import { faker } from '@faker-js/faker'
+import { VideoCamera } from 'phosphor-react';
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
@@ -53,6 +54,18 @@ const Conversation = () => {
                           <Typography variant="caption">online</Typography>
                         </Stack>
                 </Stack>
+
+            </Stack>
+            <Stack direction="row" alignItems={"center"} spacing={3}>
+              <IconButton>
+                <VideoCamera></VideoCamera>
+              </IconButton>
+              <IconButton>
+                <VideoCamera></VideoCamera>
+              </IconButton>
+              <IconButton>
+                <VideoCamera></VideoCamera>
+              </IconButton>
 
             </Stack>
 
