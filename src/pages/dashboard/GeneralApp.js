@@ -1,6 +1,7 @@
 import React, {Suspense, lazy} from "react";
 import Chats from "./Chats";
 import { Box, Stack } from "@mui/material";
+import Conversation from "../../components/conversation";
 // const Cat = lazy(()=> import ('../../components/Cat.js'))
 const GeneralApp = () => {
 
@@ -11,6 +12,7 @@ const GeneralApp = () => {
       {/* conversation */}
       <Box sx={{height: "100%", width: "calc(100vw - 420px)", backgroundColor: "#F5F5F5"}}>
         {/*  */}
+        <Conversation></Conversation>
 
       </Box>
     </Stack>
