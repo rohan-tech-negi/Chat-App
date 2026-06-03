@@ -1,7 +1,15 @@
-import { Avatar, Box, Stack, Badge, styled, Typography, IconButton, Divider } from '@mui/material'
+import { Avatar, Box, Stack, Badge, styled, Typography, IconButton, Divider, TextField } from '@mui/material'
 import React from 'react'
 import { faker } from '@faker-js/faker'
 import { CaretDown, MagnifyingGlass, Phone, VideoCamera } from 'phosphor-react';
+
+const StyledInput = styled(TextField)(({ theme }) => ({
+  "& .MuiInputBase-root": {
+      "&.MuiInputBase-input" : {
+        
+      }
+  }
+}));
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
@@ -80,9 +88,10 @@ const Conversation = () => {
         </Box>
 
         {/* chat footer */}
-        <Box sx={{height: 100, width: "100%", backgroundColor: "#000"}}>
-              <Stack direction="row">
-
+        <Box sx={{height: 100, width: "100%", backgroundColor: "#F8FAFF"}}>
+              <Stack direction="row" alignItems={"center"} spacing={3}>
+                      
+<TextField></TextField>
               </Stack>
         </Box>
     </Stack>
