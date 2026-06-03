@@ -1,7 +1,7 @@
-import { Avatar, Box, Stack, Badge, styled, Typography, IconButton, Divider, TextField, InputAdornment, Icon } from '@mui/material'
+import { Avatar, Box, Stack, Badge, styled, Typography, IconButton, Divider, TextField, InputAdornment, Icon, useTheme } from '@mui/material'
 import React from 'react'
 import { faker } from '@faker-js/faker'
-import { CaretDown, LinkSimple, MagnifyingGlass, Phone, Smiley, VideoCamera } from 'phosphor-react';
+import { CaretDown, LinkSimple, MagnifyingGlass, PaperPlaneTilt, Phone, Smiley, VideoCamera } from 'phosphor-react';
 
 const StyledInput = styled(TextField)(({ theme }) => ({
   
@@ -42,6 +42,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 }));
 
 const Conversation = () => {
+  const theme = useTheme()
   return (
     <Stack height={"100%"} maxHeight={"100vh"} width={"auto"}>
         {/* chatheader */}
@@ -107,6 +108,11 @@ const Conversation = () => {
   </IconButton>
   </InputAdornment>
 }}></StyledInput>
+<Box sx={{height: 48 , width: 48, backgroundColor: theme.palette.primary.main, borderRadius: 1.5}}>
+  <IconButton sx={{width: "100%", height: "100%"}}>
+    <PaperPlaneTilt color="#fff"></PaperPlaneTilt>
+  </IconButton>
+</Box>
               </Stack>
         </Box>
     </Stack>
