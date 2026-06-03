@@ -1,7 +1,7 @@
-import { Avatar, Box, Stack, Badge, styled, Typography, IconButton } from '@mui/material'
+import { Avatar, Box, Stack, Badge, styled, Typography, IconButton, Divider } from '@mui/material'
 import React from 'react'
 import { faker } from '@faker-js/faker'
-import { VideoCamera } from 'phosphor-react';
+import { CaretDown, MagnifyingGlass, Phone, VideoCamera } from 'phosphor-react';
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
@@ -36,7 +36,7 @@ const Conversation = () => {
   return (
     <Stack height={"100%"} maxHeight={"100vh"} width={"auto"}>
         {/* chatheader */}
-        <Box p={2} sx={{height:100, width: "100%", backgroundColor: "#F8FAFF", boxShadow: "0px 0px 2px rgba(0, 0, 0, 0.25)"}}>
+        <Box p={2} sx={{ width: "100%", backgroundColor: "#F8FAFF", boxShadow: "0px 0px 2px rgba(0, 0, 0, 0.25)"}}>
             <Stack alignItems={"center"} direction="row" justifyContent={"space-between"} sx={{width: "100%", height: "100%"}}>
                 <Stack direction={"row"} spacing={2}>
                     <Box>
@@ -55,18 +55,21 @@ const Conversation = () => {
                         </Stack>
                 </Stack>
 
-            </Stack>
-            <Stack direction="row" alignItems={"center"} spacing={3}>
-              <IconButton>
-                <VideoCamera></VideoCamera>
-              </IconButton>
-              <IconButton>
-                <VideoCamera></VideoCamera>
-              </IconButton>
-              <IconButton>
-                <VideoCamera></VideoCamera>
-              </IconButton>
-
+                <Stack direction="row" alignItems={"center"} spacing={3}>
+                  <IconButton>
+                    <VideoCamera></VideoCamera>
+                  </IconButton>
+                  <IconButton>
+                    <Phone></Phone>
+                  </IconButton>
+                  <IconButton>
+                    <MagnifyingGlass></MagnifyingGlass>
+                  </IconButton>
+                  <Divider orientation='vertical' flexItem></Divider>
+                  <IconButton>
+                    <CaretDown></CaretDown>
+                  </IconButton>
+                </Stack>
             </Stack>
 
         </Box>
