@@ -1,7 +1,7 @@
-import { Avatar, Box, Stack, Badge, styled, Typography, IconButton, Divider, TextField } from '@mui/material'
+import { Avatar, Box, Stack, Badge, styled, Typography, IconButton, Divider, TextField, InputAdornment, Icon } from '@mui/material'
 import React from 'react'
 import { faker } from '@faker-js/faker'
-import { CaretDown, MagnifyingGlass, Phone, VideoCamera } from 'phosphor-react';
+import { CaretDown, LinkSimple, MagnifyingGlass, Phone, Smiley, VideoCamera } from 'phosphor-react';
 
 const StyledInput = styled(TextField)(({ theme }) => ({
   
@@ -93,7 +93,19 @@ const Conversation = () => {
               <Stack direction="row" alignItems={"center"} spacing={3}>
                       
 <StyledInput fullWidth placeholder='Write a message...' variant='filled' InputProps={{
-  disableUnderline : true
+  disableUnderline : true,
+  startAdornment: <InputAdornment>
+  <Icon>
+    <LinkSimple></LinkSimple>
+  </Icon>
+  </InputAdornment>,
+  endAdornment: <InputAdornment>
+  <IconButton>
+  <Icon>
+    <Smiley></Smiley>
+  </Icon>
+  </IconButton>
+  </InputAdornment>
 }}></StyledInput>
               </Stack>
         </Box>
