@@ -3,6 +3,7 @@ import React from 'react'
 import { faker } from '@faker-js/faker'
 import { CaretDown, LinkSimple, MagnifyingGlass, PaperPlaneTilt, Phone, Smiley, VideoCamera } from 'phosphor-react';
 import Header from './Header';
+import Footer from './Footer';
 
 const StyledInput = styled(TextField)(({ theme }) => ({
   
@@ -28,7 +29,7 @@ const Conversation = () => {
         </Box>
 
         {/* chat footer */}
-        
+        <Footer></Footer>
     </Stack>
   )
 }
