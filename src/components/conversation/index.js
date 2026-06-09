@@ -109,9 +109,12 @@ const Conversation = () => {
   </InputAdornment>
 }}></StyledInput>
 <Box sx={{height: 48 , width: 48, backgroundColor: theme.palette.primary.main, borderRadius: 1.5}}>
+<Stack>
   <IconButton sx={{width: "100%", height: "100%"}}>
     <PaperPlaneTilt color="#fff"></PaperPlaneTilt>
   </IconButton>
+</Stack>
+  
 </Box>
               </Stack>
         </Box>
