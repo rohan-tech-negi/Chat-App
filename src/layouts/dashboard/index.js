@@ -15,13 +15,7 @@ import SideBar from "./SideBar.js";
 
 const DashboardLayout = () => {
 
-  const theme = useTheme()
-
-  const [selected, setSelected] = useState(0)
-
-  console.log(theme)
-
-  const {onToggleMode} = useSettings()
+  
 
   return (
     <Stack direction="row">
