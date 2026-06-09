@@ -1,18 +1,28 @@
 import React from 'react'
+import { Box, Stack, IconButton, Icon, InputAdornment, TextField, styled, useTheme } from '@mui/material'
+import { LinkSimple, PaperPlaneTilt, Smiley } from 'phosphor-react'
+
+const StyledInput = styled(TextField)(({ theme }) => ({
+  "&.MuiInputBase-input" : {
+    paddingTop: "12px",
+    paddingBottom: "12px"     
+  }
+}));
 
 const Footer = () => {
+  const theme = useTheme();
   return (
     <Box p={2} sx={{width: "100%", backgroundColor: theme.palette.mode === 'light' ? "#F5F5F5" : theme.palette.background.paper}}>
               <Stack direction="row" alignItems={"center"} spacing={3}>
                       
 <StyledInput fullWidth placeholder='Write a message...' variant='filled' InputProps={{
   disableUnderline : true,
-  startAdornment: <InputAdornment>
+  startAdornment: <InputAdornment position="start">
   <Icon>
     <LinkSimple></LinkSimple>
   </Icon>
   </InputAdornment>,
-  endAdornment: <InputAdornment>
+  endAdornment: <InputAdornment position="end">
   <IconButton>
   <Icon>
     <Smiley></Smiley>
