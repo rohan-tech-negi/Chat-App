@@ -46,7 +46,7 @@ const Conversation = () => {
   return (
     <Stack height={"100%"} maxHeight={"100vh"} width={"auto"}>
         {/* chatheader */}
-        <Box p={2} sx={{ width: "100%", backgroundColor: "#F8FAFF", boxShadow: "0px 0px 2px rgba(0, 0, 0, 0.25)"}}>
+        <Box p={2} sx={{ width: "100%", backgroundColor: theme.palette.mode === 'light' ? "#F5F5F5" : theme.palette.background.paper, boxShadow: "0px 0px 2px rgba(0, 0, 0, 0.25)"}}>
             <Stack alignItems={"center"} direction="row" justifyContent={"space-between"} sx={{width: "100%", height: "100%"}}>
                 <Stack direction={"row"} spacing={2}>
                     <Box>
@@ -90,7 +90,7 @@ const Conversation = () => {
         </Box>
 
         {/* chat footer */}
-        <Box p={2} sx={{width: "100%", backgroundColor: "#F8FAFF"}}>
+        <Box p={2} sx={{width: "100%", backgroundColor: theme.palette.mode === 'light' ? "#F5F5F5" : theme.palette.background.paper}}>
               <Stack direction="row" alignItems={"center"} spacing={3}>
                       
 <StyledInput fullWidth placeholder='Write a message...' variant='filled' InputProps={{
