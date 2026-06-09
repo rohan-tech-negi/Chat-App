@@ -7,6 +7,7 @@ import { useState } from "react";
 import { faker } from "@faker-js/faker";
 import { styled } from "@mui/material/styles";
 import useSettings from "../../hooks/useSettings.js"
+import SideBar from "./SideBar.js";
 
 
 const AntSwitch = styled(Switch)(({ theme }) => ({
@@ -72,6 +73,7 @@ const DashboardLayout = () => {
   return (
     <Stack direction="row">
      {/* sidebar */}
+     <SideBar></SideBar>
       <Outlet />
     </Stack>
   );
