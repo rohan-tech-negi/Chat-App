@@ -1,10 +1,12 @@
-import { Divider, Stack } from '@mui/material'
+import { Divider, Stack, Typography } from '@mui/material'
 import React from 'react'
 
 const Timeline = () => {
   return (
     <Stack direction="row" alignItems="center" justifyContent="space-between">
-        <Divider/>
+        <Divider width="46%"/>
+        <Typography variant='caption'>Today</Typography>
+        <Divider width="46%"/>
     </Stack>
 )
 }

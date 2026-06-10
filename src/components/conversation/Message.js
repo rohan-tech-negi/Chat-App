@@ -1,6 +1,7 @@
 import { Box, Stack } from '@mui/material'
 import React from 'react'
 import { Chat_History } from '../../data'
+import { Timeline } from './MsgTypes'
 
 const Message = () => {
   return (
@@ -9,8 +10,8 @@ const Message = () => {
             {Chat_History.map((el)=>{
                 switch (el.type) {
                     case "divider":
-                        // timeline
-                        break;
+                        return <Timeline></Timeline>;
+                        
                         case "msg":
                             switch (el.subtype) {
                                 case "img":
