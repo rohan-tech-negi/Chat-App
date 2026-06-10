@@ -16,7 +16,7 @@ const Message = () => {
                             switch (el.subtype) {
                                     case "img":
                                     // img msg
-                                    return <MediaMsg></MediaMsg>
+                                    return <MediaMsg el={el}></MediaMsg>
                                     
                                     break;
                                     case "doc":
