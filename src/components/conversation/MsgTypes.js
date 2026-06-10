@@ -2,6 +2,20 @@ import { Box, Divider, Stack, Typography, useTheme } from '@mui/material'
 import React from 'react'
 
 
+const MediaMsg = ({el})=>{
+    const theme = useTheme()
+    return (
+        <Stack direction="row" justifyContent={el.incoming ? "start" : "end"}>
+        <Box p={.5} sx={{backgroundColor: el.incoming ? theme.palette.background.default : theme.palette.primary.main, borderRadius: 1.5, width: "max-content"}}>
+            <Stack>
+                
+            </Stack>
+        </Box>
+    </Stack>
+    )
+}
+
+
 const TextMsg = ({el}) => {
     const theme = useTheme()
   return (
@@ -28,4 +42,4 @@ const Timeline = ({el}) => {
 )
 }
 
-export  {Timeline, TextMsg}
+export  {Timeline, TextMsg, MediaMsg}
