@@ -25,7 +25,7 @@ const Conversation = () => {
 
         {/* msg */}
         <Box width={"100%"} sx={{flexGrow: 1}}>
-
+          
         </Box>
 
         {/* chat footer */}
