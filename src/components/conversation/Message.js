@@ -10,7 +10,7 @@ const Message = () => {
             {Chat_History.map((el)=>{
                 switch (el.type) {
                     case "divider":
-                        return <Timeline></Timeline>;
+                        return <Timeline el={el}></Timeline>;
                         
                         case "msg":
                             switch (el.subtype) {
