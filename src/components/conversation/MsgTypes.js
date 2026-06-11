@@ -8,7 +8,7 @@ const LinkMsg = ({el}) => {
   return (
     <Stack direction="row" justifyContent={el.incoming ? "start" : "end"}>
         <Box p={.5} sx={{backgroundColor: el.incoming ? theme.palette.background.default : theme.palette.primary.main, borderRadius: 1.5, width: "max-content"}}>
-            
+
            
             
         </Box>
@@ -86,4 +86,4 @@ const Timeline = ({el}) => {
 )
 }
 
-export  {Timeline, TextMsg, MediaMsg, ReplyMsg}
+export  {Timeline, TextMsg, MediaMsg, ReplyMsg, LinkMsg}
