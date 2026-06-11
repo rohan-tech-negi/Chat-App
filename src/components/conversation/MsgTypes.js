@@ -6,6 +6,12 @@ const ReplyMsg = ({el})=>{
     return (
         <Stack direction="row" justifyContent={el.incoming ? "start" : "end"}>
         <Box p={.5} sx={{backgroundColor: el.incoming ? theme.palette.background.default : theme.palette.primary.main, borderRadius: 1.5, width: "max-content"}}>
+            <Stack spacing={2}>
+                <Stack p={2} direction="column" spacing={3} alignItems="center" sx={{backgroundColor: theme.palette.background.paper, borderRadius: 1}}>
+                    {el.message}
+
+                </Stack>
+            </Stack>
             
         </Box>
     </Stack>
@@ -56,4 +62,4 @@ const Timeline = ({el}) => {
 )
 }
 
-export  {Timeline, TextMsg, MediaMsg}
+export  {Timeline, TextMsg, MediaMsg, ReplyMsg}
