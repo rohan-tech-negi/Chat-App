@@ -1,6 +1,16 @@
 import { Box, Divider, Stack, Typography, useTheme } from '@mui/material'
 import React from 'react'
 
+
+
+const LinkMsg = () => {
+  return (
+    <div>LinkMsg</div>
+  )
+}
+
+export default LinkMsg
+
 const ReplyMsg = ({el})=>{
     const theme = useTheme()
     return (
@@ -8,9 +18,16 @@ const ReplyMsg = ({el})=>{
         <Box p={.5} sx={{backgroundColor: el.incoming ? theme.palette.background.default : theme.palette.primary.main, borderRadius: 1.5, width: "max-content"}}>
             <Stack spacing={2}>
                 <Stack p={2} direction="column" spacing={3} alignItems="center" sx={{backgroundColor: theme.palette.background.paper, borderRadius: 1}}>
-                    {el.message}
+                    <Typography variant='body2' color={ theme.palette.text}>
+                       {el.message} 
+                    </Typography>
+                    
 
                 </Stack>
+                <Typography variant='body2' color={el.incoming ? theme.palette.text: "#fff"
+                }>
+                    {el.reply}
+                </Typography>
             </Stack>
             
         </Box>
