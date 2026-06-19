@@ -1,5 +1,5 @@
 import { Box, Divider, Stack, Typography, useTheme, IconButton, alpha } from '@mui/material'
-import { DownloadSimple, File } from 'phosphor-react'
+import { DotsThreeVertical, DownloadSimple, File } from 'phosphor-react'
 import React from 'react'
 
 
@@ -84,6 +84,7 @@ const TextMsg = ({ el }) => {
                     {el.message}
                 </Typography>
             </Box>
+            <DotsThreeVertical></DotsThreeVertical>
         </Stack>
     )
 }
