@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Stack, IconButton, Icon, InputAdornment, TextField, styled, useTheme } from '@mui/material'
+import { Box, Stack, IconButton, Icon, InputAdornment, TextField, styled, useTheme, Fab } from '@mui/material'
 import { LinkSimple, PaperPlaneTilt, Smiley } from 'phosphor-react'
 
 import data from '@emoji-mart/data'
@@ -59,11 +59,27 @@ const ChatInput = ({setOpenPicker})=>{
   return (
     <StyledInput fullWidth placeholder='Write a message...' variant='filled' InputProps={{
   disableUnderline : true,
-  startAdornment: <InputAdornment position="start">
+  startAdornment: 
+  (
+    <Stack sx={{width: "max-content"}}>
+      <Stack sx={{position: "relative"}}>
+        {
+          Actions.map((el)=>{
+              <Fab sx={{position: "absolute", top: -el.y, backgroundColor: el.color }}>
+  {el.icon}
+</Fab>
+          })
+        }
+      </Stack>
+      <InputAdornment position="start">
   <Icon>
     <LinkSimple></LinkSimple>
   </Icon>
-  </InputAdornment>,
+  </InputAdornment>
+    </Stack>
+     
+  ),
+ 
   endAdornment: <InputAdornment position="end">
   <IconButton>
   <Icon onClick={()=>{setOpenPicker(prev=>!prev)}}>
