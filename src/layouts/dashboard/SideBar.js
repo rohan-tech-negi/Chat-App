@@ -134,7 +134,17 @@ const SideBar = () => {
         MenuListProps={{
           'aria-labelledby': buttonId,
         }}
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "right"
+        }}
+        transformOrigin={{
+          vertical: "bottom",
+          horizontal: "left"
+        }}
       >
+
+
         <Stack spacing={1} px={1}>
           {Profile_Menu.map((el) => (
             <MenuItem key={el.title} onClick={handleClick}>
