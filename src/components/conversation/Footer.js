@@ -2,6 +2,9 @@ import React from 'react'
 import { Box, Stack, IconButton, Icon, InputAdornment, TextField, styled, useTheme } from '@mui/material'
 import { LinkSimple, PaperPlaneTilt, Smiley } from 'phosphor-react'
 
+import data from '@emoji-mart/data'
+import Picker from '@emoji-mart/react'
+
 const StyledInput = styled(TextField)(({ theme }) => ({
   "&.MuiInputBase-input" : {
     paddingTop: "12px",
@@ -9,7 +12,7 @@ const StyledInput = styled(TextField)(({ theme }) => ({
   }
 }));
 
-const chatInput = ()=>{
+const ChatInput = ()=>{
   return (
     <StyledInput fullWidth placeholder='Write a message...' variant='filled' InputProps={{
   disableUnderline : true,
@@ -34,6 +37,10 @@ const Footer = () => {
   return (
     <Box p={2} sx={{width: "100%", backgroundColor: theme.palette.mode === 'light' ? "#F5F5F5" : theme.palette.background.paper}}>
               <Stack direction="row" alignItems={"center"} spacing={3}>
+                <Stack>
+                  <Picker data={data} onEmojiSelect={console.log} />
+                  <ChatInput></ChatInput>
+                </Stack>
                       
 
 <Box sx={{height: 48 , width: 48, backgroundColor: theme.palette.primary.main, borderRadius: 1.5}}>
