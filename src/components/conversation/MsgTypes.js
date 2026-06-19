@@ -1,6 +1,7 @@
-import { Box, Divider, Stack, Typography, useTheme, IconButton, alpha } from '@mui/material'
+import { Box, Divider, Stack, Typography, useTheme, IconButton, alpha , Menu, MenuItem} from '@mui/material'
 import { DotsThreeVertical, DownloadSimple, File } from 'phosphor-react'
 import React from 'react'
+import { Message_options } from '../../data'
 
 
 const LinkMsg = ({ el }) => {
@@ -137,9 +138,14 @@ const MessageOptions=()=>{
           },
         }}
       >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
+        <Stack spacing={1} px={1}>
+            {Message_options.map((el)=>{
+                <MenuItem onClick={()=>{}}>
+                    {el.title}
+                </MenuItem>
+            })}
+        </Stack>
+        
       </Menu>
         </>
     )
