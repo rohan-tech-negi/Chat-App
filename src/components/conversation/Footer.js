@@ -37,8 +37,11 @@ const Footer = () => {
   return (
     <Box p={2} sx={{width: "100%", backgroundColor: theme.palette.mode === 'light' ? "#F5F5F5" : theme.palette.background.paper}}>
               <Stack direction="row" alignItems={"center"} spacing={3}>
-                <Stack>
-                  <Picker data={data} onEmojiSelect={console.log} />
+                <Stack sx={{width: "100%"}}>
+                  <Box sx={{zIndeex: 10, position: "fixed", bottom: 81, right: 100}}>
+                    <Picker theme={theme.palette.mode} data={data} onEmojiSelect={console.log} />
+                  </Box>
+                  
                   <ChatInput></ChatInput>
                 </Stack>
                       
