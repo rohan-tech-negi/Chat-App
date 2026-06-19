@@ -26,6 +26,7 @@ const LinkMsg = ({ el }) => {
                     </Box>
                 </Stack>
             </Box>
+            <MessageOptions></MessageOptions>
         </Stack>
     )
 }
@@ -54,6 +55,7 @@ const ReplyMsg = ({ el }) => {
                     </Typography>
                 </Stack>
             </Box>
+            <MessageOptions></MessageOptions>
         </Stack>
     )
 }
@@ -72,6 +74,7 @@ const MediaMsg = ({ el }) => {
                     </Box>
                 </Stack>
             </Box>
+            <MessageOptions></MessageOptions>
         </Stack>
     )
 }
@@ -85,6 +88,7 @@ const TextMsg = ({ el }) => {
                     {el.message}
                 </Typography>
             </Box>
+            <MessageOptions></MessageOptions>
             
         </Stack>
     )
@@ -108,6 +112,7 @@ const DocMsg = ({ el }) => {
                     </IconButton>
                 </Stack>
             </Box>
+            <MessageOptions></MessageOptions>
         </Stack>
     )
 }
@@ -123,32 +128,48 @@ const Timeline = ({ el }) => {
     )
 }
 
-const MessageOptions=()=>{
-    return (
-        <>
-        <DotsThreeVertical size={20}></DotsThreeVertical>
-         <Menu
-        id="basic-menu"
+const MessageOptions = () => {
+  const id = React.useId();
+  const buttonId = `${id}-button`;
+  const menuId = `${id}-menu`;
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+  return (
+    <>
+      <IconButton
+        id={buttonId}
+        aria-controls={open ? menuId : undefined}
+        aria-haspopup="true"
+        aria-expanded={open ? "true" : undefined}
+        onClick={handleClick}
+      >
+        <DotsThreeVertical size={20} />
+      </IconButton>
+      <Menu
+        id={menuId}
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
-        slotProps={{
-          list: {
-            'aria-labelledby': buttonId,
-          },
+        MenuListProps={{
+          'aria-labelledby': buttonId,
         }}
       >
         <Stack spacing={1} px={1}>
-            {Message_options.map((el)=>{
-                <MenuItem onClick={()=>{}}>
-                    {el.title}
-                </MenuItem>
-            })}
+          {Message_options.map((el) => (
+            <MenuItem key={el.title} onClick={handleClose}>
+              {el.title}
+            </MenuItem>
+          ))}
         </Stack>
-        
       </Menu>
-        </>
-    )
-}
+    </>
+  );
+};
 
 export { Timeline, TextMsg, MediaMsg, ReplyMsg, LinkMsg, DocMsg }
