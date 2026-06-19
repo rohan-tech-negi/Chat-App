@@ -122,7 +122,10 @@ const SideBar = () => {
         <AntSwitch onChange={()=>{
           onToggleMode()
         }} defaultChecked></AntSwitch>
-        <Avatar src={faker.image.avatar()}></Avatar>
+        <Avatar id="basic-button" aria-controls={open ? menuId : undefined}
+        aria-haspopup="true"
+        aria-expanded={open ? "true" : undefined}
+        onClick={handleClick} src={faker.image.avatar()}></Avatar>
         <Menu
         id={menuId}
         anchorEl={anchorEl}
