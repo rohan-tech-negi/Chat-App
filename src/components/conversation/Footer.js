@@ -12,7 +12,7 @@ const StyledInput = styled(TextField)(({ theme }) => ({
   }
 }));
 
-const ChatInput = ()=>{
+const ChatInput = ({setOpenPicker})=>{
   return (
     <StyledInput fullWidth placeholder='Write a message...' variant='filled' InputProps={{
   disableUnderline : true,
@@ -23,7 +23,7 @@ const ChatInput = ()=>{
   </InputAdornment>,
   endAdornment: <InputAdornment position="end">
   <IconButton>
-  <Icon>
+  <Icon onClick={()=>{setOpenPicker(prev=>!prev)}}>
     <Smiley></Smiley>
   </Icon>
   </IconButton>
@@ -34,15 +34,16 @@ const ChatInput = ()=>{
 
 const Footer = () => {
   const theme = useTheme();
+  const [openPicker, setOpenPicker] = React.useState(false)
   return (
     <Box p={2} sx={{width: "100%", backgroundColor: theme.palette.mode === 'light' ? "#F5F5F5" : theme.palette.background.paper}}>
               <Stack direction="row" alignItems={"center"} spacing={3}>
                 <Stack sx={{width: "100%"}}>
-                  <Box sx={{zIndeex: 10, position: "fixed", bottom: 81, right: 100}}>
+                  <Box sx={{ display: openPicker ? "inline" : "none",  zIndex: 10, position: "fixed", bottom: 81, right: 100}}>
                     <Picker theme={theme.palette.mode} data={data} onEmojiSelect={console.log} />
                   </Box>
                   
-                  <ChatInput></ChatInput>
+                  <ChatInput setOpenPicker={setOpenPicker}></ChatInput>
                 </Stack>
                       
 
