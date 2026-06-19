@@ -56,14 +56,14 @@ const Actions = [
 ];
 
 const ChatInput = ({setOpenPicker})=>{
-  const {openActions, setOpenActions} = React.useState(false)
+  const [openActions, setOpenActions] = React.useState(false)
   return (
     <StyledInput fullWidth placeholder='Write a message...' variant='filled' InputProps={{
   disableUnderline : true,
   startAdornment: 
   (
     <Stack sx={{width: "max-content"}}>
-      <Stack sx={{position: "relative"}}>
+      <Stack sx={{position: "relative", display: openActions ? "inline-block" : "none"}}>
         {
           Actions.map((el)=>(
             <Tooltip title={el.title} placement='right' >
@@ -77,7 +77,9 @@ const ChatInput = ({setOpenPicker})=>{
         }
       </Stack>
       <InputAdornment position="start">
-  <Icon>
+  <Icon onClick={() => {
+    setOpenActions(prev=>!prev)
+  }}>
     <LinkSimple></LinkSimple>
   </Icon>
   </InputAdornment>
