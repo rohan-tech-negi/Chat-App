@@ -84,7 +84,7 @@ const TextMsg = ({ el }) => {
                     {el.message}
                 </Typography>
             </Box>
-            <DotsThreeVertical></DotsThreeVertical>
+            
         </Stack>
     )
 }
@@ -119,6 +119,29 @@ const Timeline = ({ el }) => {
             <Typography variant='caption' sx={{ color: theme.palette.text.secondary }}>{el.text}</Typography>
             <Divider width="46%" />
         </Stack>
+    )
+}
+
+const MessageOptions=()=>{
+    return (
+        <>
+        <DotsThreeVertical size={20}></DotsThreeVertical>
+         <Menu
+        id={menuId}
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        slotProps={{
+          list: {
+            'aria-labelledby': buttonId,
+          },
+        }}
+      >
+        <MenuItem onClick={handleClose}>Profile</MenuItem>
+        <MenuItem onClick={handleClose}>My account</MenuItem>
+        <MenuItem onClick={handleClose}>Logout</MenuItem>
+      </Menu>
+        </>
     )
 }
 
