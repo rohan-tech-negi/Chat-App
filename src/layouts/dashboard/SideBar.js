@@ -4,7 +4,7 @@ import { styled } from "@mui/material/styles";
 import { faker } from "@faker-js/faker";
 
 import Logo from "../../assets/Images/logo.ico";
-import { Nav_Buttons, Nav_Setting } from "../../data";
+import { Nav_Buttons, Nav_Setting, Profile_Menu } from "../../data";
 import useSettings from "../../hooks/useSettings.js";
 
 const AntSwitch = styled(Switch)(({ theme }) => ({
@@ -57,6 +57,18 @@ const AntSwitch = styled(Switch)(({ theme }) => ({
 }));
 
 const SideBar = () => {
+
+  const id = React.useId();
+  const buttonId = `${id}-button`;
+  const menuId = `${id}-menu`;
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
     const theme = useTheme();
     const [selected, setSelected] = useState(0);
     const { onToggleMode } = useSettings();
@@ -111,6 +123,30 @@ const SideBar = () => {
           onToggleMode()
         }} defaultChecked></AntSwitch>
         <Avatar src={faker.image.avatar()}></Avatar>
+        <Menu
+        id={menuId}
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        MenuListProps={{
+          'aria-labelledby': buttonId,
+        }}
+      >
+        <Stack spacing={1} px={1}>
+          {Profile_Menu.map((el) => (
+            <MenuItem key={el.title} onClick={handleClick}>
+              <Stack sx={{width: 100}} direction="row" alignItems="center" justifyContent="space-between">
+                <span>
+                  {el.title}
+                </span>
+                {el.icon}
+                
+              </Stack>{" "}
+              
+            </MenuItem>
+          ))}
+        </Stack>
+      </Menu>
       </Stack>
 
       
