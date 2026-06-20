@@ -16,6 +16,9 @@ const GeneralApp = () => {
         <Conversation></Conversation>
 
       </Box>
+
+      {/* contact info */}
+      
     </Stack>
   );
 };
