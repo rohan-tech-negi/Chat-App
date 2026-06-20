@@ -2,6 +2,7 @@ import React, {Suspense, lazy} from "react";
 import Chats from "./Chats";
 import { Box, Stack, useTheme } from "@mui/material";
 import Conversation from "../../components/conversation";
+import Contact from "../../components/Contact";
 // const Cat = lazy(()=> import ('../../components/Cat.js'))
 const GeneralApp = () => {
   const theme = useTheme()
@@ -18,7 +19,7 @@ const GeneralApp = () => {
       </Box>
 
       {/* contact info */}
-      
+      <Contact></Contact>
     </Stack>
   );
 };
