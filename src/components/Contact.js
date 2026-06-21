@@ -1,7 +1,12 @@
 import React from 'react'
-import {Box, Stack, useTheme} from "@mui/material"
+import {Box, IconButton, Stack, Typography, useTheme} from "@mui/material"
+import { X } from 'phosphor-react'
+import { useDispatch } from 'react-redux'
+import { ToggleSidebar } from '../radux/slices/app'
 const Contact = () => {
   const theme = useTheme()
+
+  const dispatch = useDispatch()
   return (
     <Box sx={{
         height: "100%",
@@ -15,6 +20,15 @@ const Contact = () => {
           width: "100%",
           backgroundColor: theme.palette.mode === "light" ? "#F5F5F5" : theme.palette.background.paper
         }}>
+          <Stack sx={{height: "100%", p:2}} direction="row" alignItems={"center"} justifyContent="space-between" spacing={3}>
+            <Typography>Contact Info</Typography>
+            <IconButton onClick={()=> {
+dispatch(ToggleSidebar())
+            }}>
+              <X></X>
+            </IconButton>
+
+          </Stack>
 
         </Box>
         
