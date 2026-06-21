@@ -2,6 +2,9 @@ import React from 'react'
 import { Avatar, Box, Stack, Badge, styled, Typography, IconButton, Divider, useTheme } from '@mui/material'
 import { faker } from '@faker-js/faker'
 import { CaretDown, MagnifyingGlass, Phone, VideoCamera } from 'phosphor-react'
+// import { dispatch } from '../../radux/store';
+import { ToggleSidebar } from '../../radux/slices/app';
+import { useDispatch } from 'react-redux';
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
@@ -34,10 +37,11 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 
 const Header = () => {
   const theme = useTheme();
+  const dispatch = useDispatch()
   return (
     <Box p={2} sx={{ width: "100%", backgroundColor: theme.palette.mode === 'light' ? "#F5F5F5" : theme.palette.background.paper, boxShadow: "0px 0px 2px rgba(0, 0, 0, 0.25)"}}>
             <Stack alignItems={"center"} direction="row" justifyContent={"space-between"} sx={{width: "100%", height: "100%"}}>
-                <Stack direction={"row"} spacing={2}>
+                <Stack onClick={() => {dispatch(ToggleSidebar())}} direction={"row"} spacing={2}>
                     <Box>
                         <StyledBadge overlap="circular" anchorOrigin={{
                             vertical: "bottom",
