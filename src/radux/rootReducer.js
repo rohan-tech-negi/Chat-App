@@ -10,5 +10,7 @@ const rootPersistConfig = {
 }
 
 const rootReducer = combineReducers({
-    
+    app: appReducer,
 })
+
+export {rootPersistConfig, rootReducer}
