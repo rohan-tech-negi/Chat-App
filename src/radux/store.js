@@ -5,7 +5,13 @@ import {persistStore, persistReducer} from "redux-persist"
 
 
 const store = configureStore({
-    reducer: persistReducer()
+    reducer: persistReducer(),
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+        serializableCheck: false,
+        immutableCheck: false,
+    })
 })
 
-export {store}
+const persistor = persistStore(store)
+
+export {store, persistor}
