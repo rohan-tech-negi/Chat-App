@@ -18,5 +18,10 @@ const slice = createSlice({
         toggleSideBar: (state, action) => {
             state.sideBar.open = !state.sideBar.open;
         },
+        updateSidebarType(state, action){
+            state.sideBar.type = action.payload.type;
+        }
     }
 })
+
+export default slice.reducer;
