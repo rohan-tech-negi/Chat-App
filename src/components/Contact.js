@@ -1,8 +1,9 @@
 import React from 'react'
-import {Box, IconButton, Stack, Typography, useTheme} from "@mui/material"
+import {Avatar, Box, IconButton, Stack, Typography, useTheme} from "@mui/material"
 import { X } from 'phosphor-react'
 import { useDispatch } from 'react-redux'
 import { ToggleSidebar } from '../radux/slices/app'
+import { faker } from '@faker-js/faker'
 const Contact = () => {
   const theme = useTheme()
 
@@ -33,8 +34,19 @@ dispatch(ToggleSidebar())
         </Box>
 
         {/* body */}
-        <Stack sx={{height: "100%", position: "relative", flexGrow: 1, overflow: "scroll"}}>
-          
+        <Stack sx={{height: "100%", position: "relative", flexGrow: 1, overflow: "scroll"}} p={3} spacing={3}>
+            <Stack alignItems={"center"} direction="row" spacing={2}>
+              <Avatar src={faker.image.avatar()}></Avatar>
+              <Stack spacing={0.5}>
+                <Typography variant='article'>
+                  {faker.name.fullName()}
+                </Typography>
+                <Typography variant='article'>
+                  {faker.phone.number()}
+                </Typography>
+
+              </Stack>
+            </Stack>
         </Stack>
         
       </Stack>
