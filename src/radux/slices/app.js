@@ -15,7 +15,7 @@ const slice = createSlice({
     name: "app",
     initialState,
     reducers: {
-        toggleSideBar: (state) => {
+        toggleSideBar: (state, action) => {
             state.sideBar.open = !state.sideBar.open;
         },
     }
