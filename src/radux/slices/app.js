@@ -31,7 +31,9 @@ export default slice.reducer;
 
 
 export function ToggleSidebar(){
-
+     return async(dispatch, getState) =>{
+        dispatch(slice.actions.toggleSidebar());
+     }
 }
 
 
