@@ -31,6 +31,11 @@ dispatch(ToggleSidebar())
           </Stack>
 
         </Box>
+
+        {/* body */}
+        <Stack sx={{height: "100%", position: "relative", flexGrow: 1, overflow: "scroll"}}>
+          
+        </Stack>
         
       </Stack>
 
