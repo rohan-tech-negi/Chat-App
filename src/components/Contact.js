@@ -1,5 +1,5 @@
 import React from 'react'
-import {Box} from "@mui/material"
+import {Box, Stack} from "@mui/material"
 const Contact = () => {
   return (
     <Box sx={{
@@ -7,6 +7,15 @@ const Contact = () => {
         width: 320,
         backgroundColor: "white"
     }}>
+
+      <Stack sx={{height: "100%"}}>
+        <Box sx={{
+          boxShadow: "0px 0px 2px rgba(0,0,0,0.25)"
+        }}>
+
+        </Box>
+        
+      </Stack>
 
     </Box>
   )
