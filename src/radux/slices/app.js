@@ -29,3 +29,16 @@ export default slice.reducer;
 
 
 
+
+export function ToggleSidebar(){
+
+}
+
+
+
+export function UpdateSidebarType(type){
+    
+}
+
+
+
