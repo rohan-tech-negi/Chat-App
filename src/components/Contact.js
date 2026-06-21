@@ -1,6 +1,6 @@
 import React from 'react'
 import {Avatar, Box, IconButton, Stack, Typography, useTheme} from "@mui/material"
-import { X } from 'phosphor-react'
+import { Phone, VideoCamera, X } from 'phosphor-react'
 import { useDispatch } from 'react-redux'
 import { ToggleSidebar } from '../radux/slices/app'
 import { faker } from '@faker-js/faker'
@@ -46,6 +46,27 @@ dispatch(ToggleSidebar())
                 </Typography>
 
               </Stack>
+            </Stack>
+
+            <Stack direction="row" alignItems={"center"} justifyContent="space-evenly">
+              <Stack spacing={1}>
+                <IconButton>
+                  <Phone></Phone>
+                </IconButton>
+                <Typography variant="article">
+                  Call
+                </Typography>
+              </Stack>
+              <Stack spacing={1}>
+                <IconButton>
+                  <VideoCamera></VideoCamera>
+                </IconButton>
+                <Typography variant="article">
+                  Video
+                </Typography>
+              </Stack>
+              
+
             </Stack>
         </Stack>
         
