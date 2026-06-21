@@ -7,23 +7,23 @@ import { useSelector } from "react-redux";
 // const Cat = lazy(()=> import ('../../components/Cat.js'))
 const GeneralApp = () => {
   const theme = useTheme()
-  const app = useSelector((store)=>(store.app))
+  const {sideBar} = useSelector((store)=>(store.app))
 
-  console.log(app)
+ 
 
   return (
     <Stack direction="row" sx={{ width: "100%" }}>
       <Chats></Chats>
 
       {/* conversation */}
-      <Box sx={{height: "100%", width: "calc(100vw - 740px)", backgroundColor: theme.palette.mode === 'light' ? "#F5F5F5" : theme.palette.background.paper}}>
+      <Box sx={{height: "100%", width: sideBar.open ? "calc(100vw - 740px)" : "calc(100vw - 420px)", backgroundColor: theme.palette.mode === 'light' ? "#F5F5F5" : theme.palette.background.paper}}>
         {/*  */}
         <Conversation></Conversation>
 
       </Box>
 
       {/* contact info */}
-      <Contact></Contact>
+      {sideBar.open && <Contact></Contact>}
     </Stack>
   );
 };
