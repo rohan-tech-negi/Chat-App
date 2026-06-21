@@ -7,9 +7,9 @@ import { useSelector } from "react-redux";
 // const Cat = lazy(()=> import ('../../components/Cat.js'))
 const GeneralApp = () => {
   const theme = useTheme()
-  const app = useSelector((store)=>({
-    
-  }))
+  const app = useSelector((store)=>(store.app))
+
+  console.log(app)
 
   return (
     <Stack direction="row" sx={{ width: "100%" }}>
