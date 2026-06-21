@@ -3,4 +3,12 @@ import storage from "redux-persist/lib/storage";
 
 // slices
 
-const root
+const rootPersistConfig = {
+    key: "root",
+    storage,
+    keyPrefix: "redux-"
+}
+
+const rootReducer = combineReducers({
+    
+})
