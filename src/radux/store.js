@@ -5,7 +5,7 @@ import {persistStore, persistReducer} from "redux-persist"
 
 
 const store = configureStore({
-    reducer: {}
+    reducer: persistReducer()
 })
 
 export {store}
