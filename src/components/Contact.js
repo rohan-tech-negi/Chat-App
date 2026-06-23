@@ -143,7 +143,11 @@ const Contact = () => {
                 <Star size={20}></Star>
                 <Typography variant='subtitle2'>Starred Messages</Typography>
               </Stack>
-              <CaretRight size={20}></CaretRight>
+              <IconButton onClick={()=> {
+                dispatch(UpdateSidebarType("STARRED"))
+              }}>
+                <CaretRight size={20}></CaretRight>
+              </IconButton>
             </Stack>
 
             <Divider />

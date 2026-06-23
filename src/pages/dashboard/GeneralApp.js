@@ -28,6 +28,8 @@ const GeneralApp = () => {
         switch (sideBar.type) {
           case "CONTACT":
             return <Contact/>
+          case "STARRED":
+            // return <StarredMessages/>
           case "SHARED":
             return <SharedMessage></SharedMessage>
         
