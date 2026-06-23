@@ -71,9 +71,16 @@ dispatch(ToggleSidebar())
 
             <Divider></Divider>
 
-            <Stack spacing={2}>
+            <Stack spacing={0.5}>
               <Typography variant="article">About</Typography>
-              <Typography variant="article">Joined</Typography>
+              <Typography variant="body2">Joined</Typography>
+            </Stack>
+            <Divider></Divider>
+
+            <Stack direction="row" alignItems="center" justifyContent="space-between">
+              <Stack></Stack>
+              <Stack></Stack>
+
             </Stack>
         </Stack>
         
