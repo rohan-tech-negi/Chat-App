@@ -4,6 +4,8 @@ import { CaretLeft, X } from 'phosphor-react'
 import { ToggleSidebar, UpdateSidebarType } from '../radux/slices/app'
 import { useDispatch } from 'react-redux'
 import {faker} from '@faker-js/faker'
+import { SHARED_DOCUMENTS, SHARED_LINKS } from '../data'
+import { DocMsg, LinkMsg } from './conversation/MsgTypes'
 
 const SharedMessage = () => {
   const theme = useTheme()
@@ -61,10 +63,12 @@ const SharedMessage = () => {
                     
                     break;
                     case 1:
+                        return SHARED_LINKS.map((el)=> <LinkMsg el={el} menu={true}></LinkMsg>)
 
                     
                     break;
                     case 2:
+                        return SHARED_DOCUMENTS.map((el)=> <DocMsg el={el} menu={true}></DocMsg>)
                     
                     break;
               

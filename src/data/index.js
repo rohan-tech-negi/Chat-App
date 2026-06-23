@@ -292,4 +292,6 @@ export {
   ChatList,
   Chat_History,
   Message_options,
+  SHARED_LINKS,
+  SHARED_DOCUMENTS
 };
