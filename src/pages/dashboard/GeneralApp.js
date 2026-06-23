@@ -23,7 +23,16 @@ const GeneralApp = () => {
       </Box>
 
       {/* contact info */}
-      {sideBar.open && <Contact></Contact>}
+      {sideBar.open && (()=>{
+        switch (sideBar.type) {
+          case value:
+            
+            break;
+        
+          default:
+            break;
+        }
+      }) ()}
     </Stack>
   );
 };
