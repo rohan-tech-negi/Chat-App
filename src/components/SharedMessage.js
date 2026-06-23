@@ -1,4 +1,4 @@
-import { Box, IconButton, Stack, Typography, useTheme } from '@mui/material'
+import { Box, IconButton, Stack, Typography, useTheme ,Tab, Tabs} from '@mui/material'
 import React from 'react'
 import { CaretLeft, X } from 'phosphor-react'
 import { ToggleSidebar, UpdateSidebarType } from '../radux/slices/app'
@@ -7,6 +7,11 @@ import { useDispatch } from 'react-redux'
 const SharedMessage = () => {
   const theme = useTheme()
   const dispatch = useDispatch()
+   const [value, setValue] = React.useState(0);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
   return (
     <Box sx={{width: 320, height: "100vh"}}>
       <Stack sx={{height: "100%",  }}>
@@ -27,6 +32,14 @@ const SharedMessage = () => {
           </Stack>
 
         </Box>
+        <Tabs value={value} onChange={handleChange} centered>
+        <Tab label="Item One" />
+        <Tab label="Item Two" />
+        <Tab label="Item Three" />
+      </Tabs>
+        <Stack sx={{height: "100%", position: "relative", flexGrow: 1, overflowY: "auto"}} p={3} spacing={3}>
+
+        </Stack>
       </Stack>
     </Box>
   )
