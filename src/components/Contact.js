@@ -20,7 +20,7 @@ import {
 } from "@mui/material"
 import { Bell, CaretRight, Clock, Lock, Phone, Prohibit, Star, VideoCamera, Warning, X } from 'phosphor-react'
 import { useDispatch } from 'react-redux'
-import { ToggleSidebar } from '../radux/slices/app'
+import { ToggleSidebar, UpdateSidebarType } from '../radux/slices/app'
 import { faker } from '@faker-js/faker'
 import AntSwitch from './AntSwitch'
 
@@ -115,7 +115,9 @@ const Contact = () => {
 
             <Stack direction="row" alignItems="center" justifyContent="space-between">
               <Typography variant="subtitle2">Media, Links & docs</Typography>
-              <Button variant='text' size="small" endIcon={<CaretRight></CaretRight>} sx={{ textTransform: "none", color: "primary.main" }}>
+              <Button onClick={()=> {
+                dispatch(UpdateSidebarType("SHARED"))
+              }} variant='text' size="small" endIcon={<CaretRight></CaretRight>} sx={{ textTransform: "none", color: "primary.main" }}>
                 401
               </Button>
             </Stack>

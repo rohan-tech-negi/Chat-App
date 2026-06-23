@@ -4,6 +4,7 @@ import { Box, Stack, useTheme } from "@mui/material";
 import Conversation from "../../components/conversation";
 import Contact from "../../components/Contact";
 import { useSelector } from "react-redux";
+import SharedMessage from "../../components/SharedMessage";
 // const Cat = lazy(()=> import ('../../components/Cat.js'))
 const GeneralApp = () => {
   const theme = useTheme()
@@ -25,9 +26,10 @@ const GeneralApp = () => {
       {/* contact info */}
       {sideBar.open && (()=>{
         switch (sideBar.type) {
-          case value:
-            
-            break;
+          case "CONTACT":
+            return <Contact/>
+          case "SHARED":
+            return <SharedMessage></SharedMessage>
         
           default:
             break;
