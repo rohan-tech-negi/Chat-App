@@ -1,6 +1,6 @@
 import React from 'react'
-import {Avatar, Box, Divider, IconButton, Stack, Typography, useTheme} from "@mui/material"
-import { Phone, VideoCamera, X } from 'phosphor-react'
+import {Avatar, Box, Button, Divider, IconButton, Stack, Typography, useTheme} from "@mui/material"
+import { CaretRight, Phone, VideoCamera, X } from 'phosphor-react'
 import { useDispatch } from 'react-redux'
 import { ToggleSidebar } from '../radux/slices/app'
 import { faker } from '@faker-js/faker'
@@ -78,9 +78,18 @@ dispatch(ToggleSidebar())
             <Divider></Divider>
 
             <Stack direction="row" alignItems="center" justifyContent="space-between">
-              <Stack></Stack>
-              <Stack></Stack>
+              <Typography>Media, Links & docs</Typography>
+              <Button variant='subtitle2' endIcon={<CaretRight></CaretRight>}>
+                401
+              </Button>
 
+            </Stack>
+            <Stack direction="row" spacing={2} alignItems="center">
+{[1,2,3].map((el)=>{
+  <Box>
+    <img src={faker.image.food()}></img>
+  </Box>
+})}
             </Stack>
         </Stack>
         
