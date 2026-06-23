@@ -1,5 +1,5 @@
 import React from 'react'
-import {Avatar, Box, IconButton, Stack, Typography, useTheme} from "@mui/material"
+import {Avatar, Box, Divider, IconButton, Stack, Typography, useTheme} from "@mui/material"
 import { Phone, VideoCamera, X } from 'phosphor-react'
 import { useDispatch } from 'react-redux'
 import { ToggleSidebar } from '../radux/slices/app'
@@ -67,6 +67,13 @@ dispatch(ToggleSidebar())
               </Stack>
               
 
+            </Stack>
+
+            <Divider></Divider>
+
+            <Stack spacing={2}>
+              <Typography variant="article">About</Typography>
+              <Typography variant="article">Joined</Typography>
             </Stack>
         </Stack>
         
