@@ -47,7 +47,7 @@ const Contact = () => {
 
   return (
     <Box sx={{
-        height: "100%",
+        height: "100vh",
         width: 320,
         backgroundColor: theme.palette.mode === "light" ? "white" : theme.palette.background.paper
     }}>
