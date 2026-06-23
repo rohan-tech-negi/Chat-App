@@ -1,8 +1,9 @@
-import { Box, IconButton, Stack, Typography, useTheme ,Tab, Tabs} from '@mui/material'
+import { Box, IconButton, Stack, Typography, useTheme ,Tab, Tabs, Grid} from '@mui/material'
 import React from 'react'
 import { CaretLeft, X } from 'phosphor-react'
 import { ToggleSidebar, UpdateSidebarType } from '../radux/slices/app'
 import { useDispatch } from 'react-redux'
+import {faker} from '@faker-js/faker'
 
 const SharedMessage = () => {
   const theme = useTheme()
@@ -32,13 +33,45 @@ const SharedMessage = () => {
           </Stack>
 
         </Box>
-        <Tabs value={value} onChange={handleChange} centered>
-        <Tab label="Item One" />
-        <Tab label="Item Two" />
-        <Tab label="Item Three" />
+        <Tabs sx={{px:2, pt:1}} value={value} onChange={handleChange} centered>
+        <Tab label="Media" />
+        <Tab label="Links" />
+        <Tab label="Docs" />
       </Tabs>
         <Stack sx={{height: "100%", position: "relative", flexGrow: 1, overflowY: "auto"}} p={3} spacing={3}>
+            {(()=>{
+              switch (value) {
+                case 0:
+                    return(
+                      <Grid container spacing={2}>
+                    {
+                        [0,1,2,3,4,5,6].map((el)=>{
+                            return (
+                                <Grid item xs={4} key={el}>
+                                    <Box>
+                                        <img src={faker.image.avatar()} alt="" />
+                                    </Box>
+                                </Grid>
+                            )
+                        })
+                    }
+                </Grid>  
+                    )
+                
+                    
+                    break;
+                    case 1:
 
+                    
+                    break;
+                    case 2:
+                    
+                    break;
+              
+                default:
+                    break;
+              }
+            })()}
         </Stack>
       </Stack>
     </Box>
