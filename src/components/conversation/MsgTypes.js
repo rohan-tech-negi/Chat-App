@@ -4,7 +4,7 @@ import React from 'react'
 import { Message_options } from '../../data'
 
 
-const LinkMsg = ({ el }) => {
+const LinkMsg = ({ el , menu}) => {
     const theme = useTheme()
     return (
         <Stack direction="row" justifyContent={el.incoming ? "start" : "end"}>
@@ -26,12 +26,12 @@ const LinkMsg = ({ el }) => {
                     </Box>
                 </Stack>
             </Box>
-            <MessageOptions></MessageOptions>
+            {menu && <MessageOptions></MessageOptions>}
         </Stack>
     )
 }
 
-const ReplyMsg = ({ el }) => {
+const ReplyMsg = ({ el , menu}) => {
     const theme = useTheme()
     return (
         <Stack direction="row" justifyContent={el.incoming ? "start" : "end"}>
@@ -55,12 +55,12 @@ const ReplyMsg = ({ el }) => {
                     </Typography>
                 </Stack>
             </Box>
-            <MessageOptions></MessageOptions>
+            {menu && <MessageOptions></MessageOptions>}
         </Stack>
     )
 }
 
-const MediaMsg = ({ el }) => {
+const MediaMsg = ({ el , menu}) => {
     const theme = useTheme()
     return (
         <Stack direction="row" justifyContent={el.incoming ? "start" : "end"}>
@@ -74,12 +74,13 @@ const MediaMsg = ({ el }) => {
                     </Box>
                 </Stack>
             </Box>
-            <MessageOptions></MessageOptions>
+            {menu && <MessageOptions></MessageOptions>}
+            
         </Stack>
     )
 }
 
-const TextMsg = ({ el }) => {
+const TextMsg = ({ el , menu}) => {
     const theme = useTheme()
     return (
         <Stack direction="row" justifyContent={el.incoming ? "start" : "end"}>
@@ -88,13 +89,14 @@ const TextMsg = ({ el }) => {
                     {el.message}
                 </Typography>
             </Box>
-            <MessageOptions></MessageOptions>
+
+            {menu && <MessageOptions></MessageOptions>}
             
         </Stack>
     )
 }
 
-const DocMsg = ({ el }) => {
+const DocMsg = ({ el , menu}) => {
     const theme = useTheme()
     return (
         <Stack direction="row" justifyContent={el.incoming ? "start" : "end"}>
@@ -112,7 +114,7 @@ const DocMsg = ({ el }) => {
                     </IconButton>
                 </Stack>
             </Box>
-            <MessageOptions></MessageOptions>
+            {menu && <MessageOptions></MessageOptions>}
         </Stack>
     )
 }
