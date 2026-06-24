@@ -1,4 +1,4 @@
-import { Box, IconButton, Stack, useTheme } from '@mui/material'
+import { Box, IconButton, Stack, Typography, useTheme } from '@mui/material'
 import { CaretLeft } from 'phosphor-react'
 import React from 'react'
 
@@ -14,9 +14,11 @@ const Settings = () => {
             <IconButton>
               <CaretLeft size={24} color={'#435BD7'}></CaretLeft>
             </IconButton>
+            <Typography variant='h6'>Settings</Typography>
           </Stack>
 
           {/* profile */}
+          
 
           {/* list of options */}
 
