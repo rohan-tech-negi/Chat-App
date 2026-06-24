@@ -1,8 +1,13 @@
+import { Dialog } from '@mui/material'
 import React from 'react'
 
-const Shortcuts = () => {
+const Shortcuts = ({open, handleClose}) => {
   return (
-    <div>Shortcuts</div>
+    <>
+    <Dialog open={open} onClose={handleClose} fullWidth maxWidth="sm">
+
+    </Dialog>
+    </>
   )
 }
 
