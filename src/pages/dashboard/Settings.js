@@ -20,7 +20,7 @@ const Settings = () => {
 
           {/* profile */}
           <Stack direction={"row"} spacing={3}>
-            <Avatar src={faker.image.avatar()}></Avatar>
+            <Avatar sx={{width: 56}} src={faker.image.avatar()}></Avatar>
           </Stack>
 
           {/* list of options */}
