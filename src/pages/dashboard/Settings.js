@@ -20,7 +20,15 @@ const Settings = () => {
 
           {/* profile */}
           <Stack direction={"row"} spacing={3}>
-            <Avatar sx={{width: 56}} src={faker.image.avatar()}></Avatar>
+            <Avatar  src={faker.image.avatar()}></Avatar>
+            <Stack spacing={0.5}>
+                <Typography variant='article'>
+                  {faker.name.fullName()}
+                </Typography>
+                <Typography variant='body2'>
+                  {faker.random.word()}
+                </Typography>
+            </Stack>
           </Stack>
 
           {/* list of options */}
