@@ -1,4 +1,4 @@
-import { Dialog, DialogTitle, Slide } from '@mui/material'
+import { Dialog, DialogContent, DialogTitle, Grid, Slide } from '@mui/material'
 import React from 'react'
 
 const Shortcuts = ({open, handleClose}) => {
@@ -11,6 +11,11 @@ const Shortcuts = ({open, handleClose}) => {
         <DialogTitle>
             Keyboard Shortcuts
         </DialogTitle>
+        <DialogContent sx={{mt:4}}>
+            <Grid container >
+
+            </Grid>
+        </DialogContent>
 
     </Dialog>
     </>
