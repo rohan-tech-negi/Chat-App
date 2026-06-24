@@ -124,7 +124,7 @@ const Settings = () => {
 
         </Stack>
       </Box>
-      <Shortcuts open={true} handleClose={()=> {}}></Shortcuts>
+      <Shortcuts open={openShortcuts} handleClose={handleCloseShortcuts}></Shortcuts>
       
     </Stack>
     

@@ -1,4 +1,4 @@
-import { Button, Dialog, DialogContent, DialogTitle, Grid, Slide, Stack, Typography } from '@mui/material'
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Grid, Slide, Stack, Typography } from '@mui/material'
 import React from 'react'
 
 const Shortcuts = ({open, handleClose}) => {
@@ -130,10 +130,15 @@ const Shortcuts = ({open, handleClose}) => {
                     </Stack>
                   </Stack>
                 </Grid>
-              );
+              )
             })}
           </Grid>
         </DialogContent>
+        <DialogActions>
+          <Button variant={"contained"} onClick={handleClose}>
+            Ok
+          </Button>
+        </DialogActions>
 
     </Dialog>
     </>
