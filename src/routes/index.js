@@ -7,7 +7,6 @@ import DashboardLayout from "../layouts/dashboard";
 // config
 import { DEFAULT_PATH } from "../config";
 import LoadingScreen from "../components/LoadingScreen";
-import Settings from "../pages/dashboard/Settings";
 
 const Loadable = (Component) => (props) => {
   return (
