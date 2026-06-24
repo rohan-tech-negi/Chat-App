@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux'
 import {faker} from '@faker-js/faker'
 import { SHARED_DOCUMENTS, SHARED_LINKS } from '../data'
 import { DocMsg, LinkMsg } from './conversation/MsgTypes'
+import Message from './conversation/Message'
 
 const StarredMessages = () => {
   const theme = useTheme()
@@ -31,12 +32,13 @@ const StarredMessages = () => {
           </Stack>
 
         </Box>
-        <Tabs sx={{px:2, pt:1}} value={value} onChange={handleChange} centered>
+        {/* <Tabs sx={{px:2, pt:1}} value={value} onChange={handleChange} centered>
         <Tab label="Media" />
         <Tab label="Links" />
         <Tab label="Docs" />
-      </Tabs>
+      </Tabs> */}
         <Stack sx={{height: "100%", position: "relative", flexGrow: 1, overflowY: "scroll"}} p={3} spacing={2}>
+            <Message></Message>
             
         </Stack>
       </Stack>

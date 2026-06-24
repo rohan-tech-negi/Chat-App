@@ -3,7 +3,7 @@ import React from 'react'
 import { Chat_History } from '../../data'
 import { LinkMsg, MediaMsg, ReplyMsg, TextMsg, Timeline, DocMsg } from './MsgTypes'
 
-const Message = () => {
+const Message = ({menu}) => {
   return (
     <Box p={3}>
         <Stack spacing={3}>
@@ -16,27 +16,27 @@ const Message = () => {
                             switch (el.subtype) {
                                     case "img":
                                     // img msg
-                                    return <MediaMsg el={el}></MediaMsg>
+                                    return <MediaMsg el={el} menu={menu}></MediaMsg>
                                     
                                     break;
                                     case "doc":
                                     // doc msg
-                                    return <DocMsg el={el}></DocMsg>
+                                    return <DocMsg el={el} menu={menu}></DocMsg>
                                     
                                     break;
                                     case "link":
                                     // img msg
-                                    return <LinkMsg el={el}></LinkMsg>
+                                    return <LinkMsg el={el} menu={menu}></LinkMsg>
                                     
                                     break;
                                     case "reply":
                                     // img msg
-                                    return <ReplyMsg el={el}></ReplyMsg>
+                                    return <ReplyMsg el={el} menu={menu}></ReplyMsg>
                                     
                                     break;
                             
                                 default:
-                                    return <TextMsg el={el}></TextMsg>;
+                                    return <TextMsg el={el} menu={menu}></TextMsg>;
                                     
                             }
                         break;
