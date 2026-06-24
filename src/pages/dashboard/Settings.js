@@ -1,4 +1,5 @@
-import { Box, Stack, useTheme } from '@mui/material'
+import { Box, IconButton, Stack, useTheme } from '@mui/material'
+import { CaretLeft } from 'phosphor-react'
 import React from 'react'
 
 const Settings = () => {
@@ -9,7 +10,12 @@ const Settings = () => {
       <Box sx={{ overflowY: "scroll", height: "100vh", width: 320, boxShadow: "0 0 2px rgba(0, 0, 0, 0.25)", backgroundColor: theme.palette.mode === "light" ? "#F8FAFF" : theme.palette.background }}>
         <Stack p={4} spacing={5}>
           {/* header */}
-            
+          <Stack direction={"row"} alignItems={"center"} justifyContent={"space-between"}>
+            <IconButton>
+              <CaretLeft size={24} color={'#435BD7'}></CaretLeft>
+            </IconButton>
+          </Stack>
+
           {/* profile */}
 
           {/* list of options */}
