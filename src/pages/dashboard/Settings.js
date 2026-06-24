@@ -3,6 +3,7 @@ import { Bell, CaretLeft, Image, Info, Key, Keyboard, Lock, Note, PencilCircle }
 import React from 'react'
 import { faker } from "@faker-js/faker"
 import { useState } from 'react'
+import Shortcuts from '../../sections/settings/Shortcuts'
 
 const Settings = () => {
   const theme = useTheme()
@@ -123,7 +124,10 @@ const Settings = () => {
 
         </Stack>
       </Box>
+      <Shortcuts open={true} handleClose={()=> {}}></Shortcuts>
+      
     </Stack>
+    
   )
 }
 
