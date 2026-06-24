@@ -1,4 +1,4 @@
-import { Avatar, Box, IconButton, Stack, Typography, useTheme } from '@mui/material'
+import { Avatar, Box, Divider, IconButton, Stack, Typography, useTheme } from '@mui/material'
 import { Bell, CaretLeft, Image, Info, Key, Keyboard, Lock, Note, PencilCircle } from 'phosphor-react'
 import React from 'react'
 import { faker } from "@faker-js/faker"
@@ -101,7 +101,25 @@ const Settings = () => {
           </Stack>
 
           {/* list of options */}
-          
+          <Stack spacing={4}>
+              {list.map(({ key, icon, title, onclick }) => {
+                return (
+                  <>
+                    <Stack
+                      onClick={onclick}
+                      sx={{ cursor: "pointer" }}
+                      spacing={2}
+                    >
+                      <Stack alignItems={"center"} direction="row" spacing={2}>
+                        {icon}
+                        <Typography variant="body2">{title}</Typography>
+                      </Stack>
+                      {key !== 7 && <Divider />}
+                    </Stack>
+                  </>
+                );
+              })}
+            </Stack>
 
         </Stack>
       </Box>
