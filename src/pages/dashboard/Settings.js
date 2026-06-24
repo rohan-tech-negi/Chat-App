@@ -1,10 +1,28 @@
 import { Avatar, Box, IconButton, Stack, Typography, useTheme } from '@mui/material'
-import { CaretLeft } from 'phosphor-react'
+import { Bell, CaretLeft, Image, Info, Key, Keyboard, Lock, Note, PencilCircle } from 'phosphor-react'
 import React from 'react'
 import { faker } from "@faker-js/faker"
+import { useState } from 'react'
 
 const Settings = () => {
   const theme = useTheme()
+  const [openTheme, setOpenTheme] = useState(false);
+   const handleOpenTheme = () => {
+    setOpenTheme(true);
+  };
+
+  const handleCloseTheme = () => {
+    setOpenTheme(false);
+  };
+  const [openShortcuts, setOpenShortcuts] = useState(false);
+
+  const handleOpenShortcuts = () => {
+    setOpenShortcuts(true);
+  };
+
+  const handleCloseShortcuts = () => {
+    setOpenShortcuts(false);
+  };
 
   const list = [
     {
@@ -83,6 +101,7 @@ const Settings = () => {
           </Stack>
 
           {/* list of options */}
+          
 
         </Stack>
       </Box>
