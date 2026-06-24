@@ -1,6 +1,7 @@
-import { Box, IconButton, Stack, Typography, useTheme } from '@mui/material'
+import { Avatar, Box, IconButton, Stack, Typography, useTheme } from '@mui/material'
 import { CaretLeft } from 'phosphor-react'
 import React from 'react'
+import { faker } from "@faker-js/faker"
 
 const Settings = () => {
   const theme = useTheme()
@@ -18,7 +19,9 @@ const Settings = () => {
           </Stack>
 
           {/* profile */}
-          
+          <Stack direction={"row"} spacing={3}>
+            <Avatar src={faker.image.avatar()}></Avatar>
+          </Stack>
 
           {/* list of options */}
 
