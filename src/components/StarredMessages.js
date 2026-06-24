@@ -10,11 +10,7 @@ import { DocMsg, LinkMsg } from './conversation/MsgTypes'
 const StarredMessages = () => {
   const theme = useTheme()
   const dispatch = useDispatch()
-   const [value, setValue] = React.useState(0);
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+   
   return (
     <Box sx={{width: 320, height: "100vh"}}>
       <Stack sx={{height: "100%",  }}>
@@ -40,42 +36,8 @@ const StarredMessages = () => {
         <Tab label="Links" />
         <Tab label="Docs" />
       </Tabs>
-        <Stack sx={{height: "100%", position: "relative", flexGrow: 1, overflowY: "scroll"}} p={3} spacing={value === 1 ? 1: 3}>
-            {(()=>{
-              switch (value) {
-                case 0:
-                    return(
-                      <Grid container spacing={2}>
-                    {
-                        [0,1,2,3,4,5,6].map((el)=>{
-                            return (
-                                <Grid item xs={4} key={el}>
-                                    <Box>
-                                        <img src={faker.image.avatar()} alt="" />
-                                    </Box>
-                                </Grid>
-                            )
-                        })
-                    }
-                </Grid>  
-                    )
-                
-                    
-                    break;
-                    case 1:
-                        return SHARED_LINKS.map((el)=> <LinkMsg el={el} menu={true}></LinkMsg>)
-
-                    
-                    break;
-                    case 2:
-                        return SHARED_DOCUMENTS.map((el)=> <DocMsg el={el} menu={true}></DocMsg>)
-                    
-                    break;
-              
-                default:
-                    break;
-              }
-            })()}
+        <Stack sx={{height: "100%", position: "relative", flexGrow: 1, overflowY: "scroll"}} p={3} spacing={2}>
+            
         </Stack>
       </Stack>
     </Box>

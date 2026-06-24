@@ -5,6 +5,7 @@ import Conversation from "../../components/conversation";
 import Contact from "../../components/Contact";
 import { useSelector } from "react-redux";
 import SharedMessage from "../../components/SharedMessage";
+import StarredMessages from "../../components/StarredMessages";
 // const Cat = lazy(()=> import ('../../components/Cat.js'))
 const GeneralApp = () => {
   const theme = useTheme()
@@ -29,7 +30,7 @@ const GeneralApp = () => {
           case "CONTACT":
             return <Contact/>
           case "STARRED":
-            // return <StarredMessages/>
+            return <StarredMessages/>
           case "SHARED":
             return <SharedMessage></SharedMessage>
         
