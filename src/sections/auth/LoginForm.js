@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import FormProvider from '../../components/hook-form/FormProvider'
 import { useState } from 'react';
+import { Alert, Stack } from '@mui/material';
 
 const LoginForm = () => {
 
@@ -50,7 +51,13 @@ const LoginForm = () => {
   };
   return (
     <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
+<Stack  spacing={3}>
+    {!!errors.afterSubmit && (
+          <Alert severity="error">{errors.afterSubmit.message}</Alert>
+        )}
 
+        
+</Stack>
     </FormProvider>
   )
 }
