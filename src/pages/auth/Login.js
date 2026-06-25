@@ -14,6 +14,9 @@ const Login = () => {
              Create an Account
           </Link>
       </Stack>
+      {/* loginform */}
+
+      {/* auth social */}
     </Stack>
     </>
   )
