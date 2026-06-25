@@ -5,9 +5,11 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import FormProvider from '../../components/hook-form/FormProvider'
 import { useState } from 'react';
-import { Alert, IconButton, InputAdornment, Stack } from '@mui/material';
+import { Alert, Button, IconButton, InputAdornment, Link, Stack } from '@mui/material';
 import { RHFTextField } from '../../components/hook-form';
 import { Eye, EyeSlash } from 'phosphor-react';
+import { Link as RouterLink } from "react-router-dom";
+import { LoadingButton } from '@mui/lab';
 
 const LoginForm = () => {
 
@@ -79,6 +81,32 @@ const LoginForm = () => {
 
 
 </Stack>
+ <Stack alignItems="flex-end" sx={{ my: 2 }}>
+        <Link component={RouterLink} to="/auth/reset-password" variant="body2" color="inherit" underline="always">
+          Forgot password?
+        </Link>
+      </Stack>
+ <Button
+        fullWidth
+        color="inherit"
+        size="large"
+        type="submit"
+        variant="contained"
+        // loading={isLoading}
+        sx={{
+          bgcolor: "text.primary",
+          color: (theme) =>
+            theme.palette.mode === "light" ? "common.white" : "grey.800",
+          "&:hover": {
+            bgcolor: "text.primary",
+            color: (theme) =>
+              theme.palette.mode === "light" ? "common.white" : "grey.800",
+          },
+        }}
+      >
+        Login
+      </Button>
+      
     </FormProvider>
   )
 }
