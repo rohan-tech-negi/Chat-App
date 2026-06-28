@@ -1,8 +1,8 @@
 import {useState} from 'react'
 import * as Yup from 'yup'
 import {useDispatch, useSelector} from "react-redux"
-
-
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 const RegisterForm = () => {
      const dispatch = useDispatch();
   const {isLoading} = useSelector((state) => state.auth);
@@ -22,6 +22,34 @@ const RegisterForm = () => {
     email: "demo@tawk.com",
     password: "demo1234",
   };
+
+   const methods = useForm({
+    resolver: yupResolver(LoginSchema),
+    defaultValues,
+  });
+
+  const {
+    reset,
+    setError,
+    handleSubmit,
+    formState: { errors },
+  } = methods;
+
+    const onSubmit = async (data) => {
+    try {
+      // submit data to backend
+    //   dispatch(RegisterUser(data));
+    } catch (error) {
+      console.error(error);
+      reset();
+      setError("afterSubmit", {
+        ...error,
+        message: error.message,
+      });
+    }
+  };
+
+  
   return (
     <div>RegisterForm</div>
   )
