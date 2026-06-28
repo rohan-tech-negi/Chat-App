@@ -1,11 +1,8 @@
-import { Box, IconButton, Stack, Typography, useTheme ,Tab, Tabs, Grid} from '@mui/material'
+import { Box, IconButton, Stack, Typography, useTheme } from '@mui/material'
 import React from 'react'
-import { CaretLeft, X } from 'phosphor-react'
-import { ToggleSidebar, UpdateSidebarType } from '../radux/slices/app'
+import { CaretLeft } from 'phosphor-react'
+import { UpdateSidebarType } from '../radux/slices/app'
 import { useDispatch } from 'react-redux'
-import {faker} from '@faker-js/faker'
-import { SHARED_DOCUMENTS, SHARED_LINKS } from '../data'
-import { DocMsg, LinkMsg } from './conversation/MsgTypes'
 import Message from './conversation/Message'
 
 const StarredMessages = () => {

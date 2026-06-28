@@ -1,24 +1,10 @@
-import { Avatar, Box, Stack, Badge, styled, Typography, IconButton, Divider, TextField, InputAdornment, Icon, useTheme } from '@mui/material'
+import { Box, Stack } from '@mui/material'
 import React from 'react'
-import { faker } from '@faker-js/faker'
-import { CaretDown, LinkSimple, MagnifyingGlass, PaperPlaneTilt, Phone, Smiley, VideoCamera } from 'phosphor-react';
 import Header from './Header';
 import Footer from './Footer';
 import Message from './Message';
 
-const StyledInput = styled(TextField)(({ theme }) => ({
-  
-      "&.MuiInputBase-input" : {
-        paddingTop: "12px",
-        paddingBottom: "12px"     
-      }
-  
-}));
-
-
-
 const Conversation = () => {
-  const theme = useTheme()
   return (
     <Stack height={"100%"} maxHeight={"100vh"} width={"auto"}>
         {/* chatheader */}

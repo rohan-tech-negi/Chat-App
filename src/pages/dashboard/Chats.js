@@ -1,6 +1,5 @@
 import { Avatar, Badge, Box, Button, Divider, IconButton, InputBase, Stack, Typography, alpha, styled } from '@mui/material'
 import {ArchiveBox, CircleDashed, MagnifyingGlass} from "phosphor-react"
-import {faker} from "@faker-js/faker"
 import { ChatList } from '../../data';
 // import SimpleBar from 'simplebar-react';
 import { SimpleBarStyle } from '../../components/Scrollbar';

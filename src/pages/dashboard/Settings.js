@@ -7,14 +7,6 @@ import Shortcuts from '../../sections/settings/Shortcuts'
 
 const Settings = () => {
   const theme = useTheme()
-  const [openTheme, setOpenTheme] = useState(false);
-   const handleOpenTheme = () => {
-    setOpenTheme(true);
-  };
-
-  const handleCloseTheme = () => {
-    setOpenTheme(false);
-  };
   const [openShortcuts, setOpenShortcuts] = useState(false);
 
   const handleOpenShortcuts = () => {
@@ -48,7 +40,7 @@ const Settings = () => {
       key: 3,
       icon: <PencilCircle size={20} />,
       title: "Theme",
-      onclick: handleOpenTheme,
+      onclick: () => {},
     },
     {
       key: 4,

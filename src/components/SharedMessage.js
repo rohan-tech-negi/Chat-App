@@ -1,7 +1,7 @@
 import { Box, IconButton, Stack, Typography, useTheme ,Tab, Tabs, Grid} from '@mui/material'
 import React from 'react'
-import { CaretLeft, X } from 'phosphor-react'
-import { ToggleSidebar, UpdateSidebarType } from '../radux/slices/app'
+import { CaretLeft } from 'phosphor-react'
+import { UpdateSidebarType } from '../radux/slices/app'
 import { useDispatch } from 'react-redux'
 import {faker} from '@faker-js/faker'
 import { SHARED_DOCUMENTS, SHARED_LINKS } from '../data'
@@ -59,18 +59,10 @@ const SharedMessage = () => {
                     }
                 </Grid>  
                     )
-                
-                    
-                    break;
-                    case 1:
-                        return SHARED_LINKS.map((el)=> <LinkMsg el={el} menu={true}></LinkMsg>)
-
-                    
-                    break;
-                    case 2:
-                        return SHARED_DOCUMENTS.map((el)=> <DocMsg el={el} menu={true}></DocMsg>)
-                    
-                    break;
+                case 1:
+                    return SHARED_LINKS.map((el)=> <LinkMsg el={el} menu={true}></LinkMsg>)
+                case 2:
+                    return SHARED_DOCUMENTS.map((el)=> <DocMsg el={el} menu={true}></DocMsg>)
               
                 default:
                     break;

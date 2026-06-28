@@ -12,37 +12,25 @@ const Message = ({menu}) => {
                     case "divider":
                         return <Timeline el={el}></Timeline>;
                         
-                        case "msg":
-                            switch (el.subtype) {
-                                    case "img":
-                                    // img msg
-                                    return <MediaMsg el={el} menu={menu}></MediaMsg>
-                                    
-                                    break;
-                                    case "doc":
-                                    // doc msg
-                                    return <DocMsg el={el} menu={menu}></DocMsg>
-                                    
-                                    break;
-                                    case "link":
-                                    // img msg
-                                    return <LinkMsg el={el} menu={menu}></LinkMsg>
-                                    
-                                    break;
-                                    case "reply":
-                                    // img msg
-                                    return <ReplyMsg el={el} menu={menu}></ReplyMsg>
-                                    
-                                    break;
-                            
-                                default:
-                                    return <TextMsg el={el} menu={menu}></TextMsg>;
-                                    
-                            }
-                        break;
-                
+                    case "msg":
+                        switch (el.subtype) {
+                            case "img":
+                                // img msg
+                                return <MediaMsg el={el} menu={menu}></MediaMsg>;
+                            case "doc":
+                                // doc msg
+                                return <DocMsg el={el} menu={menu}></DocMsg>;
+                            case "link":
+                                // link msg
+                                return <LinkMsg el={el} menu={menu}></LinkMsg>;
+                            case "reply":
+                                // reply msg
+                                return <ReplyMsg el={el} menu={menu}></ReplyMsg>;
+                            default:
+                                return <TextMsg el={el} menu={menu}></TextMsg>;
+                        }
                     default:
-                        break;
+                        return null;
                 }
             })}
         </Stack>

@@ -1,12 +1,6 @@
-import { Avatar, Box, Divider, IconButton, Stack, Switch, useTheme } from "@mui/material";
+import { Stack } from "@mui/material";
 import React from "react";
 import { Outlet } from "react-router-dom";
-import { Nav_Buttons, Nav_Setting } from "../../data";
-import Logo from "../../assets/Images/logo.ico"
-import { useState } from "react";
-import { faker } from "@faker-js/faker";
-import { styled } from "@mui/material/styles";
-import useSettings from "../../hooks/useSettings.js"
 import SideBar from "./SideBar.js";
 
 
