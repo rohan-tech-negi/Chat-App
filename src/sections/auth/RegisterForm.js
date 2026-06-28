@@ -3,6 +3,11 @@ import * as Yup from 'yup'
 import {useDispatch, useSelector} from "react-redux"
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import FormProvider from '../../components/hook-form/FormProvider';
+import { Alert, IconButton, InputAdornment, Stack } from '@mui/material';
+import { RHFTextField } from '../../components/hook-form';
+import { Eye, EyeSlash } from 'phosphor-react';
+import { LoadingButton } from '@mui/lab';
 const RegisterForm = () => {
      const dispatch = useDispatch();
   const {isLoading} = useSelector((state) => state.auth);
@@ -51,7 +56,63 @@ const RegisterForm = () => {
 
   
   return (
-    <div>RegisterForm</div>
+    <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
+        <Stack spacing={3} mb={4}>
+        {!!errors.afterSubmit && (
+          <Alert severity="error">{errors.afterSubmit.message}</Alert>
+        )}
+
+        <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
+          <RHFTextField name="firstName" label="First name" />
+          <RHFTextField name="lastName" label="Last name" />
+        </Stack>
+
+        <RHFTextField name="email" label="Email address" />
+
+        <RHFTextField
+          name="password"
+          label="Password"
+          type={showPassword ? "text" : "password"}
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="end">
+                <IconButton
+                edge="end"
+                  onClick={() => setShowPassword(!showPassword)}
+                 
+                >
+                  {showPassword ? <Eye /> : <EyeSlash />}
+                </IconButton>
+              </InputAdornment>
+            ),
+          }}
+        />
+      </Stack>
+
+       <LoadingButton
+        fullWidth
+        color="inherit"
+        size="large"
+        type="submit"
+        variant="contained"
+        loading={isLoading}
+        sx={{
+          bgcolor: "text.primary",
+          color: (theme) =>
+            theme.palette.mode === "light" ? "common.white" : "grey.800",
+          "&:hover": {
+            bgcolor: "text.primary",
+            color: (theme) =>
+              theme.palette.mode === "light" ? "common.white" : "grey.800",
+          },
+        }}
+      >
+        Create Account
+      </LoadingButton>
+
+
+
+    </FormProvider>
   )
 }
 
