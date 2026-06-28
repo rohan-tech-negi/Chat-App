@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import * as Yup from 'yup'
-import {useDispatch, useSelector} from "react-redux"
+import { useSelector } from "react-redux"
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import FormProvider from '../../components/hook-form/FormProvider';
@@ -9,8 +9,7 @@ import { RHFTextField } from '../../components/hook-form';
 import { Eye, EyeSlash } from 'phosphor-react';
 import { LoadingButton } from '@mui/lab';
 const RegisterForm = () => {
-     const dispatch = useDispatch();
-  const {isLoading} = useSelector((state) => state.auth);
+  const {isLoading} = useSelector((state) => state.auth || { isLoading: false });
   const [showPassword, setShowPassword] = useState(false);
 
   const LoginSchema = Yup.object().shape({

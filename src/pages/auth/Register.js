@@ -1,6 +1,8 @@
 import { Link, Stack, Typography } from '@mui/material'
 import { Link as RouterLink } from 'react-router-dom'
 import React from 'react'
+import RegisterForm from '../../sections/auth/RegisterForm'
+import AuthSocial from '../../sections/auth/AuthSocial'
 
 const Register = () => {
   return (
@@ -18,6 +20,10 @@ const Register = () => {
       </Stack>
 
       {/* register form */}
+      <RegisterForm />
+
+      {/* auth social */}
+      <AuthSocial />
 
       <Typography
         component="div"
