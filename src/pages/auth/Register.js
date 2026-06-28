@@ -1,4 +1,5 @@
-import { Stack } from '@mui/material'
+import { Link, Stack, Typography } from '@mui/material'
+import { Link as RouterLink } from 'react-router-dom'
 import React from 'react'
 
 const Register = () => {
@@ -15,6 +16,25 @@ const Register = () => {
           </Link>
         </Stack>
       </Stack>
+
+      {/* register form */}
+
+      <Typography
+        component="div"
+        sx={{ color: 'text.secondary', mt: 3, typography: 'caption', textAlign: 'center' }}
+      >
+        {'By signing up, I agree to '}
+        <Link underline="always" color="text.primary">
+          Terms of Service
+        </Link>
+        {' and '}
+        <Link underline="always" color="text.primary">
+          Privacy Policy
+        </Link>
+        .
+      </Typography>
+
+      
     </>
   )
 }
