@@ -1,8 +1,10 @@
+import { Stack } from '@mui/material'
 import React from 'react'
 
 const Register = () => {
   return (
-    <div>Register</div>
+    <>
+    </>
   )
 }
 
