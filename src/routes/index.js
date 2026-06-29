@@ -32,6 +32,9 @@ export default function Router() {
         },
         {
           element: <ResetPassword></ResetPassword>, path: "reset-password"
+        },
+        {
+          element: <NewPassword></NewPassword>, path: "new-password"
         }
       ]
     },
@@ -63,6 +66,10 @@ const RegisterPage = Loadable(
 )
 const ResetPassword = Loadable(
   lazy(()=> import("../sections/auth/ResetPassword"))
+)
+
+const NewPassword = Loadable(
+  lazy(()=> import("../sections/auth/NewPassword"))
 )
 
 const Settings = Loadable(

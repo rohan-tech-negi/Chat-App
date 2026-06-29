@@ -1,5 +1,7 @@
-import { Stack, Typography } from '@mui/material'
+import { Link, Stack, Typography } from '@mui/material'
 import React from 'react'
+import { CaretLeft } from 'phosphor-react'
+import { Link as RouterLink } from 'react-router-dom'
 
 const NewPassword = () => {
   return (
@@ -13,6 +15,23 @@ const NewPassword = () => {
           Please set your new password.
         </Typography>
       </Stack>
+
+
+      <Link
+        component={RouterLink}
+        to={"/auth/login"}
+        color="inherit"
+        variant="subtitle2"
+        sx={{
+          mt: 3,
+          mx: "auto",
+          alignItems: "center",
+          display: "inline-flex",
+        }}
+      >
+        <CaretLeft size={24} />
+        Return to sign in
+      </Link>
     
     </>
   )
