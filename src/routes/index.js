@@ -8,6 +8,7 @@ import DashboardLayout from "../layouts/dashboard";
 import { DEFAULT_PATH } from "../config";
 import LoadingScreen from "../components/LoadingScreen";
 import MainLayout from "../layouts/main";
+// import ResetPassword from "../sections/auth/ResetPassword";
 
 const Loadable = (Component) => (props) => {
   return (
@@ -28,6 +29,9 @@ export default function Router() {
         },
         {
           element : <RegisterPage></RegisterPage>, path: "register"
+        },
+        {
+          element: <ResetPassword></ResetPassword>, path: "reset-password"
         }
       ]
     },
@@ -57,6 +61,10 @@ const LoginPage = Loadable(
 const RegisterPage = Loadable(
   lazy(()=> import("../pages/auth/Register"))
 )
+const ResetPassword = Loadable(
+  lazy(()=> import("../pages/auth/ResetPassword"))
+)
+
 const Settings = Loadable(
   lazy(() => import("../pages/dashboard/Settings")),
 );
