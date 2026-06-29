@@ -62,7 +62,7 @@ const RegisterPage = Loadable(
   lazy(()=> import("../pages/auth/Register"))
 )
 const ResetPassword = Loadable(
-  lazy(()=> import("../pages/auth/ResetPassword"))
+  lazy(()=> import("../sections/auth/ResetPassword"))
 )
 
 const Settings = Loadable(
