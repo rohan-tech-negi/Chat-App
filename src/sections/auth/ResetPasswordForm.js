@@ -11,7 +11,7 @@ import { Eye, EyeSlash } from "phosphor-react";
 import { Link as RouterLink } from "react-router-dom";
 
 const ResetPasswordForm = () => {
-  const [showPassword, setShowPassword] = useState(false);
+  
 
   const ResetPasswordSchema = Yup.object().shape({
     email: Yup.string()
@@ -55,9 +55,7 @@ const ResetPasswordForm = () => {
           <Alert severity="error">{errors.afterSubmit.message}</Alert>
         )}
         <RHFTextField name="email" label="Email address" />
-      </Stack>
-
-      <Button
+        <Button
         fullWidth
         color="inherit"
         size="large"
@@ -75,8 +73,11 @@ const ResetPasswordForm = () => {
           },
         }}
       >
-        Login
+        Send Request
       </Button>
+      </Stack>
+
+      
     </FormProvider>
   );
 };
