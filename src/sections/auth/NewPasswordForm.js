@@ -10,8 +10,8 @@ import FormProvider, { RHFTextField } from '../../components/hook-form';
 import { Eye, EyeSlash } from 'phosphor-react';
 import { useSearchParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { NewPassword } from '../../redux/slices/auth';
-
+// import { NewPassword } from '../../redux/slices/auth';
+// import {NewPasswordForm} 
 // ----------------------------------------------------------------------
 
 export default function NewPasswordForm() {
@@ -47,7 +47,7 @@ export default function NewPasswordForm() {
   const onSubmit = async (data) => {
     try {
     //   Send API Request
-    dispatch(NewPassword({...data, token: queryParameters.get('token')}));
+    // dispatch(NewPassword({...data, token: queryParameters.get('token')}));
     } catch (error) {
       console.error(error);
     }
