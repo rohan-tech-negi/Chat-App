@@ -1,4 +1,4 @@
-import { Stack } from '@mui/material'
+import { Box, Stack } from '@mui/material'
 import React from 'react'
 
 const Group = () => {
@@ -6,7 +6,25 @@ const Group = () => {
     <>
     <Stack direction="row" sx={{ width: "100%" }}>
     {/* left */}
+    <Box
+          sx={{
+            overflowY: "scroll",
 
+            height: "100vh",
+            width: 320,
+            backgroundColor: (theme) =>
+              theme.palette.mode === "light"
+                ? "#F8FAFF"
+                : theme.palette.background,
+
+            boxShadow: "0px 0px 2px rgba(0, 0, 0, 0.25)",
+          }}
+        >
+
+            <Stack p={3} spacing={2} sx={{ maxHeight: "100vh" }}>
+                
+            </Stack>
+        </Box>
     {/* right */}
     </Stack>
     </>
