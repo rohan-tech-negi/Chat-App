@@ -4,6 +4,8 @@ import { Search, SearchIconWrapper, StyledInputBase } from '../../components/Sea
 import { Link, MagnifyingGlass, Plus } from 'phosphor-react'
 import { useState } from 'react'
 import { SimpleBarStyle } from '../../components/Scrollbar'
+import { ChatList } from '../../data'
+import ChatElement from '../../components/ChatElement'
 
 const Group = () => {
 
@@ -79,19 +81,19 @@ const Group = () => {
                     Pinned
                   </Typography>
                   {/* Chat List */}
-                  {/* {ChatList.filter((el) => el.pinned).map((el, idx) => {
+                  {ChatList.filter((el) => el.pinned).map((el, idx) => {
                     return <ChatElement {...el} />;
-                  })} */}
+                  })}
                   <Typography variant="subtitle2" sx={{ color: "#676667" }}>
                     All Chats
                   </Typography>
                   {/* Chat List */}
-                  {/* {ChatList.filter((el) => !el.pinned).map((el, idx) => {
+                  {ChatList.filter((el) => !el.pinned).map((el, idx) => {
                     return <ChatElement {...el} />;
-                  })} */}
+                  })}
                 </Stack>
               </SimpleBarStyle>
-            </Stack>
+            </Stack>  
 
 
             </Stack>
