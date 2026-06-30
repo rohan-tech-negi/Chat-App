@@ -6,6 +6,7 @@ import { useState } from 'react'
 import { SimpleBarStyle } from '../../components/Scrollbar'
 import { ChatList } from '../../data'
 import ChatElement from '../../components/ChatElement'
+import CreateGroup from '../../sections/main/CreateGroup'
 
 const Group = () => {
 
@@ -97,6 +98,7 @@ const Group = () => {
             </Stack>
         </Box>
     {/* right */}
+    {openDialog && <CreateGroup open={openDialog} handleClose={handleCloseDialog} />}
     </Stack>
     </>
   )
