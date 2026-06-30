@@ -2,6 +2,7 @@ import { Box, Stack, Typography } from '@mui/material'
 import React from 'react'
 
 const Group = () => {
+    
   return (
     <>
     <Stack direction="row" sx={{ width: "100%" }}>
@@ -41,6 +42,8 @@ const Group = () => {
                 />
               </Search>
             </Stack>
+
+
             </Stack>
         </Box>
     {/* right */}
