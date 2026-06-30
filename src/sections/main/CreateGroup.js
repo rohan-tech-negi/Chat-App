@@ -7,6 +7,22 @@ import FormProvider from "../../components/hook-form/FormProvider";
 import { RHFTextField } from "../../components/hook-form";
 import RHFAutocomplete from "../../components/hook-form/RHFAutocomplete";
 
+const TAGS_OPTION = [
+  "Toy Story 3",
+  "Logan",
+  "Full Metal Jacket",
+  "Dangal",
+  "The Sting",
+  "2001: A Space Odyssey",
+  "Singin' in the Rain",
+  "Toy Story",
+  "Bicycle Thieves",
+  "The Kid",
+  "Inglourious Basterds",
+  "Snatch",
+  "3 Idiots",
+];
+
 
 const CreateGroupForm = ({ handleClose }) => {
   const NewGroupSchema = Yup.object().shape({
