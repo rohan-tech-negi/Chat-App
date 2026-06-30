@@ -1,8 +1,9 @@
-import { Box, IconButton, Stack, Typography, useTheme } from '@mui/material'
+import { Box, Divider, IconButton, Stack, Typography, useTheme } from '@mui/material'
 import React from 'react'
 import { Search, SearchIconWrapper, StyledInputBase } from '../../components/Search'
 import { Link, MagnifyingGlass, Plus } from 'phosphor-react'
 import { useState } from 'react'
+import { SimpleBarStyle } from '../../components/Scrollbar'
 
 const Group = () => {
 
@@ -69,6 +70,7 @@ const Group = () => {
                 <Plus style={{ color: theme.palette.primary.main }} />
               </IconButton>
             </Stack>
+            <Divider></Divider>
 
             <Stack sx={{ flexGrow: 1, overflow: "scroll", height: "100%" }}>
               <SimpleBarStyle timeout={500} clickOnTrack={false}>
@@ -77,16 +79,16 @@ const Group = () => {
                     Pinned
                   </Typography>
                   {/* Chat List */}
-                  {ChatList.filter((el) => el.pinned).map((el, idx) => {
+                  {/* {ChatList.filter((el) => el.pinned).map((el, idx) => {
                     return <ChatElement {...el} />;
-                  })}
+                  })} */}
                   <Typography variant="subtitle2" sx={{ color: "#676667" }}>
                     All Chats
                   </Typography>
                   {/* Chat List */}
-                  {ChatList.filter((el) => !el.pinned).map((el, idx) => {
+                  {/* {ChatList.filter((el) => !el.pinned).map((el, idx) => {
                     return <ChatElement {...el} />;
-                  })}
+                  })} */}
                 </Stack>
               </SimpleBarStyle>
             </Stack>
