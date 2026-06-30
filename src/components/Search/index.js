@@ -1,15 +1,4 @@
 
-
-const SearchIconWrapper = styled("div")(({theme})=>({
-  padding: theme.spacing(0,2),
-  height: "100%",
-  position: "absolute",
-  display: "flex",
-  alignItems: "center",
-  pointerEvents: "none",
-  justifyContent: "center"
-}))
-
 const StyledInputBase = styled(InputBase)(({theme}) => ({
   color: "inherit",
   "& .MuiInputBase-input":{
