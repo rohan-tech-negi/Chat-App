@@ -1,5 +1,12 @@
-import { Dialog, DialogContent, DialogTitle, Slide } from '@mui/material'
+import { Dialog, DialogContent, DialogTitle, Slide, Stack } from '@mui/material'
 import React from 'react'
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as Yup from "yup";
+import { useForm } from "react-hook-form";
+import FormProvider from "../../components/hook-form/FormProvider";
+import { RHFTextField } from "../../components/hook-form";
+import RHFAutocomplete from "../../components/hook-form/RHFAutocomplete";
+
 
 const CreateGroupForm = ({ handleClose }) => {
   const NewGroupSchema = Yup.object().shape({
