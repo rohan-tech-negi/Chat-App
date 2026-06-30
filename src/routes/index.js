@@ -8,6 +8,7 @@ import DashboardLayout from "../layouts/dashboard";
 import { DEFAULT_PATH } from "../config";
 import LoadingScreen from "../components/LoadingScreen";
 import MainLayout from "../layouts/main";
+import Call from "../pages/dashboard/Call";
 // import ResetPassword from "../sections/auth/ResetPassword";
 
 const Loadable = (Component) => (props) => {
@@ -45,6 +46,7 @@ export default function Router() {
         { element: <Navigate to={DEFAULT_PATH} replace />, index: true },
         { path: "app", element: <GeneralApp /> },
         { path: "group", element: <GroupPage /> },
+        {path: "call", element: <Call></Call>},
         // settings
         {path: "settings", element: <Settings></Settings>},
         
@@ -75,6 +77,10 @@ const NewPassword = Loadable(
 
 const Settings = Loadable(
   lazy(() => import("../pages/dashboard/Settings")),
+);
+
+const CallPage = Loadable(
+  lazy(() => import("../pages/dashboard/Call")),
 );
 
 const GroupPage = Loadable(lazy(() => import("../pages/dashboard/Group")));
