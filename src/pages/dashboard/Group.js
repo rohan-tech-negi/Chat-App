@@ -1,4 +1,4 @@
-import { Box, Stack } from '@mui/material'
+import { Box, Stack, Typography } from '@mui/material'
 import React from 'react'
 
 const Group = () => {
@@ -22,7 +22,25 @@ const Group = () => {
         >
 
             <Stack p={3} spacing={2} sx={{ maxHeight: "100vh" }}>
-                
+                <Stack
+              alignItems={"center"}
+              justifyContent="space-between"
+              direction="row"
+            >
+                <Typography variant="h5">Groups</Typography>
+            </Stack>
+
+            <Stack sx={{ width: "100%" }}>
+              <Search>
+                <SearchIconWrapper>
+                  <MagnifyingGlass color="#709CE6" />
+                </SearchIconWrapper>
+                <StyledInputBase
+                  placeholder="Search…"
+                  inputProps={{ "aria-label": "search" }}
+                />
+              </Search>
+            </Stack>
             </Stack>
         </Box>
     {/* right */}
