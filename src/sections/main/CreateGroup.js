@@ -1,7 +1,7 @@
 import { Dialog, DialogTitle, Slide } from '@mui/material'
 import React from 'react'
 
-const CreateGroup = () => {
+const CreateGroup = ({ open, handleClose }) => {
 
     const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
