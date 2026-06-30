@@ -1,5 +1,7 @@
 import { Box, Stack, Typography } from '@mui/material'
 import React from 'react'
+import { Search, SearchIconWrapper, StyledInputBase } from '../../components/Search'
+import { MagnifyingGlass } from 'phosphor-react'
 
 const Group = () => {
     
