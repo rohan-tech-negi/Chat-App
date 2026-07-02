@@ -285,6 +285,42 @@ const SHARED_LINKS=[
   },
   
  ]
+
+const CallList = [
+  {
+    id: 0,
+    img: faker.image.avatar(),
+    name: faker.name.firstName(),
+    online: true,
+    incoming: true,
+    missed: false,
+  },
+  {
+    id: 1,
+    img: faker.image.avatar(),
+    name: faker.name.firstName(),
+    online: false,
+    incoming: false,
+    missed: true,
+  },
+  {
+    id: 2,
+    img: faker.image.avatar(),
+    name: faker.name.firstName(),
+    online: true,
+    incoming: true,
+    missed: true,
+  },
+  {
+    id: 3,
+    img: faker.image.avatar(),
+    name: faker.name.firstName(),
+    online: false,
+    incoming: false,
+    missed: false,
+  },
+];
+
 export {
   Profile_Menu,
   Nav_Setting,
@@ -293,5 +329,7 @@ export {
   Chat_History,
   Message_options,
   SHARED_LINKS,
-  SHARED_DOCUMENTS
+  SHARED_DOCUMENTS,
+  CallList,
 };
+

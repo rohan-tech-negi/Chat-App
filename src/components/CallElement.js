@@ -1,6 +1,7 @@
-import { Avatar, Box, Stack, styled, useTheme } from '@mui/material';
+import { Avatar, Box, IconButton, Stack, Typography, styled, useTheme } from '@mui/material';
 import React from 'react'
-import { faker } from '@faker-js/faker';
+import { ArrowDownLeft, ArrowUpRight, Phone, VideoCamera } from 'phosphor-react';
+import StyledBadge from './StyledBadge';
 
 const StyledChatBox = styled(Box)(({ theme }) => ({
   "&:hover": {
@@ -33,10 +34,53 @@ const CallLogElement = ({ img, name, incoming, missed, online, id }) => {
         justifyContent="space-between"
       >
 
-        <Avatar src={faker.image.avatar()}>
+        <Stack direction="row" spacing={2}>
+{online ? (
+            <StyledBadge
+            
+              overlap="circular"
+              anchorOrigin={{
+                vertical: "bottom",
+                horizontal: "right",
+              }}
+              variant="dot"
+            >
+              <Avatar src={img} />
+            </StyledBadge>
+          ) : (
+            <Avatar src={img} />
+          )}
+          <Stack spacing={0.3}>
+            <Typography variant="subtitle2">{name}</Typography>
+            <Stack spacing={1} alignItems="center" direction={"row"}>
+              {incoming ? (
+                <ArrowDownLeft color={missed ? "red" : "green"} />
+              ) : (
+                <ArrowUpRight color={missed ? "red" : "green"} />
+              )}
+              <Typography variant="caption">Yesterday 21:24</Typography>
+            </Stack>
+          </Stack>
+            
+        </Stack>
+        <Stack direction={"row"} spacing={2} alignItems={"center"}>
+          <IconButton>
 
-        </Avatar>
-      </Stack>
+          <Phone/>
+
+          </IconButton>
+
+          <VideoCamera />
+        </Stack>
+
+
+        
+        </Stack>
+
+
+
+        
+      
 
     </StyledChatBox>
 

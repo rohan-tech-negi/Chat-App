@@ -16,6 +16,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { SimpleBarStyle } from "../../components/Scrollbar";
 import { useState } from 'react';
 import { CallLogElement } from "../../components/CallElement";
+import { CallList } from "../../data";
 
 const Call = () => {
     const dispatch = useDispatch();
@@ -80,10 +81,9 @@ const Call = () => {
             <Stack sx={{ flexGrow: 1, overflow: "scroll", height: "100%" }}>
               <SimpleBarStyle timeout={500} clickOnTrack={false}>
                 <Stack spacing={2.4}>
-                  {/* {call_logs.map((el, idx) => {
+                  {CallList.map((el, idx) => {
                     return <CallLogElement key={idx} {...el} />;
-                  })} */}
-                  <CallLogElement></CallLogElement>
+                  })}
                 </Stack>
               </SimpleBarStyle>
             </Stack>
