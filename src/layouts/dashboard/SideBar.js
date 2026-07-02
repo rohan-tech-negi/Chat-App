@@ -29,9 +29,8 @@ const getMenuPath = (index) => {
     case 1:
       return "/settings";
     case 2:
-      return "/call";
-    case 3:
-      return "/settings";
+      return "/auth/login";
+  
     default:
       return "/";
   }
@@ -102,7 +101,7 @@ const SideBar = () => {
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
-    alert(event.currentTarget)
+    // alert(event.currentTarget)
     
   };
   const handleClose = () => {
@@ -199,9 +198,11 @@ const SideBar = () => {
           {Profile_Menu.map((el, idx) => (
             <MenuItem  onClick={()=>{
               handleClick()
-              navigate(getMenuPath(idx))
+              
             }}>
-              <Stack sx={{width: 100}} direction="row" alignItems="center" justifyContent="space-between">
+              <Stack onClick={()=>{
+                navigate(getMenuPath(idx))
+              }} sx={{width: 100}} direction="row" alignItems="center" justifyContent="space-between">
                 <span>
                   {el.title}
                 </span>
