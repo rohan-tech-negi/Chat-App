@@ -71,7 +71,14 @@ const AntSwitch = styled(Switch)(({ theme }) => ({
   },
 }));
 
+
+
+
+
 const SideBar = () => {
+  // const navigate = useNavigate();
+
+
 
   const id = React.useId();
   const buttonId = `${id}-button`;
@@ -83,6 +90,7 @@ const SideBar = () => {
   };
   const handleClose = () => {
     setAnchorEl(null);
+    
   };
     const theme = useTheme();
     const navigate = useNavigate();
@@ -120,6 +128,7 @@ const SideBar = () => {
           ) : (
             <IconButton onClick={()=>{
               navigate(getPath(el.index));
+              // navigate("/call")   
             }} sx={{width:"max-content",color: theme.palette.mode === "light" ? "black" : theme.palette.text.primary}} key={el.index}>{el.icon}</IconButton>
           )
         )}

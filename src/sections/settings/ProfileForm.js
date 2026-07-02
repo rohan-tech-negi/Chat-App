@@ -10,6 +10,7 @@ import { RHFTextField } from '../../components/hook-form';
 import { Eye, EyeSlash } from 'phosphor-react';
 import { Link as RouterLink } from "react-router-dom";
 import { useCallback } from 'react';
+import { LoadingButton } from '@mui/lab';
 
 const ProfileForm = () => {
 
@@ -90,6 +91,18 @@ const ProfileForm = () => {
         <RHFTextField name="name" label="name" helperText={"this name is visible to your contacts"}/>
 
          <RHFTextField multiline rows={4} name="about" label="About" maxRows={5}/>
+
+         <Stack direction={"row"} justifyContent="end">
+          <LoadingButton
+            color="primary"
+            size="large"
+            type="submit"
+            variant="contained"
+            // loading={isSubmitSuccessful || isSubmitting}
+          >
+            Save
+          </LoadingButton>
+        </Stack>
 
 
 
