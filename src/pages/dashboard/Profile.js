@@ -1,5 +1,6 @@
 import React from 'react'
 import { Box, Divider, IconButton, Stack, Typography, useTheme } from '@mui/material'
+import { CaretLeft } from 'phosphor-react'
 
 const Profile = () => {
   return (
@@ -18,9 +19,33 @@ const Profile = () => {
             boxShadow: "0px 0px 2px rgba(0, 0, 0, 0.25)",
           }}
         >
+          <Stack p={4} spacing={5}>
+
+             <Stack direction="row" alignItems={"center"} spacing={3}>
+              <IconButton>
+                <CaretLeft size={24} color={"#4B4B4B"} />
+              </IconButton>
+
+              <Typography variant="h5">Profile</Typography>
+            </Stack>
+          </Stack>
 
 
         </Box>
+
+
+        {/* right panel */}
+        <Box
+          sx={{
+            height: "100%",
+            width: "calc(100vw - 420px )",
+            backgroundColor: (theme) =>
+              theme.palette.mode === "light"
+                ? "#FFF"
+                : theme.palette.background.paper,
+            borderBottom: "6px solid #0162C4",
+          }}
+        ></Box>
     </Stack>
    </>
   )
