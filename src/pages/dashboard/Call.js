@@ -16,7 +16,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { SimpleBarStyle } from "../../components/Scrollbar";
 import { useState } from 'react';
 import { CallLogElement } from "../../components/CallElement";
-import { CallList } from "../../data";
+import {CallList} from "../../data/index"
 
 const Call = () => {
     const dispatch = useDispatch();
