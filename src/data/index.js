@@ -322,10 +322,51 @@ const CallList = [
   },
 ];
 
+
+const MembersList = [
+  {
+   
+    id: 0,
+    img: faker.image.avatar(),
+    name: faker.name.firstName(),
+ 
+  },
+  {
+   
+    id: 1,
+    img: faker.image.avatar(),
+    name: faker.name.firstName(),
+ 
+  },
+  {
+   
+    id: 2,
+    img: faker.image.avatar(),
+    name: faker.name.firstName(),
+ 
+  },
+  {
+   
+    id: 3,
+    img: faker.image.avatar(),
+    name: faker.name.firstName(),
+ 
+  },
+  {
+   
+    id: 4,
+    img: faker.image.avatar(),
+    name: faker.name.firstName(),
+ 
+  },
+  
+]
+
  
 
 
 export {
+  MembersList,
   CallList,
   Profile_Menu,
   Nav_Setting,
@@ -336,6 +377,6 @@ export {
   SHARED_LINKS,
   SHARED_DOCUMENTS,
 
-  
+
 };
 

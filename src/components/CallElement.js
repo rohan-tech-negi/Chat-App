@@ -38,19 +38,19 @@ const CallElement = ({ img, name, id, handleClose }) => {
         </Stack>
         <Stack direction={"row"} spacing={2} alignItems={"center"}>
           <IconButton
-            onClick={() => {
-              dispatch(StartAudioCall(id));
-              handleClose();
-            }}
+            // onClick={() => {
+            //   dispatch(StartAudioCall(id));
+            //   handleClose();
+            // }}
           >
             <Phone style={{ color: theme.palette.primary.main }} />
           </IconButton>
 
           <IconButton
-            onClick={() => {
-              dispatch(StartVideoCall(id));
-              handleClose();
-            }}
+            // onClick={() => {
+            //   dispatch(StartVideoCall(id));
+            //   handleClose();
+            // }}
           >
             <VideoCamera style={{ color: theme.palette.primary.main }} />
           </IconButton>
