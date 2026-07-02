@@ -22,6 +22,21 @@ const getPath = (index) => {
   }
 };
 
+const getMenuPath = (index) => {
+  switch (index) {
+    case 0:
+      return "/profile";
+    case 1:
+      return "/settings";
+    case 2:
+      return "/call";
+    case 3:
+      return "/settings";
+    default:
+      return "/";
+  }
+}
+
 const AntSwitch = styled(Switch)(({ theme }) => ({
   width: 40,
   height: 20,
@@ -87,6 +102,8 @@ const SideBar = () => {
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
+    alert(event.currentTarget)
+    
   };
   const handleClose = () => {
     setAnchorEl(null);
@@ -179,8 +196,11 @@ const SideBar = () => {
 
 
         <Stack spacing={1} px={1}>
-          {Profile_Menu.map((el) => (
-            <MenuItem key={el.title} onClick={handleClick}>
+          {Profile_Menu.map((el, idx) => (
+            <MenuItem  onClick={()=>{
+              handleClick()
+              navigate(getMenuPath(idx))
+            }}>
               <Stack sx={{width: 100}} direction="row" alignItems="center" justifyContent="space-between">
                 <span>
                   {el.title}
