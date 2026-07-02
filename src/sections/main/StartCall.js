@@ -26,9 +26,10 @@ const StartCall = ({ open, handleClose }) => {
         >{"Start New Conversation"}</DialogTitle>
 
         <DialogContent>
+            <Stack spacing={2.4}>
             <Stack sx={{ height: "100%" }}>
 
-                <Stack spacing={2.4}>
+                
                     <Stack sx={{ width: "100%" }}>
               <Search>
                 <SearchIconWrapper>
