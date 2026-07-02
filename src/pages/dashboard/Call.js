@@ -5,17 +5,17 @@ import {
   IconButton,
   Stack,
   Typography,
-
   Link,
+  useTheme,
 } from "@mui/material";
 import { MagnifyingGlass, Phone } from "phosphor-react";
-import { Search, SearchIconWrapper, StyledInputBase } from "../../components/search";
-import { useTheme } from "@emotion/react";
+import { Search, SearchIconWrapper, StyledInputBase } from "../../components/Search";
 import { useDispatch, useSelector } from "react-redux";
 // import { StartCall } from "../../components/StartCall";
 // import CallLogElement from "../../components/CallLogElement";
 import { SimpleBarStyle } from "../../components/Scrollbar";
 import { useState } from 'react';
+import { CallLogElement } from "../../components/CallElement";
 
 const Call = () => {
     const dispatch = useDispatch();
@@ -38,7 +38,7 @@ const Call = () => {
             backgroundColor: (theme) =>
               theme.palette.mode === "light"
                 ? "#F8FAFF"
-                : theme.palette.background,
+                : theme.palette.background.paper,
 
             boxShadow: "0px 0px 2px rgba(0, 0, 0, 0.25)",
           }}
@@ -83,7 +83,7 @@ const Call = () => {
                   {/* {call_logs.map((el, idx) => {
                     return <CallLogElement key={idx} {...el} />;
                   })} */}
-                  call logs
+                  <CallLogElement></CallLogElement>
                 </Stack>
               </SimpleBarStyle>
             </Stack>

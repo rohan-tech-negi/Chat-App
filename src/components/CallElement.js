@@ -1,4 +1,4 @@
-import { Box, styled, useTheme } from '@mui/material';
+import { Box, Stack, styled, useTheme } from '@mui/material';
 import React from 'react'
 
 const StyledChatBox = styled(Box)(({ theme }) => ({
@@ -25,7 +25,17 @@ const CallLogElement = () => {
         backgroundColor: theme.palette.background.paper,
       }}
       p={2}
-    ></StyledChatBox>
+    >
+         <Stack
+        direction="row"
+        alignItems={"center"}
+        justifyContent="space-between"
+      >
+
+        
+      </Stack>
+
+    </StyledChatBox>
 
     </>
   )
