@@ -329,6 +329,7 @@ const MembersList = [
     id: 0,
     img: faker.image.avatar(),
     name: faker.name.firstName(),
+    online: true
  
   },
   {
@@ -336,13 +337,14 @@ const MembersList = [
     id: 1,
     img: faker.image.avatar(),
     name: faker.name.firstName(),
+    online: false
  
   },
   {
    
     id: 2,
     img: faker.image.avatar(),
-    name: faker.name.firstName(),
+    name: faker.name.firstName(),online: true
  
   },
   {
@@ -350,13 +352,14 @@ const MembersList = [
     id: 3,
     img: faker.image.avatar(),
     name: faker.name.firstName(),
- 
+ online: false
   },
   {
    
     id: 4,
     img: faker.image.avatar(),
     name: faker.name.firstName(),
+    online: true
  
   },
   

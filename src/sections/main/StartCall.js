@@ -3,6 +3,7 @@ import React from 'react'
 import { Search, SearchIconWrapper, StyledInputBase } from '../../components/Search';
 import { MagnifyingGlass } from 'phosphor-react';
 import { CallElement } from '../../components/CallElement';
+import { MembersList } from '../../data';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -46,7 +47,9 @@ const StartCall = ({ open, handleClose }) => {
 
 
             {/* call list */}
-            <CallElement></CallElement>
+            {MembersList.map((el, idx) => {
+              return <CallElement key={idx} {...el} handleClose={handleClose} />;
+            })}
 
 
         </DialogContent>
