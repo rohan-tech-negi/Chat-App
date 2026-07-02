@@ -1,4 +1,18 @@
 import React from 'react'
+import {
+  Box,
+  Divider,
+  IconButton,
+  Stack,
+  Typography,
+  Link,
+} from "@mui/material";
+import { MagnifyingGlass, Phone } from "phosphor-react";
+import { Search, SearchIconWrapper, StyledInputBase } from "../../components/search";
+import { useTheme } from "@emotion/react";
+import { useDispatch, useSelector } from "react-redux";
+import { StartCall } from "../../components/StartCall";
+import CallLogElement from "../../components/CallLogElement";
 
 const Call = () => {
   return (
