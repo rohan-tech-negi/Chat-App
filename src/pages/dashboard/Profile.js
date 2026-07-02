@@ -1,4 +1,5 @@
 import React from 'react'
+import { Box, Divider, IconButton, Stack, Typography, useTheme } from '@mui/material'
 
 const Profile = () => {
   return (
@@ -18,7 +19,7 @@ const Profile = () => {
           }}
         >
 
-          
+
         </Box>
     </Stack>
    </>
