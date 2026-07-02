@@ -17,12 +17,16 @@ import { SimpleBarStyle } from "../../components/Scrollbar";
 import { useState } from 'react';
 import { CallLogElement } from "../../components/CallElement";
 import {CallList} from "../../data/index"
+import StartCall from "../../sections/main/StartCall";
 
 const Call = () => {
     const dispatch = useDispatch();
   const [openDialog, setOpenDialog] = useState(false);
     const handleOpenDialog = () => {
     setOpenDialog(true);
+  };
+   const handleCloseDialog = () => {
+    setOpenDialog(false);
   };
   const theme  = useTheme()
   return (
@@ -88,9 +92,9 @@ const Call = () => {
           </Stack>
         </Box>
       </Stack>
-      {/* {openDialog && (
+      {openDialog && (
         <StartCall open={openDialog} handleClose={handleCloseDialog} />
-      )} */}
+      )}
     </>
   )
 }

@@ -1,6 +1,11 @@
+import { Dialog, DialogContent, DialogTitle, Slide, Stack } from '@mui/material'
 import React from 'react'
 
-const StartCall = () => {
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
+
+const StartCall = ({ open, handleClose }) => {
   return (
    <Dialog
       fullWidth
@@ -11,8 +16,24 @@ const StartCall = () => {
       onClose={handleClose}
       aria-describedby="alert-dialog-slide-description"
       sx={{ p: 4 }}
-    ></Dialog>
-    
+    >
+
+        <DialogTitle
+        >{"Start New Conversation"}</DialogTitle>
+
+        <DialogContent>
+            <Stack sx={{ height: "100%" }}>
+
+                <Stack spacing={2.4}>
+
+
+                </Stack>
+            </Stack>
+
+
+        </DialogContent>
+    </Dialog>
+
   )
 }
 
