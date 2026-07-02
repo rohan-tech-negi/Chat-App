@@ -2,6 +2,7 @@ import { Avatar, Box, IconButton, Stack, Typography, styled, useTheme } from '@m
 import React from 'react'
 import { ArrowDownLeft, ArrowUpRight, Phone, VideoCamera } from 'phosphor-react';
 import StyledBadge from './StyledBadge';
+import { useDispatch } from "react-redux";
 
 const StyledChatBox = styled(Box)(({ theme }) => ({
   "&:hover": {
@@ -9,9 +10,53 @@ const StyledChatBox = styled(Box)(({ theme }) => ({
   },
 }));
 
-const CallElement = () => {
+const CallElement = ({ img, name, id, handleClose }) => {
+     const dispatch = useDispatch();
+  const theme = useTheme();
   return (
-    <div>CallElement</div>
+    <StyledChatBox
+      sx={{
+        width: "100%",
+
+        borderRadius: 1,
+
+        backgroundColor: theme.palette.background.paper,
+      }}
+      p={2}
+    >
+      <Stack
+        direction="row"
+        alignItems={"center"}
+        justifyContent="space-between"
+      >
+        <Stack direction="row" spacing={2}>
+          {" "}
+          <Avatar alt={name} src={img} />
+          <Stack spacing={0.3} alignItems="center" direction={"row"}>
+            <Typography variant="subtitle2">{name}</Typography>
+          </Stack>
+        </Stack>
+        <Stack direction={"row"} spacing={2} alignItems={"center"}>
+          <IconButton
+            onClick={() => {
+              dispatch(StartAudioCall(id));
+              handleClose();
+            }}
+          >
+            <Phone style={{ color: theme.palette.primary.main }} />
+          </IconButton>
+
+          <IconButton
+            onClick={() => {
+              dispatch(StartVideoCall(id));
+              handleClose();
+            }}
+          >
+            <VideoCamera style={{ color: theme.palette.primary.main }} />
+          </IconButton>
+        </Stack>
+      </Stack>
+    </StyledChatBox>
   )
 }
 
