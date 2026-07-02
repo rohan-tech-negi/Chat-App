@@ -16,6 +16,15 @@ const bodyParser = require("body-parser")
 
 const xss = require("xss")
 
+const cors = require("cors")
+
+
+app.use(cors({
+    origin: "*",
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"]
+}))
 
 
 
