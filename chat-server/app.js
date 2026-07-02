@@ -42,7 +42,26 @@ const limiter = rateLimit({
 })
 
 app.use("/api",limiter)
-app.use(xss())
+// Custom XSS Sanitization Middleware
+const sanitizeXSS = (data) => {
+    if (typeof data === "string") {
+        return xss(data);
+    }
+    if (typeof data === "object" && data !== null) {
+        for (const key in data) {
+            data[key] = sanitizeXSS(data[key]);
+        }
+    }
+    return data;
+};
+
+app.use((req, res, next) => {
+    if (req.body) req.body = sanitizeXSS(req.body);
+    if (req.query) req.query = sanitizeXSS(req.query);
+    if (req.params) req.params = sanitizeXSS(req.params);
+    next();
+});
+
 app.use(mongosanitize())
 
 
