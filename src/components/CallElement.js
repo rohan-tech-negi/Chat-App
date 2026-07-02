@@ -14,7 +14,7 @@ const CallElement = () => {
   )
 }
 
-const CallLogElement = () => {
+const CallLogElement = ({ img, name, incoming, missed, online, id }) => {
     const theme = useTheme();
   return (
     <> <StyledChatBox
@@ -33,7 +33,7 @@ const CallLogElement = () => {
         justifyContent="space-between"
       >
 
-        <Avatar src={faker.image.Avatar}>
+        <Avatar src={faker.image.avatar()}>
 
         </Avatar>
       </Stack>
