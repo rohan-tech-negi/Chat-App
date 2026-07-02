@@ -1,5 +1,6 @@
-import { Box, Stack, styled, useTheme } from '@mui/material';
+import { Avatar, Box, Stack, styled, useTheme } from '@mui/material';
 import React from 'react'
+import { faker } from '@faker-js/faker';
 
 const StyledChatBox = styled(Box)(({ theme }) => ({
   "&:hover": {
@@ -32,7 +33,9 @@ const CallLogElement = () => {
         justifyContent="space-between"
       >
 
-        
+        <Avatar src={faker.image.Avatar}>
+
+        </Avatar>
       </Stack>
 
     </StyledChatBox>
