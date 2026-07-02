@@ -136,7 +136,7 @@ const SideBar = () => {
 
       </Box>
       <Stack sx={{width: "max-content"}} direction="column" alignItems="center" spacing={3}>
-        {Nav_Buttons.map((el)=> 
+        {Nav_Buttons.map( (el)=> 
           el.index === selected ? (
             <Box sx={{backgroundColor: theme.palette.primary.main, borderRadius: 1.5}} key={el.index}>
               <IconButton sx={{width:"max-content", color: theme.palette.mode === "light" ? "white" : theme.palette.text.primary}}>{el.icon}</IconButton>
