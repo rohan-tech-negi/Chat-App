@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from 'react'
 import {
   Box,
   Divider,
@@ -12,12 +12,13 @@ import { MagnifyingGlass, Phone } from "phosphor-react";
 import { Search, SearchIconWrapper, StyledInputBase } from "../../components/search";
 import { useTheme } from "@emotion/react";
 import { useDispatch, useSelector } from "react-redux";
-import { StartCall } from "../../components/StartCall";
-import CallLogElement from "../../components/CallLogElement";
+// import { StartCall } from "../../components/StartCall";
+// import CallLogElement from "../../components/CallLogElement";
 import { SimpleBarStyle } from "../../components/Scrollbar";
 import { useState } from 'react';
 
 const Call = () => {
+    const dispatch = useDispatch();
   const [openDialog, setOpenDialog] = useState(false);
     const handleOpenDialog = () => {
     setOpenDialog(true);
