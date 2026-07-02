@@ -9,6 +9,7 @@ import { Alert, Button, IconButton, InputAdornment, Link, Stack } from '@mui/mat
 import { RHFTextField } from '../../components/hook-form';
 import { Eye, EyeSlash } from 'phosphor-react';
 import { Link as RouterLink } from "react-router-dom";
+import { useCallback } from 'react';
 
 const ProfileForm = () => {
 
@@ -19,7 +20,7 @@ const ProfileForm = () => {
       .required("name is required"),
     about: Yup.string().required("about is required"),
 
-    avatarUrl : Yup.string().require("Avatar is required").nullable(true)
+    avatarUrl : Yup.string().required("Avatar is required").nullable(true)
   });
 
     const defaultValues = {
@@ -36,13 +37,34 @@ const ProfileForm = () => {
     reset,
     watch,
     control,
+    setValue,
     setError,
     handleSubmit,
     formState: { errors },
   } = methods;
 
+  const values = watch();
 
-  
+
+  const handleDrop = useCallback(
+    (acceptedFiles) => {
+      const file = acceptedFiles[0];
+
+    //   setFile(file);
+
+      const newFile = Object.assign(file, {
+        preview: URL.createObjectURL(file),
+      });
+
+      if (file) {
+        setValue("avatarUrl", newFile, { shouldValidate: true });
+      }
+    },
+    [setValue]
+  );
+
+
+
 
    const onSubmit = async (data) => {
     try {
@@ -65,7 +87,9 @@ const ProfileForm = () => {
     {!!errors.afterSubmit && (
           <Alert severity="error">{errors.afterSubmit.message}</Alert>
         )}
-        <RHFTextField name="email" label="Email address" />
+        <RHFTextField name="name" label="name" helperText={"this name is visible to your contacts"}/>
+
+         <RHFTextField multiline rows={4} name="about" label="About" maxRows={5}/>
 
 
 

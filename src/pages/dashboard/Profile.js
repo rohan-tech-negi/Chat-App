@@ -1,6 +1,7 @@
 import React from 'react'
 import { Box, Divider, IconButton, Stack, Typography, useTheme } from '@mui/material'
 import { CaretLeft } from 'phosphor-react'
+import ProfileForm from '../../sections/settings/ProfileForm'
 
 const Profile = () => {
   return (
@@ -28,6 +29,7 @@ const Profile = () => {
 
               <Typography variant="h5">Profile</Typography>
             </Stack>
+            <ProfileForm></ProfileForm>
           </Stack>
 
 
