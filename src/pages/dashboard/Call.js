@@ -5,6 +5,7 @@ import {
   IconButton,
   Stack,
   Typography,
+
   Link,
 } from "@mui/material";
 import { MagnifyingGlass, Phone } from "phosphor-react";
@@ -13,8 +14,15 @@ import { useTheme } from "@emotion/react";
 import { useDispatch, useSelector } from "react-redux";
 import { StartCall } from "../../components/StartCall";
 import CallLogElement from "../../components/CallLogElement";
+import { SimpleBarStyle } from "../../components/Scrollbar";
+import { useState } from 'react';
 
 const Call = () => {
+  const [openDialog, setOpenDialog] = useState(false);
+    const handleOpenDialog = () => {
+    setOpenDialog(true);
+  };
+  const theme  = useTheme()
   return (
     <>
       <Stack direction="row" sx={{ width: "100%" }}>
@@ -71,18 +79,19 @@ const Call = () => {
             <Stack sx={{ flexGrow: 1, overflow: "scroll", height: "100%" }}>
               <SimpleBarStyle timeout={500} clickOnTrack={false}>
                 <Stack spacing={2.4}>
-                  {call_logs.map((el, idx) => {
+                  {/* {call_logs.map((el, idx) => {
                     return <CallLogElement key={idx} {...el} />;
-                  })}
+                  })} */}
+                  call logs
                 </Stack>
               </SimpleBarStyle>
             </Stack>
           </Stack>
         </Box>
       </Stack>
-      {openDialog && (
+      {/* {openDialog && (
         <StartCall open={openDialog} handleClose={handleCloseDialog} />
-      )}
+      )} */}
     </>
   )
 }
