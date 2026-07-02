@@ -73,6 +73,8 @@ const CallLogElement = ({ img, name, incoming, missed, online, id }) => {
           <VideoCamera />
         </Stack>
 
+        
+
 
         
         </Stack>

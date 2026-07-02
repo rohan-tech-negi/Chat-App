@@ -1,11 +1,26 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Box, IconButton, Stack, Divider, Avatar, Switch, useTheme , MenuItem, Menu} from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { faker } from "@faker-js/faker";
-
+import { useNavigate, useLocation } from "react-router-dom";
 import Logo from "../../assets/Images/logo.ico";
 import { Nav_Buttons, Nav_Setting, Profile_Menu } from "../../data";
 import useSettings from "../../hooks/useSettings.js";
+
+const getPath = (index) => {
+  switch (index) {
+    case 0:
+      return "/app";
+    case 1:
+      return "/group";
+    case 2:
+      return "/call";
+    case 3:
+      return "/settings";
+    default:
+      return "/";
+  }
+};
 
 const AntSwitch = styled(Switch)(({ theme }) => ({
   width: 40,
@@ -70,7 +85,16 @@ const SideBar = () => {
     setAnchorEl(null);
   };
     const theme = useTheme();
-    const [selected, setSelected] = useState(0);
+    const navigate = useNavigate();
+    const { pathname } = useLocation();
+    const getSelectedIndex = (path) => {
+      if (path.startsWith("/app")) return 0;
+      if (path.startsWith("/group")) return 1;
+      if (path.startsWith("/call")) return 2;
+      if (path.startsWith("/settings")) return 3;
+      return 0;
+    };
+    const selected = getSelectedIndex(pathname);
     const { onToggleMode } = useSettings();
   return (
     <Box p={2} sx={{backgroundColor: theme.palette.background.paper, boxShadow: "0px 0px 2px rgba(0, 0, 0, 0.25)", height: "100vh", width:100}}>
@@ -95,7 +119,7 @@ const SideBar = () => {
             </Box>
           ) : (
             <IconButton onClick={()=>{
-              setSelected(el.index)
+              navigate(getPath(el.index));
             }} sx={{width:"max-content",color: theme.palette.mode === "light" ? "black" : theme.palette.text.primary}} key={el.index}>{el.icon}</IconButton>
           )
         )}
@@ -107,7 +131,7 @@ const SideBar = () => {
             </Box>
           ) : (
             <IconButton onClick={()=>{
-              setSelected(el.index)
+              navigate(getPath(el.index));
             }} sx={{width:"max-content", color: theme.palette.mode === "light" ? "black" : theme.palette.text.primary}} key={el.index}>{el.icon}</IconButton>
           )
         )}
