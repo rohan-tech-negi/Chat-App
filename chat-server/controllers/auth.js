@@ -10,13 +10,13 @@ const signToken = (userId) => jwt.sign({ userId }, process.env.JWT_SECRET);
 exports.register = catchAsync(async (req, res, next) => {
   const { firstName, lastName, email, password } = req.body;
 
-  const filteredBody = filterObj(
-    req.body,
-    "firstName",
-    "lastName",
-    "email",
-    "password"
-  );
+//   const filteredBody = filterObj(
+//     req.body,
+//     "firstName",
+//     "lastName",
+//     "email",
+//     "password"
+//   );
 
   // check if a verified user with given email exists
 
