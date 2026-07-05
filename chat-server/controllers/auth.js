@@ -8,7 +8,7 @@ const User = require("../models/user.js")
 const signToken = (userId) => jwt.sign({ userId }, process.env.JWT_SECRET);
 
 exports.register = catchAsync(async (req, res, next) => {
-  const { firstName, lastName, email, password , verified} = req.body;
+  const { firstName, lastName, email, password } = req.body;
 
 //   const filteredBody = filterObj(
 //     req.body,
@@ -31,7 +31,10 @@ exports.register = catchAsync(async (req, res, next) => {
   } else if (existing_user) {
     // if not verified than update prev one
 
-    await User.findOneAndUpdate({ email: email },  {...req.body});
+    await User.findOneAndUpdate({ email: email }, filteredBody, {
+      new: true,
+      validateModifiedOnly: true,
+    });
 
     // generate an otp and send to email
     req.userId = existing_user._id;
@@ -86,5 +89,41 @@ exports.login = catchAsync(async (req, res, next) => {
     message: "Logged in successfully!",
     token,
     user_id: user._id,
+  });
+});
+
+
+exports.sendOTP = catchAsync(async (req, res, next) => {
+  const { userId } = req;
+  const new_otp = otpGenerator.generate(6, {
+    upperCaseAlphabets: false,
+    specialChars: false,
+    lowerCaseAlphabets: false,
+  });
+
+  const otp_expiry_time = Date.now() + 10 * 60 * 1000; // 10 Mins after otp is sent
+
+  const user = await User.findByIdAndUpdate(userId, {
+    otp_expiry_time: otp_expiry_time,
+  });
+
+  user.otp = new_otp.toString();
+
+  await user.save({ new: true, validateModifiedOnly: true });
+
+  console.log(new_otp);
+
+  // TODO send mail
+  mailService.sendEmail({
+    from: "shreyanshshah242@gmail.com",
+    to: user.email,
+    subject: "Verification OTP",
+    html: otp(user.firstName, new_otp),
+    attachments: [],
+  });
+
+  res.status(200).json({
+    status: "success",
+    message: "OTP Sent Successfully!",
   });
 });
