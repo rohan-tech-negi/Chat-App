@@ -1,5 +1,7 @@
 const app = require("./app");
 
+process.on("uncaughtException")
+
 const http = require("http");
 
 const server = http.createServer(app);
