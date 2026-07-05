@@ -3,7 +3,8 @@ const dotenv = require("dotenv")
 dotenv.config({path: "./config.env"})
 
 process.on("uncaughtException", (err)=>{
-  console.log(err);process.env(1)
+  console.log(err);
+  process.exit(1)
 })
 
 
