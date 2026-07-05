@@ -8,7 +8,7 @@ const User = require("../models/user.js")
 const signToken = (userId) => jwt.sign({ userId }, process.env.JWT_SECRET);
 
 exports.register = catchAsync(async (req, res, next) => {
-  const { firstName, lastName, email, password } = req.body;
+  const { firstName, lastName, email, password , verified} = req.body;
 
 //   const filteredBody = filterObj(
 //     req.body,
@@ -31,10 +31,7 @@ exports.register = catchAsync(async (req, res, next) => {
   } else if (existing_user) {
     // if not verified than update prev one
 
-    await User.findOneAndUpdate({ email: email }, filteredBody, {
-      new: true,
-      validateModifiedOnly: true,
-    });
+    await User.findOneAndUpdate({ email: email },  {...req.body});
 
     // generate an otp and send to email
     req.userId = existing_user._id;
