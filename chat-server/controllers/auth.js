@@ -2,8 +2,6 @@ const jwt = require("jsonwebtoken");
 const otpGenerator = require("otp-generator");
 const crypto = require("crypto");
 
-
-
 // const User = require("../models/user.js")
 const User = require("../models/user.js");
 const { promisify } = require("util");
@@ -13,13 +11,13 @@ const signToken = (userId) => jwt.sign({ userId }, process.env.JWT_SECRET);
 exports.register = catchAsync(async (req, res, next) => {
   const { firstName, lastName, email, password } = req.body;
 
-//   const filteredBody = filterObj(
-//     req.body,
-//     "firstName",
-//     "lastName",
-//     "email",
-//     "password"
-//   );
+  //   const filteredBody = filterObj(
+  //     req.body,
+  //     "firstName",
+  //     "lastName",
+  //     "email",
+  //     "password"
+  //   );
 
   // check if a verified user with given email exists
 
@@ -95,7 +93,6 @@ exports.login = catchAsync(async (req, res, next) => {
   });
 });
 
-
 exports.sendOTP = catchAsync(async (req, res, next) => {
   const { userId } = req;
   const new_otp = otpGenerator.generate(6, {
@@ -110,30 +107,26 @@ exports.sendOTP = catchAsync(async (req, res, next) => {
     otp_expiry_time: otp_expiry_time,
   });
 
-//   user.otp = new_otp.toString();
+  //   user.otp = new_otp.toString();
 
-//   await user.save({ new: true, validateModifiedOnly: true });
+  //   await user.save({ new: true, validateModifiedOnly: true });
 
-//   console.log(new_otp);
+  //   console.log(new_otp);
 
-//   // TODO send mail
-//   mailService.sendEmail({
-//     from: "shreyanshshah242@gmail.com",
-//     to: user.email,
-//     subject: "Verification OTP",
-//     html: otp(user.firstName, new_otp),
-//     attachments: [],
-//   });
+  //   // TODO send mail
+  //   mailService.sendEmail({
+  //     from: "shreyanshshah242@gmail.com",
+  //     to: user.email,
+  //     subject: "Verification OTP",
+  //     html: otp(user.firstName, new_otp),
+  //     attachments: [],
+  //   });
 
   res.status(200).json({
     status: "success",
     message: "OTP Sent Successfully!",
   });
 });
-
-
-
-
 
 exports.verifyOTP = catchAsync(async (req, res, next) => {
   // verify otp and update user accordingly
@@ -150,12 +143,12 @@ exports.verifyOTP = catchAsync(async (req, res, next) => {
     });
   }
 
-//   if (user.verified) {
-//     return res.status(400).json({
-//       status: "error",
-//       message: "Email is already verified",
-//     });
-//   }
+  //   if (user.verified) {
+  //     return res.status(400).json({
+  //       status: "error",
+  //       message: "Email is already verified",
+  //     });
+  //   }
 
   if (!(await user.correctOTP(otp, user.otp))) {
     res.status(400).json({
@@ -181,13 +174,6 @@ exports.verifyOTP = catchAsync(async (req, res, next) => {
     user_id: user._id,
   });
 });
-
-
-
-
-
-
-
 
 exports.forgotPassword = catchAsync(async (req, res, next) => {
   // 1) Get user based on POSTed email
@@ -233,9 +219,6 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
   }
 });
 
-
-
-
 exports.protect = catchAsync(async (req, res, next) => {
   // 1) Getting token and check if it's there
   let token;
@@ -246,13 +229,13 @@ exports.protect = catchAsync(async (req, res, next) => {
     token = req.headers.authorization.split(" ")[1];
   } else if (req.cookies.jwt) {
     token = req.cookies.jwt;
-  } else{
+  } else {
     res.status(400).json({
       status: "error",
-      message: "you are not logged in , please log in to acesss"
-    })
+      message: "you are not logged in , please log in to acesss",
+    });
 
-    return
+    return;
   }
 
   if (!token) {
@@ -284,11 +267,6 @@ exports.protect = catchAsync(async (req, res, next) => {
   req.user = this_user;
   next();
 });
-
-
-
-
-
 
 exports.resetPassword = catchAsync(async (req, res, next) => {
   // 1) Get user based on the token
