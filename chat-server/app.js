@@ -1,5 +1,7 @@
 const express = require("express");
 
+const routes = require("./routes/index.js")
+
 const app = express()
 
 const morgan = require("morgan")
@@ -72,6 +74,9 @@ app.use((req, res, next) => {
 });
 
 app.use(mongosanitize())
+
+
+app.use(routes)
 
 
 
