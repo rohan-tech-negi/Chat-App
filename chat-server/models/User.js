@@ -124,3 +124,17 @@ userSchema.methods.createPasswordResetToken = function () {
 
   return resetToken;
 };
+
+
+userSchema.methods.changedPasswordAfter = function (JWTTimeStamp) {
+  if (this.passwordChangedAt) {
+    const changedTimeStamp = parseInt(
+      this.passwordChangedAt.getTime() / 1000,
+      10
+    );
+    return JWTTimeStamp < changedTimeStamp;
+  }
+
+  // FALSE MEANS NOT CHANGED
+  return false;
+};

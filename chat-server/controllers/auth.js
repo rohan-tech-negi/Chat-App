@@ -1,10 +1,12 @@
 const jwt = require("jsonwebtoken");
 const otpGenerator = require("otp-generator");
+const crypto = require("crypto");
 
 
 
 // const User = require("../models/user.js")
-const User = require("../models/user.js")
+const User = require("../models/user.js");
+const { promisify } = require("util");
 
 const signToken = (userId) => jwt.sign({ userId }, process.env.JWT_SECRET);
 
@@ -244,6 +246,13 @@ exports.protect = catchAsync(async (req, res, next) => {
     token = req.headers.authorization.split(" ")[1];
   } else if (req.cookies.jwt) {
     token = req.cookies.jwt;
+  } else{
+    res.status(400).json({
+      status: "error",
+      message: "you are not logged in , please log in to acesss"
+    })
+
+    return
   }
 
   if (!token) {
