@@ -1,5 +1,5 @@
 const User = require("../models/user.js")
-
+const filterObj = require("../utils/filterObj.js")
 
 exports.updateMe = catchAsync(async (req, res, next) => {
   const filteredBody = filterObj(
@@ -10,7 +10,10 @@ exports.updateMe = catchAsync(async (req, res, next) => {
     "avatar"
   );
 
-  const userDoc = await User.findByIdAndUpdate(req.user._id, filteredBody);
+  const userDoc = await User.findByIdAndUpdate(req.user._id, filteredBody , {
+    new : true,
+    validateModifiedOnly
+  });
 
   res.status(200).json({
     status: "success",
