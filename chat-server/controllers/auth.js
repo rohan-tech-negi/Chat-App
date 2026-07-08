@@ -7,6 +7,8 @@ const User = require("../models/user.js");
 const { promisify } = require("util");
 const catchAsync = require("../utils/catchAsync.js");
 const filterObj = require("../utils/filterObj.js");
+const mailService = require("../services/mailer.js");
+const { otpTemplate, resetPasswordTemplate } = require("../utils/emailTemplates.js");
 
 const signToken = (userId) => jwt.sign({ userId }, process.env.JWT_SECRET);
 
@@ -105,24 +107,25 @@ exports.sendOTP = catchAsync(async (req, res, next) => {
 
   const otp_expiry_time = Date.now() + 10 * 60 * 1000; // 10 Mins after otp is sent
 
-  await User.findByIdAndUpdate(userId, {
-    otp_expiry_time: otp_expiry_time,
+  const user = await User.findById(userId);
+  if (!user) {
+    return res.status(404).json({
+      status: "error",
+      message: "No user found with this ID",
+    });
+  }
+
+  user.otp = new_otp.toString();
+  user.otp_expiry_time = otp_expiry_time;
+
+  await user.save({ new: true, validateModifiedOnly: true });
+
+  // Send mail using Brevo/SMTP configured Nodemailer
+  await mailService.sendEmail({
+    to: user.email,
+    subject: "Verification OTP",
+    html: otpTemplate(user.firstName, new_otp),
   });
-
-  //   user.otp = new_otp.toString();
-
-  //   await user.save({ new: true, validateModifiedOnly: true });
-
-  //   console.log(new_otp);
-
-  //   // TODO send mail
-  //   mailService.sendEmail({
-  //     from: "shreyanshshah242@gmail.com",
-  //     to: user.email,
-  //     subject: "Verification OTP",
-  //     html: otp(user.firstName, new_otp),
-  //     attachments: [],
-  //   });
 
   res.status(200).json({
     status: "success",
@@ -194,17 +197,13 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
   // 3) Send it to user's email
   try {
     const resetURL = `http://tawk.com/auth/new-password?token=${resetToken}`;
-    // TODO => Send Email with this Reset URL to user's email address
 
-    // console.log(resetURL);
-
-    // mailService.sendEmail({
-    //   from: "shreyanshshah242@gmail.com",
-    //   to: user.email,
-    //   subject: "Reset Password",
-    //   html: resetPassword(user.firstName, resetURL),
-    //   attachments: [],
-    // });
+    // Send password reset email using Brevo/SMTP configured Nodemailer
+    await mailService.sendEmail({
+      to: user.email,
+      subject: "Reset Password",
+      html: resetPasswordTemplate(user.firstName, resetURL),
+    });
 
     res.status(200).json({
       status: "success",
