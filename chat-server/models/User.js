@@ -104,8 +104,7 @@ userSchema.methods.correctPassword = async function (
 
 
 
-const User = new mongoose.model("User", userSchema);
-module.exports = User;
+
 
 
 userSchema.methods.correctOTP = async function (candidateOTP, userOTP) {
@@ -138,3 +137,6 @@ userSchema.methods.changedPasswordAfter = function (JWTTimeStamp) {
   // FALSE MEANS NOT CHANGED
   return false;
 };
+
+const User = new mongoose.model("User", userSchema);
+module.exports = User;

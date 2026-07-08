@@ -5,19 +5,21 @@ const crypto = require("crypto");
 // const User = require("../models/user.js")
 const User = require("../models/user.js");
 const { promisify } = require("util");
+const catchAsync = require("../utils/catchAsync.js");
+const filterObj = require("../utils/filterObj.js");
 
 const signToken = (userId) => jwt.sign({ userId }, process.env.JWT_SECRET);
 
 exports.register = catchAsync(async (req, res, next) => {
   const { firstName, lastName, email, password } = req.body;
 
-  //   const filteredBody = filterObj(
-  //     req.body,
-  //     "firstName",
-  //     "lastName",
-  //     "email",
-  //     "password"
-  //   );
+  const filteredBody = filterObj(
+    req.body,
+    "firstName",
+    "lastName",
+    "email",
+    "password"
+  );
 
   // check if a verified user with given email exists
 
@@ -227,7 +229,7 @@ exports.protect = catchAsync(async (req, res, next) => {
     req.headers.authorization.startsWith("Bearer")
   ) {
     token = req.headers.authorization.split(" ")[1];
-  } else if (req.cookies.jwt) {
+  } else if (req.cookies && req.cookies.jwt) {
     token = req.cookies.jwt;
   } else {
     res.status(400).json({
