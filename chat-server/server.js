@@ -17,6 +17,7 @@ const server = http.createServer(app);
 
 
 const DB = process.env.DBURI;
+console.log(process.env.DBURI);
 
 mongoose.connect(DB,{
 }).then((con)=>{
