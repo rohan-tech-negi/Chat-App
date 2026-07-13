@@ -38,6 +38,27 @@ app.use(express.urlencoded({extended:true,limit:"10kb"}))
 
 app.use(bodyParser.json())
 
+// Express 5 Compatibility Middleware for query and params getters
+app.use((req, res, next) => {
+    if (req.query) {
+        Object.defineProperty(req, 'query', {
+            value: { ...req.query },
+            writable: true,
+            configurable: true,
+            enumerable: true
+        });
+    }
+    if (req.params) {
+        Object.defineProperty(req, 'params', {
+            value: { ...req.params },
+            writable: true,
+            configurable: true,
+            enumerable: true
+        });
+    }
+    next();
+});
+
 app.use(helmet())
 
 if(process.env.NODE_ENV === "development"){
@@ -68,8 +89,8 @@ const sanitizeXSS = (data) => {
 
 app.use((req, res, next) => {
     if (req.body) req.body = sanitizeXSS(req.body);
-    if (req.query) req.query = sanitizeXSS(req.query);
-    if (req.params) req.params = sanitizeXSS(req.params);
+    if (req.query) sanitizeXSS(req.query);
+    if (req.params) sanitizeXSS(req.params);
     next();
 });
 

@@ -17,11 +17,11 @@ const server = http.createServer(app);
 
 
 const DB = process.env.DBURI;
-console.log(process.env.DBURI);
+// console.log(process.env.DBURI);
 
 mongoose.connect(DB,{
 }).then((con)=>{
-  console.log("DB connection successful",con)
+  console.log("DB connection successful")
 }).catch((err)=>{
   console.log(err)
 })
