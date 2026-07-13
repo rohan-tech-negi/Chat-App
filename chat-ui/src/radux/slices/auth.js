@@ -65,20 +65,20 @@ export function LoginUser(formValues) {
             user_id: response.data.user_id,
           })
         );
-        window.localStorage.setItem("user_id", response.data.user_id);
-        dispatch(
-          showSnackbar({ severity: "success", message: response.data.message })
-        );
-        dispatch(
-          slice.actions.updateIsLoading({ isLoading: false, error: false })
-        );
+        // window.localStorage.setItem("user_id", response.data.user_id);
+        // dispatch(
+        //   showSnackbar({ severity: "success", message: response.data.message })
+        // );
+        // dispatch(
+        //   slice.actions.updateIsLoading({ isLoading: false, error: false })
+        // );
       })
-      .catch(function (error) {
-        console.log(error);
-        dispatch(showSnackbar({ severity: "error", message: error.message }));
-        dispatch(
-          slice.actions.updateIsLoading({ isLoading: false, error: true })
-        );
-      });
+    //   .catch(function (error) {
+    //     console.log(error);
+    //     dispatch(showSnackbar({ severity: "error", message: error.message }));
+    //     dispatch(
+    //       slice.actions.updateIsLoading({ isLoading: false, error: true })
+    //     );
+    //   });
   };
 }
