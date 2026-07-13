@@ -10,11 +10,11 @@ import { RHFTextField } from "../../components/hook-form";
 import { Eye, EyeSlash } from "phosphor-react";
 import { Link as RouterLink } from "react-router-dom";
 import { ForgotPassword } from "../../radux/slices/auth";
-import {useDispath} from "react-redux"
+import {useDispatch} from "react-redux"
 
 const ResetPasswordForm = () => {
 
-  const dispatch = useDispath()
+  const dispatch = useDispatch()
   
 
   const ResetPasswordSchema = Yup.object().shape({
