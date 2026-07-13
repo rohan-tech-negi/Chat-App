@@ -36,10 +36,8 @@ exports.register = catchAsync(async (req, res, next) => {
   } else if (existing_user) {
     // if not verified than update prev one
 
-    await User.findOneAndUpdate({ email: email }, filteredBody, {
-      new: true,
-      validateModifiedOnly: true,
-    });
+    existing_user.set(filteredBody);
+    await existing_user.save({ new: true, validateModifiedOnly: true });
 
     // generate an otp and send to email
     req.userId = existing_user._id;

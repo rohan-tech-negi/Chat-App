@@ -4,7 +4,7 @@ import { Navigate, Outlet } from "react-router-dom";
 import Logo from "../../assets/Images/logo.ico"
 // import { useAuth } from "../../hooks/useAuth";
 
-const isAuthenticated = true;
+const isAuthenticated = false;
 
 const MainLayout = () => {
   // const { isAuthenticated } = useAuth();

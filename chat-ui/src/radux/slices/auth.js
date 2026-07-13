@@ -42,8 +42,6 @@ export function LoginUser(formValues) {
   return async (dispatch, getState) => {
     // Make API call here
 
-    dispatch(slice.actions.updateIsLoading({ isLoading: true, error: false }));
-
     await axios
       .post(
         "/auth/login",
@@ -56,7 +54,7 @@ export function LoginUser(formValues) {
           },
         }
       )
-      .then(function (response) {
+      .then(function(response){
         console.log(response);
         dispatch(
           slice.actions.logIn({
@@ -65,20 +63,8 @@ export function LoginUser(formValues) {
             user_id: response.data.user_id,
           })
         );
-        // window.localStorage.setItem("user_id", response.data.user_id);
-        // dispatch(
-        //   showSnackbar({ severity: "success", message: response.data.message })
-        // );
-        // dispatch(
-        //   slice.actions.updateIsLoading({ isLoading: false, error: false })
-        // );
-      })
-    //   .catch(function (error) {
-    //     console.log(error);
-    //     dispatch(showSnackbar({ severity: "error", message: error.message }));
-    //     dispatch(
-    //       slice.actions.updateIsLoading({ isLoading: false, error: true })
-    //     );
-    //   });
+      }).catch(function(error){
+        console.log(error);
+      });
   };
 }
