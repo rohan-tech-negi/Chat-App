@@ -201,14 +201,17 @@ const SideBar = () => {
           {Profile_Menu.map((el, idx) => (
             <MenuItem  onClick={()=>{
               handleClick()
-              if(idx === 2){
-                dispatch(LogoutUser())
-              }
+              
               
               
             }}>
               <Stack onClick={()=>{
+                if(idx === 2){
+                dispatch(LogoutUser())
+              }else{
                 navigate(getMenuPath(idx))
+
+              }
               }} sx={{width: 100}} direction="row" alignItems="center" justifyContent="space-between">
                 <span>
                   {el.title}

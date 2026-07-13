@@ -37,7 +37,8 @@ const ResetPasswordForm = () => {
 
   const onSubmit = async (data) => {
     try {
-      console.log(data);
+      // console.lo/g(data);
+      
       // submit data to backend
     } catch (error) {
       console.error(error);
