@@ -82,7 +82,7 @@ export function LogoutUser() {
 
 export function ForgotPassword(formValues) {
   return async (dispatch, getState) => {
-    dispatch(slice.actions.updateIsLoading({ isLoading: true, error: false }));
+    // dispatch(slice.actions.updateIsLoading({ isLoading: true, error: false }));
 
     await axios
       .post(
@@ -99,19 +99,11 @@ export function ForgotPassword(formValues) {
       .then(function (response) {
         console.log(response);
 
-        dispatch(
-          showSnackbar({ severity: "success", message: response.data.message })
-        );
-        dispatch(
-          slice.actions.updateIsLoading({ isLoading: false, error: false })
-        );
+       
       })
       .catch(function (error) {
         console.log(error);
-        dispatch(showSnackbar({ severity: "error", message: error.message }));
-        dispatch(
-          slice.actions.updateIsLoading({ isLoading: false, error: true })
-        );
+       
       });
   };
 }

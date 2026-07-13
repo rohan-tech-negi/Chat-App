@@ -9,8 +9,12 @@ import { Alert, Button, Stack } from "@mui/material";
 import { RHFTextField } from "../../components/hook-form";
 import { Eye, EyeSlash } from "phosphor-react";
 import { Link as RouterLink } from "react-router-dom";
+import { ForgotPassword } from "../../radux/slices/auth";
+import {useDispath} from "react-redux"
 
 const ResetPasswordForm = () => {
+
+  const dispatch = useDispath()
   
 
   const ResetPasswordSchema = Yup.object().shape({
@@ -38,7 +42,7 @@ const ResetPasswordForm = () => {
   const onSubmit = async (data) => {
     try {
       // console.lo/g(data);
-      
+      dispatch(ForgotPassword(data))
       // submit data to backend
     } catch (error) {
       console.error(error);
