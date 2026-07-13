@@ -14,7 +14,6 @@ const helmet = require("helmet")
 const mongosanitize = require("express-mongo-sanitize")
 
 
-const bodyParser = require("body-parser")
 
 const xss = require("xss")
 
@@ -36,7 +35,7 @@ app.use(express.json({limit: "10kb"}))
 
 app.use(express.urlencoded({extended:true,limit:"10kb"}))
 
-app.use(bodyParser.json())
+
 
 // Express 5 Compatibility Middleware for query and params getters
 app.use((req, res, next) => {
