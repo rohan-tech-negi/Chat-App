@@ -3,14 +3,17 @@ import React from "react";
 import { Navigate, Outlet } from "react-router-dom";
 import Logo from "../../assets/Images/logo.ico"
 // import { useAuth } from "../../hooks/useAuth";
+import {useSelector} from "react-redux"
 
-const isAuthenticated = false;
+// const isAuthenticated = false;
 
 const MainLayout = () => {
 
   
   // const { isAuthenticated } = useAuth();
-  if(isAuthenticated){
+  const {isLoggedIn} = useSelector((state)=> state.auth)
+  // const { isAuthenticated } = useAuth();
+  if(isLoggedIn){
     return <Navigate to={"/app"} replace />;
   }
   return (
