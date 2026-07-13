@@ -9,8 +9,12 @@ import { Alert, Button, IconButton, InputAdornment, Link, Stack } from '@mui/mat
 import { RHFTextField } from '../../components/hook-form';
 import { Eye, EyeSlash } from 'phosphor-react';
 import { Link as RouterLink } from "react-router-dom";
+import { LoginUser } from '../../radux/slices/auth';
+import { useDispatch } from 'react-redux';
 
 const LoginForm = () => {
+
+  const dispatch = useDispatch()
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -40,7 +44,7 @@ const LoginForm = () => {
 
    const onSubmit = async (data) => {
     try {
-      console.log(data);
+      dispatch(LoginUser(data))
       // submit data to backend
       
     } catch (error) {

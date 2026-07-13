@@ -31,7 +31,7 @@ export default slice.reducer;
 
 
 export function ToggleSidebar(){
-     return async() =>{
+     return async(dispatch, getState) =>{
         dispatch(slice.actions.toggleSideBar());
      }
 }
@@ -39,7 +39,7 @@ export function ToggleSidebar(){
 
 
 export function UpdateSidebarType(type){
-    return async()=>{
+    return async(dispatch, getState)=>{
         dispatch(slice.actions.updateSidebarType({type}));
     }
 }
