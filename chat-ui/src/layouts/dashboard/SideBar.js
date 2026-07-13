@@ -6,6 +6,8 @@ import { useNavigate, useLocation } from "react-router-dom";
 import Logo from "../../assets/Images/logo.ico";
 import { Nav_Buttons, Nav_Setting, Profile_Menu } from "../../data";
 import useSettings from "../../hooks/useSettings.js";
+import { LogoutUser } from '../../radux/slices/auth.js';
+import { useDispatch } from 'react-redux';
 
 const getPath = (index) => {
   switch (index) {
@@ -90,6 +92,7 @@ const AntSwitch = styled(Switch)(({ theme }) => ({
 
 
 const SideBar = () => {
+  const dispatch = useDispatch()
   // const navigate = useNavigate();
 
 
@@ -198,7 +201,10 @@ const SideBar = () => {
           {Profile_Menu.map((el, idx) => (
             <MenuItem  onClick={()=>{
               handleClick()
-              dispath()
+              if(idx === 2){
+                dispatch(LogoutUser())
+              }
+              
               
             }}>
               <Stack onClick={()=>{
