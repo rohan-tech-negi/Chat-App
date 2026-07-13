@@ -7,6 +7,8 @@ import Logo from "../../assets/Images/logo.ico"
 const isAuthenticated = false;
 
 const MainLayout = () => {
+
+  
   // const { isAuthenticated } = useAuth();
   if(isAuthenticated){
     return <Navigate to={"/app"} replace />;
