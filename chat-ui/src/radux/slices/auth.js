@@ -73,6 +73,8 @@ export function LoginUser(formValues) {
 
 export function LogoutUser() {
   return async (dispatch, getState) => {
+ 
+ 
     // window.localStorage.removeItem("user_id");
     dispatch(slice.actions.signOut());
   };
@@ -104,6 +106,49 @@ export function ForgotPassword(formValues) {
       .catch(function (error) {
         console.log(error);
        
+      });
+  };
+}
+
+
+
+export function NewPassword(formValues) {
+  return async (dispatch, getState) => {
+    dispatch(slice.actions.updateIsLoading({ isLoading: true, error: false }));
+
+    await axios
+      .post(
+        "/auth/reset-password",
+        {
+          ...formValues,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      .then(function (response) {
+        console.log(response);
+        dispatch(
+            slice.actions.logIn({
+              isLoggedIn: true,
+              token: response.data.token,
+            })
+          );
+        dispatch(
+          showSnackbar({ severity: "success", message: response.data.message })
+        );
+        dispatch(
+          slice.actions.updateIsLoading({ isLoading: false, error: false })
+        );
+      })
+      .catch(function (error) {
+        console.log(error);
+        dispatch(showSnackbar({ severity: "error", message: error.message }));
+        dispatch(
+          slice.actions.updateIsLoading({ isLoading: false, error: true })
+        );
       });
   };
 }

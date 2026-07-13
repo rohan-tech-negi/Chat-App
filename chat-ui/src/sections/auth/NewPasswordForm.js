@@ -15,6 +15,7 @@ import { useDispatch } from 'react-redux';
 // ----------------------------------------------------------------------
 
 export default function NewPasswordForm() {
+
   const dispatch = useDispatch();
   const [queryParameters] = useSearchParams();
   const [showPassword, setShowPassword] = useState(false);
@@ -46,6 +47,7 @@ export default function NewPasswordForm() {
 
   const onSubmit = async (data) => {
     try {
+      dispatch()
     //   Send API Request
     // dispatch(NewPassword({...data, token: queryParameters.get('token')}));
     } catch (error) {
