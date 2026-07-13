@@ -48,9 +48,9 @@ export default function NewPasswordForm() {
 
   const onSubmit = async (data) => {
     try {
-      dispatch(NewPassword())
+      // dispatch(NewPassword())
     //   Send API Request
-    // dispatch(NewPassword({...data, token: queryParameters.get('token')}));
+    dispatch(NewPassword({...data, token: queryParameters.get('token')}));
     } catch (error) {
       console.error(error);
     }

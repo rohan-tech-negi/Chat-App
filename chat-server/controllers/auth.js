@@ -194,7 +194,8 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
 
   // 3) Send it to user's email
   try {
-    const resetURL = `http://tawk.com/auth/new-password?token=${resetToken}`;
+    const frontendURL = process.env.FRONTEND_URL || "http://localhost:3000";
+    const resetURL = `${frontendURL}/auth/new-password?token=${resetToken}`;
 
     // Send password reset email using Brevo/SMTP configured Nodemailer
     await mailService.sendEmail({
