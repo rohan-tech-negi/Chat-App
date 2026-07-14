@@ -206,7 +206,7 @@ export function VerifyEmail(formValues) {
 
     await axios
       .post(
-        "/auth/verify",
+        "/auth/verify-otp",
         {
           ...formValues,
         },
