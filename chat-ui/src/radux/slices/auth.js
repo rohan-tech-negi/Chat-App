@@ -130,6 +130,9 @@ export function NewPassword(formValues) {
       )
       .then(function (response) {
         console.log(response);
+        dispatch(slice.actions.logIn({
+          
+        }))
        
       })
       .catch(function (error) {
