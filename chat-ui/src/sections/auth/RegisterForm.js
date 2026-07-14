@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import * as Yup from 'yup'
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import FormProvider from '../../components/hook-form/FormProvider';
@@ -8,7 +8,9 @@ import { Alert, IconButton, InputAdornment, Stack } from '@mui/material';
 import { RHFTextField } from '../../components/hook-form';
 import { Eye, EyeSlash } from 'phosphor-react';
 import { LoadingButton } from '@mui/lab';
+import { RegisterUser } from '../../radux/slices/auth';
 const RegisterForm = () => {
+  const dispatch = useDispatch()
   const {isLoading} = useSelector((state) => state.auth || { isLoading: false });
   const [showPassword, setShowPassword] = useState(false);
 
@@ -42,7 +44,7 @@ const RegisterForm = () => {
     const onSubmit = async (data) => {
     try {
       // submit data to backend
-    //   dispatch(RegisterUser(data));
+      dispatch(RegisterUser(data));
     } catch (error) {
       console.error(error);
       reset();

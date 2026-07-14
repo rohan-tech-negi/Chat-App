@@ -17,6 +17,14 @@ const slice = createSlice({
   name: "auth",
   initialState,
   reducers: {
+     updateIsLoading(state, action) {
+      state.error = action.payload.error;
+      state.isLoading = action.payload.isLoading;
+    },
+    updateRegisterEmail(state, action) {
+      state.email = action.payload.email;
+    },
+
    
     logIn(state, action) {
       state.isLoggedIn = action.payload.isLoggedIn;
@@ -162,23 +170,23 @@ export function RegisterUser(formValues) {
       )
       .then(function (response) {
         console.log(response);
-        // dispatch(
-        //   slice.actions.updateRegisterEmail({ email: formValues.email })
-        // );
+        dispatch(
+          slice.actions.updateRegisterEmail({ email: formValues.email })
+        );
 
         // dispatch(
         //   showSnackbar({ severity: "success", message: response.data.message })
         // );
-        // dispatch(
-        //   slice.actions.updateIsLoading({ isLoading: false, error: false })
-        // );
+        dispatch(
+          slice.actions.updateIsLoading({ isLoading: false, error: false })
+        );
       })
       .catch(function (error) {
         console.log(error);
         // dispatch(showSnackbar({ severity: "error", message: error.message }));
-        // dispatch(
-        //   slice.actions.updateIsLoading({ error: true, isLoading: false })
-        // );
+        dispatch(
+          slice.actions.updateIsLoading({ error: true, isLoading: false })
+        );
       })
       .finally(() => {
         if (!getState().auth.error) {
@@ -210,14 +218,14 @@ export function VerifyEmail(formValues) {
       )
       .then(function (response) {
         console.log(response);
-        dispatch(slice.actions.updateRegisterEmail({ email: "" }));
-        window.localStorage.setItem("user_id", response.data.user_id);
-        dispatch(
-          slice.actions.logIn({
-            isLoggedIn: true,
-            token: response.data.token,
-          })
-        );
+        // dispatch(slice.actions.updateRegisterEmail({ email: "" }));
+        // window.localStorage.setItem("user_id", response.data.user_id);
+        // dispatch(
+        //   slice.actions.logIn({
+        //     isLoggedIn: true,
+        //     token: response.data.token,
+        //   })
+        // );
 
 
         // dispatch(
