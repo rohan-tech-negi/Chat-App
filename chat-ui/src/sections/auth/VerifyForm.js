@@ -2,6 +2,8 @@ import React from 'react'
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
+import FormProvider from '../../components/hook-form/FormProvider';
+import { Button, Stack } from '@mui/material';
 
 const VerifyForm = () => {
 
@@ -46,7 +48,38 @@ const VerifyForm = () => {
     }
   };
   return (
-    <div>VerifyForm</div>
+    <>  
+    <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
+        <Stack spacing={3}>
+
+            
+
+            <Button
+          fullWidth
+          size="large"
+          type="submit"
+          variant="contained"
+          sx={{
+            mt: 3,
+            bgcolor: "text.primary",
+            color: (theme) =>
+              theme.palette.mode === "light" ? "common.white" : "grey.800",
+            "&:hover": {
+              bgcolor: "text.primary",
+              color: (theme) =>
+                theme.palette.mode === "light" ? "common.white" : "grey.800",
+            },
+          }}
+        >
+          Verify
+        </Button>
+
+
+        </Stack>
+
+    </FormProvider>
+    
+    </>
   )
 }
 

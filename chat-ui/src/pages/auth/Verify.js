@@ -2,6 +2,7 @@ import React from 'react'
 import { Link as RouterLink } from "react-router-dom";
 // sections
 import { Stack, Typography, Link } from "@mui/material";
+import VerifyForm from '../../sections/auth/VerifyForm';
 
 const Verify = () => {
   return (
@@ -15,6 +16,8 @@ const Verify = () => {
           </Typography>
         </Stack>
       </Stack>
+
+      <VerifyForm></VerifyForm>
     </>
   )
 }
