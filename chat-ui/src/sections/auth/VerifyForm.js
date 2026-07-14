@@ -4,6 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import FormProvider from '../../components/hook-form/FormProvider';
 import { Button, Stack } from '@mui/material';
+import RHFCodes from '../../components/hook-form/RHFCodes';
 
 const VerifyForm = () => {
 
@@ -52,7 +53,10 @@ const VerifyForm = () => {
     <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
         <Stack spacing={3}>
 
-            
+             <RHFCodes
+          keyName="code"
+          inputs={["code1", "code2", "code3", "code4", "code5", "code6"]}
+        />
 
             <Button
           fullWidth

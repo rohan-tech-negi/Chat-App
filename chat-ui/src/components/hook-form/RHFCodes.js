@@ -9,6 +9,28 @@ const RHFCodes = ({ keyName = "", inputs = [], ...other }) => {
     const codesRef = useRef(null);
 
      const { control } = useFormContext();
+
+       const handleChangeWithNextField = (event, handleChange) => {
+    const { maxLength, value, name } = event.target;
+
+    const fieldIndex = name.replace(keyName, "");
+
+    const fieldIntIndex = Number(fieldIndex);
+
+    const nextfield = document.querySelector(
+      `input[name=${keyName}${fieldIntIndex + 1}]`
+    );
+
+    if (value.length > maxLength) {
+      event.target.value = value[0];
+    }
+
+    if (value.length >= maxLength && fieldIntIndex < 6 && nextfield !== null) {
+      nextfield.focus();
+    }
+
+    handleChange(event);
+  };
   return (
      <Stack direction="row" spacing={2} justifyContent="center" ref={codesRef}>
           {inputs.map((name, index) => (
