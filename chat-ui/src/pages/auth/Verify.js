@@ -1,4 +1,7 @@
 import React from 'react'
+import { Link as RouterLink } from "react-router-dom";
+// sections
+import { Stack, Typography, Link } from "@mui/material";
 
 const Verify = () => {
   return (
