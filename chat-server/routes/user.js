@@ -5,4 +5,6 @@ const authController = require("../controllers/auth.js")
 
 router.post("/update-me", authController.protect , userController.updateMe)
 
+router.post("/get-users", authController.protect, userController.updateMe)
+
 module.exports = router;
