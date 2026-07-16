@@ -45,6 +45,18 @@ exports.getUsers = catchAsync(async (req, res, next) => {
   });
 });
 
+exports.getRequests = catchAsync(async (req, res, next) => {
+  const requests = await FriendRequest.find({ recipient: req.user._id })
+    .populate("sender")
+    .select("_id firstName lastName");
+
+  res.status(200).json({
+    status: "success",
+    data: requests,
+    message: "Requests found successfully!",
+  });
+});
+
 
 
 exports.getFriends = catchAsync(async (req, res, next) => {
@@ -58,3 +70,4 @@ exports.getFriends = catchAsync(async (req, res, next) => {
     message: "Friends found successfully!",
   });
 });
+
