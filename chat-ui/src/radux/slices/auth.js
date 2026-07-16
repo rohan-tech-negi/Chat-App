@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { toast } from "react-hot-toast";
 
 import axios from "../../utils/axios";
 
@@ -71,8 +72,10 @@ export function LoginUser(formValues) {
             user_id: response.data.user_id,
           })
         );
+        toast.success(response.data.message || "Logged in successfully!");
       }).catch(function(error){
         console.log(error);
+        toast.error(error.message || "Failed to login. Please check your credentials.");
       });
   };
 }
@@ -108,12 +111,11 @@ export function ForgotPassword(formValues) {
       )
       .then(function (response) {
         console.log(response);
-
-       
+        toast.success(response.data.message || "Reset password link sent to your email!");
       })
       .catch(function (error) {
         console.log(error);
-       
+        toast.error(error.message || "Failed to send reset link.");
       });
   };
 }
@@ -141,11 +143,11 @@ export function NewPassword(formValues) {
         dispatch(slice.actions.logIn({
           isLoggedIn: true,
           token: response.data.token
-        }))
-       
+        }));
+        toast.success("Password changed successfully!");
       })
       .catch(function (error) {
-        
+        toast.error(error.message || "Failed to reset password.");
       });
   };
 }
@@ -174,16 +176,14 @@ export function RegisterUser(formValues) {
           slice.actions.updateRegisterEmail({ email: formValues.email })
         );
 
-        // dispatch(
-        //   showSnackbar({ severity: "success", message: response.data.message })
-        // );
+        toast.success(response.data.message || "Registration successful! OTP sent to your email.");
         dispatch(
           slice.actions.updateIsLoading({ isLoading: false, error: false })
         );
       })
       .catch(function (error) {
         console.log(error);
-        // dispatch(showSnackbar({ severity: "error", message: error.message }));
+        toast.error(error.message || "Failed to register.");
         dispatch(
           slice.actions.updateIsLoading({ error: true, isLoading: false })
         );
@@ -227,20 +227,17 @@ export function VerifyEmail(formValues) {
           })
         );
 
-
-        // dispatch(
-        //   showSnackbar({ severity: "success", message: response.data.message })
-        // );
-        // dispatch(
-        //   slice.actions.updateIsLoading({ isLoading: false, error: false })
-        // );
+        toast.success(response.data.message || "OTP verified successfully!");
+        dispatch(
+          slice.actions.updateIsLoading({ isLoading: false, error: false })
+        );
       })
       .catch(function (error) {
         console.log(error);
-        // dispatch(showSnackbar({ severity: "error", message: error.message }));
-        // dispatch(
-        //   slice.actions.updateIsLoading({ error: true, isLoading: false })
-        // );
+        toast.error(error.message || "Verification failed.");
+        dispatch(
+          slice.actions.updateIsLoading({ error: true, isLoading: false })
+        );
       });
   };
 }
