@@ -1,5 +1,25 @@
 import { Dialog, DialogContent, Stack, Tab, Tabs } from '@mui/material';
 import React from 'react'
+import { useDispatch, useSelector } from "react-redux";
+
+
+const UsersList = () => {
+  const dispatch = useDispatch();
+
+  const { users } = useSelector((state) => state.app);
+
+  useEffect(() => {
+    dispatch(FetchUsers());
+  }, []);
+
+  return (
+    <>
+      {users.map((el, idx) => {
+        return <UserElement key={idx} {...el} />;
+      })}
+    </>
+  );
+};
 
 const Friends = ({ open, handleClose }) => {
 
@@ -33,21 +53,21 @@ const Friends = ({ open, handleClose }) => {
         <DialogContent>
         <Stack sx={{ height: "100%" }}>
           <Stack spacing={2.4}>
-            {/* {(() => {
+            {(() => {
               switch (value) {
                 case 0: // display all users in this list
-                  return <UsersList />;
+                //   return <UsersList />;
 
                 case 1: // display friends in this list
-                  return <FriendsList />;
+                //   return <FriendsList />;
 
                 case 2: // display request in this list
-                  return <RequestsList />;
+                //   return <RequestsList />;
 
                 default:
                   break;
               }
-            })()} */}
+            })()}
           </Stack>
         </Stack>
       </DialogContent>

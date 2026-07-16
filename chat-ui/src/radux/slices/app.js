@@ -7,7 +7,10 @@ const initialState = {
     sideBar: {
         type: "CONTACT",
         open: false
-    }
+    },
+    users :[],
+    friends:[],
+    friendRequests:[]
 }
 
 
@@ -20,7 +23,19 @@ const slice = createSlice({
         },
         updateSidebarType(state, action){
             state.sideBar.type = action.payload.type;
-        }
+        },
+          updateUsers(state, action) {
+      state.users = action.payload.users;
+    },
+    updateAllUsers(state, action) {
+      state.all_users = action.payload.users;
+    },
+    updateFriends(state, action) {
+      state.friends = action.payload.friends;
+    },
+    updateFriendRequests(state, action) {
+      state.friendRequests = action.payload.requests;
+    },
     }
 })
 
