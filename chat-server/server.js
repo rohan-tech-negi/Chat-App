@@ -18,6 +18,15 @@ const http = require("http");
 const server = http.createServer(app);
 
 
+
+const io = new Server(server, {
+  cors: {
+    origin: "http://localhost:3000",
+    methods: ["GET", "POST"]
+  }
+})
+
+
 const DB = process.env.DBURI;
 // console.log(process.env.DBURI);
 
@@ -35,6 +44,10 @@ app.get('/', (req, res) => {
 server.listen(port, () => {
   console.log(`server is running on port ${port}`);
 });
+
+io.on("connection", async(socket)=>{
+  const user_id = socket.handshake
+})
 
 
 
