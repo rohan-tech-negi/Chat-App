@@ -14,6 +14,7 @@ process.on("uncaughtException", (err)=>{
 
 
 const http = require("http");
+const User = require("./models/user");
 
 const server = http.createServer(app);
 
@@ -46,7 +47,15 @@ server.listen(port, () => {
 });
 
 io.on("connection", async(socket)=>{
-  const user_id = socket.handshake
+  const user_id = socket.handshake.query("user_id")
+
+  const socket_id = socket.id;
+
+  console.log("User connected", socket_id)
+
+  if(user_id){
+    await User.findByIdAndUpdate(user_id, {socket_id})
+  }
 })
 
 
