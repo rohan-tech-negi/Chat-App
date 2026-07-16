@@ -1,10 +1,11 @@
 import { Avatar, Badge, Box, Button, Divider, IconButton, InputBase, Stack, Typography, alpha, styled } from '@mui/material'
-import {ArchiveBox, CircleDashed, MagnifyingGlass} from "phosphor-react"
+import {ArchiveBox, CircleDashed, MagnifyingGlass, Users} from "phosphor-react"
 import { ChatList } from '../../data';
 // import SimpleBar from 'simplebar-react';
 import { SimpleBarStyle } from '../../components/Scrollbar';
 import {useTheme} from '@mui/material/styles'
 import ChatElement from '../../components/ChatElement';
+import { useState } from 'react';
 // import React from 'react'
 
 
@@ -40,7 +41,16 @@ const StyledInputBase = styled(InputBase)(({theme}) => ({
 }))
 
 const Chats = () => {
+  const [openDialog, setOpenDialog] = useState(false)
   const theme = useTheme()
+
+  const handleCloseDialog = ()=>{
+    setOpenDialog(false)
+  }
+
+  const handleOpenDialog = ()=>{
+    setOpenDialog(true)
+  }
   return (
     <Box sx={{position: "relative", width: 320, backgroundColor: theme.palette.mode === "light"? "#F8FAFF" : theme.palette.background.paper, boxShadow:"0px 0px 2px rgba(0, 0, 0, 0.25)"}}>
       <Stack p={3} spacing={2} sx={{height: "100vh"}}>
@@ -48,8 +58,10 @@ const Chats = () => {
             <Typography>
                 Chats
             </Typography>
-            <IconButton>
-              <CircleDashed></CircleDashed>
+            <IconButton onClick={()=>{
+              handleOpenDialog()
+            }}>
+              <Users></Users>
             </IconButton>
         </Stack>
         <Stack sx={{width: "100%", position: "relative"}}>
