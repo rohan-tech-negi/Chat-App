@@ -1,3 +1,4 @@
+import { Dialog, Stack } from '@mui/material';
 import React from 'react'
 
 const Friends = ({ open, handleClose }) => {
@@ -8,7 +9,23 @@ const Friends = ({ open, handleClose }) => {
     setValue(newValue);
   };
   return (
-    <div>Friends</div>
+    <Dialog
+      fullWidth
+      maxWidth="xs"
+      open={open}
+    //   TransitionComponent={Transition}
+      keepMounted
+      onClose={handleClose}
+      aria-describedby="alert-dialog-slide-description"
+      sx={{ p: 4 }}
+    >
+
+        <Stack p={2} sx={{ width: "100%" }}>
+            
+
+
+        </Stack>
+    </Dialog>
   )
 }
 
