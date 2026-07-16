@@ -2,6 +2,9 @@ require("dotenv").config();
 const app = require("./app");
 const mongoose = require("mongoose");
 
+
+const {Server} = require("socket.io")
+
 process.on("uncaughtException", (err)=>{
   console.log(err);
   process.exit(1);
