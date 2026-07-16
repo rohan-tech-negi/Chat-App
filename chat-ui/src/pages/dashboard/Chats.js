@@ -6,6 +6,7 @@ import { SimpleBarStyle } from '../../components/Scrollbar';
 import {useTheme} from '@mui/material/styles'
 import ChatElement from '../../components/ChatElement';
 import { useState } from 'react';
+import Friends from '../../sections/main/Friends';
 // import React from 'react'
 
 
@@ -52,6 +53,7 @@ const Chats = () => {
     setOpenDialog(true)
   }
   return (
+    <>
     <Box sx={{position: "relative", width: 320, backgroundColor: theme.palette.mode === "light"? "#F8FAFF" : theme.palette.background.paper, boxShadow:"0px 0px 2px rgba(0, 0, 0, 0.25)"}}>
       <Stack p={3} spacing={2} sx={{height: "100vh"}}>
 <Stack direction="row" alignItems={"center"} justifyContent="space-between">
@@ -109,6 +111,11 @@ const Chats = () => {
         
 
     </Box>
+    {openDialog && <Friends open={openDialog} handleClose={handleCloseDialog}></Friends>}
+    </>
+    
+
+    
   )
 }
 

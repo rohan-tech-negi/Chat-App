@@ -33,7 +33,7 @@ const Friends = ({ open, handleClose }) => {
         <DialogContent>
         <Stack sx={{ height: "100%" }}>
           <Stack spacing={2.4}>
-            {(() => {
+            {/* {(() => {
               switch (value) {
                 case 0: // display all users in this list
                   return <UsersList />;
@@ -47,7 +47,7 @@ const Friends = ({ open, handleClose }) => {
                 default:
                   break;
               }
-            })()}
+            })()} */}
           </Stack>
         </Stack>
       </DialogContent>
