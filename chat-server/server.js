@@ -56,6 +56,16 @@ io.on("connection", async(socket)=>{
   if(user_id){
     await User.findByIdAndUpdate(user_id, {socket_id})
   }
+
+  socket.on("friend_request", async(data) => {
+    console.log(data.to)
+  })
+
+  const to = await User.findById(data.to);
+
+  io.to(to.socket_id).emit("new_friend_request", {
+    
+  })
 })
 
 
