@@ -1,6 +1,7 @@
 import { Dialog, DialogContent, Stack, Tab, Tabs } from '@mui/material';
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux";
+import { FetchFriendRequests, FetchFriends, FetchUsers } from '../../radux/slices/app';
 
 
 const UsersList = () => {
@@ -15,7 +16,46 @@ const UsersList = () => {
   return (
     <>
       {users.map((el, idx) => {
-        return <UserElement key={idx} {...el} />;
+        return <></>;
+      })}
+    </>
+  );
+};
+
+
+const FriendsList = () => {
+  const dispatch = useDispatch();
+
+  const { friends } = useSelector((state) => state.app);
+
+  useEffect(() => {
+    dispatch(FetchFriends());
+  }, []);
+
+  return (
+    <>
+      {friends.map((el, idx) => {
+        return <></>;
+      })}
+    </>
+  );
+};
+
+
+
+const FriendRequestsList = () => {
+  const dispatch = useDispatch();
+
+  const { friendRequests } = useSelector((state) => state.app);
+
+  useEffect(() => {
+    dispatch(FetchFriendRequests());
+  }, []);
+
+  return (
+    <>
+      {friendRequests.map((el, idx) => {
+        return <></>;
       })}
     </>
   );
@@ -56,7 +96,7 @@ const Friends = ({ open, handleClose }) => {
             {(() => {
               switch (value) {
                 case 0: // display all users in this list
-                //   return <UsersList />;
+                  return <UsersList />;
 
                 case 1: // display friends in this list
                 //   return <FriendsList />;
