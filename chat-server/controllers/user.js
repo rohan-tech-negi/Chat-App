@@ -1,6 +1,7 @@
 const User = require("../models/user.js")
 const filterObj = require("../utils/filterObj.js")
 const catchAsync = require("../utils/catchAsync.js");
+const FriendRequest = require("../models/friendRequest.js");
 
 exports.updateMe = catchAsync(async (req, res, next) => {
   const filteredBody = filterObj(
