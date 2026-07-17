@@ -99,10 +99,10 @@ const Friends = ({ open, handleClose }) => {
                   return <UsersList />;
 
                 case 1: // display friends in this list
-                //   return <FriendsList />;
+                  return <FriendsList />;
 
                 case 2: // display request in this list
-                //   return <RequestsList />;
+                  return <FriendRequestsList/>;
 
                 default:
                   break;
