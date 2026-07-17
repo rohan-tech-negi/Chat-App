@@ -107,6 +107,11 @@ io.on("connection", async(socket)=>{
     });
   });
 
+  socket.on("end", function(){
+    console.log("closing connection")
+    socket.disconnect(0)
+  })
+
 })
 
 
