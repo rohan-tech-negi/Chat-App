@@ -102,7 +102,23 @@ io.on("connection", async (socket) => {
     });
   });
 
+
+  socket.on("text_message", (data)=>{
+    console.log("recived message", data)
+
+
+  })
+
+
+  socket.on
+
   socket.on("end", async (data)=> {
+    if(data.user_id){
+      await User.findByIdAndUpdate(data.user_id, {status: "Offline"})
+    }
+
+
+
     console.log("closing connection");
     socket.disconnect(0);
   });
