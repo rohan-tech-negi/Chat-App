@@ -110,7 +110,9 @@ io.on("connection", async (socket) => {
   })
 
 
-  socket.on
+  socket.on("file_message", (data)=>{
+    console.log("Received message", data)
+  })
 
   socket.on("end", async (data)=> {
     if(data.user_id){
