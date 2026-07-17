@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { Navigate, Outlet } from "react-router-dom";
 import SideBar from "./SideBar.js";
 import {useSelector} from "react-redux"
-import { socket } from "../../socket.js";
+import { connectSocket, socket } from "../../socket.js";
 
 
 
@@ -22,6 +22,14 @@ const DashboardLayout = () => {
           window.location.reload()
         }
       }
+
+      window.reload()
+      if(!socket){
+        connectSocket(user_id)
+      }
+
+
+      
     }
   },[isLoggedIn, socket])
   if(!isLoggedIn){
