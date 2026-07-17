@@ -15,6 +15,7 @@ process.on("uncaughtException", (err)=>{
 
 const http = require("http");
 const User = require("./models/user");
+const FriendRequest = require("./models/friendRequest");
 
 const server = http.createServer(app);
 
@@ -58,16 +59,27 @@ io.on("connection", async(socket)=>{
     await User.findByIdAndUpdate(user_id, {socket_id})
   }
 
-  socket.on("friend_request", async(data) => {
-    console.log(data.to)
-  })
+   socket.on("friend_request", async (data) => {
+    const to = await User.findById(data.to).select("socket_id");
+    const from = await User.findById(data.from).select("socket_id");
 
-  const to = await User.findById(data.to);
+    // create a friend request
+    await FriendRequest.create({
+      sender: data.from,
+      recipient: data.to,
+    });
+    // emit event request received to recipient
+    io.to(to?.socket_id).emit("new_friend_request", {
+      message: "New friend request received",
+    });
+    io.to(from?.socket_id).emit("request_sent", {
+      message: "Request Sent successfully!",
+    });
+  });
 
-  io.to(to.socket_id).emit("new_friend_request", {
-    
-  })
 })
+
+
 
 
 
