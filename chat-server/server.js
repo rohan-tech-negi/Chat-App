@@ -54,7 +54,7 @@ io.on("connection", async(socket)=>{
 
   console.log("User connected", socket_id)
 
-  if(user_id){
+  if(Boolean(user_id)){
     await User.findByIdAndUpdate(user_id, {socket_id})
   }
 
