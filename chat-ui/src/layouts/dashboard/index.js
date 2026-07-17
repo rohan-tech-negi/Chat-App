@@ -1,8 +1,9 @@
 import { Stack } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import { Navigate, Outlet } from "react-router-dom";
 import SideBar from "./SideBar.js";
 import {useSelector} from "react-redux"
+import { socket } from "../../socket.js";
 
 
 
@@ -10,7 +11,19 @@ const isAuthenticated = true;
 
 const DashboardLayout = () => {
   const {isLoggedIn} = useSelector((state)=> state.auth)
-  // const { isAuthenticated } = useAuth();
+
+  const user_id = window.localStorage.getItem("user_id")  
+
+  useEffect(()=>{
+    if(isLoggedIn){
+      window.onload = function(){
+        if(!window.location.hash){
+          window.location = window.location + '#loaded'
+          window.location.reload()
+        }
+      }
+    }
+  },[isLoggedIn, socket])
   if(!isLoggedIn){
     return <Navigate to={"/auth/login"} replace />;
   }
