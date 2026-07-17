@@ -51,7 +51,7 @@ io.on("connection", async (socket) => {
   console.log("User connected", socket_id);
 
   if (Boolean(user_id)) {
-    await User.findByIdAndUpdate(user_id, { socket_id });
+    await User.findByIdAndUpdate(user_id, { socket_id , status: "Online"});
   }
 
   socket.on("friend_request", async (data) => {
@@ -102,7 +102,7 @@ io.on("connection", async (socket) => {
     });
   });
 
-  socket.on("end", function () {
+  socket.on("end", async (data)=> {
     console.log("closing connection");
     socket.disconnect(0);
   });
