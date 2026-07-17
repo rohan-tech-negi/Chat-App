@@ -2,16 +2,12 @@ require("dotenv").config();
 const app = require("./app");
 const mongoose = require("mongoose");
 
+const { Server } = require("socket.io");
 
-const {Server} = require("socket.io")
-
-process.on("uncaughtException", (err)=>{
+process.on("uncaughtException", (err) => {
   console.log(err);
   process.exit(1);
 });
-
-
-
 
 const http = require("http");
 const User = require("./models/user");
@@ -19,47 +15,46 @@ const FriendRequest = require("./models/friendRequest");
 
 const server = http.createServer(app);
 
-
-
 const io = new Server(server, {
   cors: {
     origin: "http://localhost:3000",
-    methods: ["GET", "POST"]
-  }
-})
-
+    methods: ["GET", "POST"],
+  },
+});
 
 const DB = process.env.DBURI;
 // console.log(process.env.DBURI);
 
-mongoose.connect(DB,{
-}).then((con)=>{
-  console.log("DB connection successful")
-}).catch((err)=>{
-  console.log(err)
-})
+mongoose
+  .connect(DB, {})
+  .then((con) => {
+    console.log("DB connection successful");
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 const port = process.env.PORT || 8000;
-app.get('/', (req, res) => {
-  res.send('This is the About Page.');
+app.get("/", (req, res) => {
+  res.send("This is the About Page.");
 });
 server.listen(port, () => {
   console.log(`server is running on port ${port}`);
 });
 
-io.on("connection", async(socket)=>{
-  console.log(JSON.stringify(socket.handshake.query))
-  const user_id = socket.handshake.query("user_id")
+io.on("connection", async (socket) => {
+  console.log(JSON.stringify(socket.handshake.query));
+  const user_id = socket.handshake.query("user_id");
 
   const socket_id = socket.id;
 
-  console.log("User connected", socket_id)
+  console.log("User connected", socket_id);
 
-  if(Boolean(user_id)){
-    await User.findByIdAndUpdate(user_id, {socket_id})
+  if (Boolean(user_id)) {
+    await User.findByIdAndUpdate(user_id, { socket_id });
   }
 
-   socket.on("friend_request", async (data) => {
+  socket.on("friend_request", async (data) => {
     const to = await User.findById(data.to).select("socket_id");
     const from = await User.findById(data.from).select("socket_id");
 
@@ -107,21 +102,15 @@ io.on("connection", async(socket)=>{
     });
   });
 
-  socket.on("end", function(){
-    console.log("closing connection")
-    socket.disconnect(0)
-  })
+  socket.on("end", function () {
+    console.log("closing connection");
+    socket.disconnect(0);
+  });
+});
 
-})
-
-
-
-
-
-
-process.on("unhandledRejection",(err)=>{
-  console.log(err)
-  server.close(()=>{
-    process.exit(1)
-  })
-})
+process.on("unhandledRejection", (err) => {
+  console.log(err);
+  server.close(() => {
+    process.exit(1);
+  });
+});
