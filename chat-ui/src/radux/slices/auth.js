@@ -72,6 +72,8 @@ export function LoginUser(formValues) {
             user_id: response.data.user_id,
           })
         );
+
+        window.localStorage.setItem("user_id",response.data.user_id)
         toast.success(response.data.message || "Logged in successfully!");
       }).catch(function(error){
         console.log(error);
@@ -88,6 +90,7 @@ export function LogoutUser() {
  
     // window.localStorage.removeItem("user_id");
     dispatch(slice.actions.signOut());
+    window.localStorage.removeItem("user_id")
   };
 }
 
@@ -225,7 +228,10 @@ export function VerifyEmail(formValues) {
             isLoggedIn: true,
             token: response.data.token,
           })
+
         );
+
+        window.localStorage.setItem("user_id",response.data.user_id)
 
         toast.success(response.data.message || "OTP verified successfully!");
         dispatch(
