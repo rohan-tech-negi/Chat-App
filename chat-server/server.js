@@ -112,6 +112,10 @@ io.on("connection", async (socket) => {
 
   socket.on("file_message", (data)=>{
     console.log("Received message", data)
+
+    const fileExtension = path.extname(data.file.name)
+
+    const fileName = `${Date.now()}_${Math.floor(Math.random() * 10000)}${fileExtension}`
   })
 
   socket.on("end", async (data)=> {
