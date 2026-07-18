@@ -2,6 +2,8 @@ import { Dialog, DialogContent, Stack, Tab, Tabs } from '@mui/material';
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { FetchFriendRequests, FetchFriends, FetchUsers } from '../../radux/slices/app';
+import { UserElement } from '../../components/friends';
+
 
 
 const UsersList = () => {
@@ -16,7 +18,7 @@ const UsersList = () => {
   return (
     <>
       {users.map((el, idx) => {
-        return <></>;
+        return <UserElement key={el._id} {...el}></UserElement>;
       })}
     </>
   );

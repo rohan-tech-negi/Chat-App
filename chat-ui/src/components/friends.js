@@ -71,4 +71,4 @@ const UserElement = ({ img, firstName, lastName, online, _id }) => {
   )
 }
 
-export default {UserElement}
+export {UserElement}
