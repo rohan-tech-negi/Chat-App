@@ -5,8 +5,9 @@ import { ChatList } from '../../data';
 import { SimpleBarStyle } from '../../components/Scrollbar';
 import {useTheme} from '@mui/material/styles'
 import ChatElement from '../../components/ChatElement';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Friends from '../../sections/main/Friends';
+import { socket } from '../../socket';
 // import React from 'react'
 
 
@@ -41,9 +42,16 @@ const StyledInputBase = styled(InputBase)(({theme}) => ({
   }
 }))
 
+const user_id = window.localStorage.getItem("user_id")
 const Chats = () => {
   const [openDialog, setOpenDialog] = useState(false)
   const theme = useTheme()
+
+useEffect(()=>{
+  socket.emit("get_direct_conversations", {user_id}, (data) => {
+      
+  })
+},[])
 
   const handleCloseDialog = ()=>{
     setOpenDialog(false)
@@ -52,6 +60,8 @@ const Chats = () => {
   const handleOpenDialog = ()=>{
     setOpenDialog(true)
   }
+
+
   return (
     <>
     <Box sx={{position: "relative", width: 320, backgroundColor: theme.palette.mode === "light"? "#F8FAFF" : theme.palette.background.paper, boxShadow:"0px 0px 2px rgba(0, 0, 0, 0.25)"}}>

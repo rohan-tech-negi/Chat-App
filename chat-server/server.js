@@ -12,6 +12,7 @@ process.on("uncaughtException", (err) => {
 const http = require("http");
 const User = require("./models/user");
 const FriendRequest = require("./models/friendRequest");
+const OneToOneMessage = require("./models/OneToOneMessage");
 
 const server = http.createServer(app);
 
