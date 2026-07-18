@@ -23,7 +23,7 @@ const DashboardLayout = () => {
         }
       };
 
-      window.reload();
+      
       if (!socket) {
         connectSocket(user_id);
       }
