@@ -37,7 +37,7 @@ const FriendsList = () => {
   return (
     <>
       {friends.map((el, idx) => {
-        return <FriendElement></FriendElement>;
+        return <FriendElement key={el._id} {...el} ></FriendElement>;
       })}
     </>
   );
