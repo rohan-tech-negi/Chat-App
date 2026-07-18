@@ -10,10 +10,12 @@ const StyledChatBox = styled(Box)(({ theme }) => ({
   },
 }));
 
+const user_id = window.localStorage.getItem("user_id")
+
 
 
 const UserElement = ({ img, firstName, lastName, online, _id }) => {
-    const user_id = window.localStorage.getItem("user_id")
+    
     const theme = useTheme();
 
   const name = `${firstName} ${lastName}`;
@@ -187,7 +189,7 @@ const FriendElement = ({
           <IconButton
             onClick={() => {
               // start a new conversation
-            //   socket.emit("start_conversation", { to: _id, from: user_id });
+              socket.emit("start_conversation", { to: _id, from: user_id });
             }}
           >
             <Chat />
