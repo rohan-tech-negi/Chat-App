@@ -134,4 +134,4 @@ const FriendRequestElement = ({
   );
 };
 
-export {UserElement}
+export {UserElement, FriendRequestElement}
