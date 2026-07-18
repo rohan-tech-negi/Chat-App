@@ -46,3 +46,10 @@ const slice = createSlice({
 
 
 export default slice.reducer;
+
+
+export const FetchDirectConversations = ({ conversations }) => {
+  return async (dispatch, getState) => {
+    dispatch(slice.actions.fetchDirectConversations({ conversations }));
+  };
+};
