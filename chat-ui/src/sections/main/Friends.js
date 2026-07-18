@@ -17,7 +17,7 @@ const UsersList = () => {
 
   return (
     <>
-      {users.map((el, idx) => {
+      {Array.isArray(users) && users.map((el, idx) => {
         return <UserElement key={el._id} {...el}></UserElement>;
       })}
     </>
@@ -36,7 +36,7 @@ const FriendsList = () => {
 
   return (
     <>
-      {friends.map((el, idx) => {
+      {Array.isArray(friends) && friends.map((el, idx) => {
         return <FriendElement key={el._id} {...el} ></FriendElement>;
       })}
     </>
@@ -56,7 +56,7 @@ const FriendRequestsList = () => {
 
   return (
     <>
-      {friendRequests.map((el, idx) => {
+      {Array.isArray(friendRequests) && friendRequests.map((el, idx) => {
         return <><FriendRequestElement key={el._id} {...el.sender} id={el._id}></FriendRequestElement></>;
       })}
     </>

@@ -8,6 +8,7 @@ import ChatElement from '../../components/ChatElement';
 import { useEffect, useState } from 'react';
 import Friends from '../../sections/main/Friends';
 import { socket } from '../../socket';
+import { useSelector } from 'react-redux';
 // import React from 'react'
 
 
@@ -47,9 +48,11 @@ const Chats = () => {
   const [openDialog, setOpenDialog] = useState(false)
   const theme = useTheme()
 
+  const {conversations} = useSelector((state)=> state.conversation.direct_chat)
+
 useEffect(()=>{
   socket.emit("get_direct_conversations", {user_id}, (data) => {
-      
+
   })
 },[])
 
@@ -96,20 +99,20 @@ useEffect(()=>{
 
         <Stack direction="column" sx={{flexGrow: 1, overflow: "hidden", height: "100%"}}>
           <SimpleBarStyle timeout={500} clickOnTrack={false} style={{ height: "100%" }}>
-            <Stack spacing={2.4}>
+            {/* <Stack spacing={2.4}>
               <Typography variant='subtitle2' sx={{color: "#676767"}}>
                 Pinned
               </Typography>
               {ChatList.filter((el)=> el.pinned).map((el)=>{
                 return <ChatElement key={el.id} {...el}></ChatElement>
               })}
-            </Stack>
+            </Stack> */}
 
             <Stack spacing={2.4} sx={{ mt: 2.4 }}>
               <Typography variant='subtitle2' sx={{color: "#676767"}}>
                 All Chats
               </Typography>
-              {ChatList.filter((el)=> !el.pinned).map((el)=>{
+              {conversations.filter((el)=> !el.pinned).map((el)=>{
                 return <ChatElement key={el.id} {...el}></ChatElement>
               })}
             </Stack>
