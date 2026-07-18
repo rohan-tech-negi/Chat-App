@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { faker } from "@faker-js/faker";  
 
-
+const user_id = window.localStorage.getItem("user_id");
 
 const initialState = {
   direct_chat: {
@@ -28,15 +28,21 @@ const slice = createSlice({
           user_id: user?._id,
           name: `${user?.firstName} ${user?.lastName}`,
           online: user?.status === "Online",
-          img: `https://${S3_BUCKET_NAME}.s3.${AWS_S3_REGION}.amazonaws.com/${user?.avatar}`,
-          msg: el.messages.slice(-1)[0].text, 
+        //   img: `https://${S3_BUCKET_NAME}.s3.${AWS_S3_REGION}.amazonaws.com/${user?.avatar}`,
+        img: faker.image.avatar(),
+          msg: faker.music.songName(),
           time: "9:36",
           unread: 0,
           pinned: false,
-          about: user?.about,
+        //   about: user?.about,
         };
       });
          state.direct_chat.conversations = list;
     }
   }
 })
+
+
+
+
+export default slice.reducer;
