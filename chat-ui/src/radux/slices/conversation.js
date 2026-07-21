@@ -100,3 +100,14 @@ export const FetchDirectConversations = ({ conversations }) => {
     dispatch(slice.actions.fetchDirectConversations({ conversations }));
   };
 };
+
+export const AddDirectConversation = ({ conversation }) => {
+  return async (dispatch, getState) => {
+    dispatch(slice.actions.addDirectConversation({ conversation }));
+  };
+};
+export const UpdateDirectConversation = ({ conversation }) => {
+  return async (dispatch, getState) => {
+    dispatch(slice.actions.updateDirectConversation({ conversation }));
+  };
+};
