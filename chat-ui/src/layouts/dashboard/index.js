@@ -37,13 +37,15 @@ const DashboardLayout = () => {
       socket.on("request_sent", (data) => {
         toast.success("friend request accepted");
       });
+
+      
     }
 
     return () => {
-      socket.off("new_friend_request");
-      socket.off("request_accepted");
-      socket.off("request_sent");
-      socket.off("start_chat")
+      socket?.off("new_friend_request");
+      socket?.off("request_accepted");
+      socket?.off("request_sent");
+      socket?.off("start_chat")
     };
   }, [isLoggedIn, socket]);
   if (!isLoggedIn) {

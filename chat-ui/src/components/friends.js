@@ -20,10 +20,6 @@ const UserElement = ({ img, firstName, lastName, online, _id }) => {
 
   const name = `${firstName} ${lastName}`;
   return (
-    <>
-        
-
-  return (
     <StyledChatBox
       sx={{
         width: "100%",
@@ -70,8 +66,6 @@ const UserElement = ({ img, firstName, lastName, online, _id }) => {
       </Stack>
     </StyledChatBox>
   );
-    </>
-  )
 }
 
 
