@@ -43,18 +43,20 @@ const StyledInputBase = styled(InputBase)(({theme}) => ({
   }
 }))
 
-const user_id = window.localStorage.getItem("user_id")
 const Chats = () => {
   const [openDialog, setOpenDialog] = useState(false)
   const theme = useTheme()
+  const { user_id } = useSelector((state) => state.auth);
 
   const {conversations} = useSelector((state)=> state.conversation.direct_chat)
 
 useEffect(()=>{
-  socket.emit("get_direct_conversations", {user_id}, (data) => {
+  if (user_id) {
+    socket.emit("get_direct_conversations", {user_id}, (data) => {
 
-  })
-},[])
+    })
+  }
+},[user_id])
 
   const handleCloseDialog = ()=>{
     setOpenDialog(false)

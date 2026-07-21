@@ -7,11 +7,11 @@ import { SelectConversation } from '../radux/slices/app';
 
 const ChatElement = ({ id, name, img, msg, time, unread, online }) => {
   const theme = useTheme()
-  const dispath = useDispatch()
+  const dispatch = useDispatch()
   return (
     <Box 
     onClick={()=> {
-      dispath(SelectConversation({room_id: id}))
+      dispatch(SelectConversation({room_id: id}))
     }}
       sx={{
         width: "100%",

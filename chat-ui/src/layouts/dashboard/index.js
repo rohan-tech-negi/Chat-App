@@ -10,12 +10,11 @@ const isAuthenticated = true;
 
 const DashboardLayout = () => {
   const dispatch = useDispatch();
-  const { isLoggedIn } = useSelector((state) => state.auth);
-
-  const user_id = window.localStorage.getItem("user_id");
+  const { isLoggedIn, user_id } = useSelector((state) => state.auth);
+  const {conversation} = useSelector((state)=> state.conversation.direct_chat)
 
   useEffect(() => {
-    if (isLoggedIn) {
+    if (isLoggedIn && user_id) {
       window.onload = function () {
         if (!window.location.hash) {
           window.location = window.location + "#loaded";
@@ -27,16 +26,21 @@ const DashboardLayout = () => {
       if (!socket) {
         connectSocket(user_id);
       }
-      socket.on("new_friend_request", (data) => {
+      socket?.on("new_friend_request", (data) => {
         toast.success("New friend request received");
       });
 
-      socket.on("request_accepted", (data) => {
+      socket?.on("request_accepted", (data) => {
         toast.success("friend request accepted");
       });
-      socket.on("request_sent", (data) => {
+      socket?.on("request_sent", (data) => {
         toast.success("friend request accepted");
       });
+      socket.on("start_chat",(data)=>{
+          console.log(data)
+
+          const existing_conversation = conversation.find((el)=> el.id === data._id);
+      })
 
       
     }
@@ -47,7 +51,7 @@ const DashboardLayout = () => {
       socket?.off("request_sent");
       socket?.off("start_chat")
     };
-  }, [isLoggedIn, socket]);
+  }, [isLoggedIn, socket, user_id]);
   if (!isLoggedIn) {
     return <Navigate to={"/auth/login"} replace />;
   }
