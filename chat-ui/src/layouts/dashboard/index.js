@@ -40,6 +40,13 @@ const DashboardLayout = () => {
           console.log(data)
 
           const existing_conversation = conversation.find((el)=> el.id === data._id);
+
+          if(existing_conversation){
+            dispatch(UpdateDirectConversation({ conversation: data }));
+          }else{
+            dispatch(AddDirectConversation({ conversation: data }));
+          }
+          dispatch(SelectConversation({ room_id: data._id }));
       })
 
       

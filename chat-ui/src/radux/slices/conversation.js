@@ -38,7 +38,33 @@ const slice = createSlice({
         };
       });
          state.direct_chat.conversations = list;
-    }
+    },
+
+      updateDirectConversation(state, action) {
+      const this_conversation = action.payload.conversation;
+      state.direct_chat.conversations = state.direct_chat.conversations.map(
+        (el) => {
+          if (el?.id !== this_conversation._id) {
+            return el;
+          } else {
+            const user = this_conversation.participants.find(
+              (elm) => elm._id.toString() !== user_id
+            );
+            return {
+              id: this_conversation._id._id,
+              user_id: user?._id,
+              name: `${user?.firstName} ${user?.lastName}`,
+              online: user?.status === "Online",
+              img: faker.image.avatar(),
+              msg: faker.music.songName(),
+              time: "9:36",
+              unread: 0,
+              pinned: false,
+            };
+          }
+        }
+      );
+    },
   }
 })
 
