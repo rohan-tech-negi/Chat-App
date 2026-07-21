@@ -184,7 +184,17 @@ io.on("connection", async (socket) => {
     chat.messages.push(new_message);
     await chat.save({ new: true, validateModifiedOnly: true });
 
-    
+      io.to(to_user?.socket_id).emit("new_message", {
+      conversation_id,
+      message: new_message,
+    });
+
+
+      io.to(from_user?.socket_id).emit("new_message", {
+      conversation_id,
+      message: new_message,
+    });
+  });
 
   })
 
