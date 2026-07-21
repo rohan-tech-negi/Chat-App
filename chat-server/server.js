@@ -162,13 +162,29 @@ io.on("connection", async (socket) => {
     } catch (error) {
       console.log(error);
     }
-  });
+  }); 
 
 
 
-  socket.on("text_message", (data)=>{
+  socket.on("text_message", async(data)=>{
     console.log("recived message", data)
+    const { message, conversation_id, from, to, type } = data;
 
+    const to_user = await User.findById(to);
+    const from_user = await User.findById(from);
+
+      const new_message = {
+      to: to,
+      from: from,
+      type: type,
+      created_at: Date.now(),
+      text: message,
+    };   
+    const chat = await OneToOneMessage.findById(conversation_id);
+    chat.messages.push(new_message);
+    await chat.save({ new: true, validateModifiedOnly: true });
+
+    
 
   })
 
